@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Vojtěch Straka — tvořím moderní, rychlé a přehledné weby pro každého.">
+  <meta name="description" content="Vojtěch Straka — tvořím moderní, rychlé a přehledné webové stránky pro podnikatele a firmy.">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#f5f5f7">
+  <meta name="theme-color" content="#e9ebf1">
   <meta property="og:title" content="Vojtěch Straka — Webový vývojář">
-  <meta property="og:description" content="Tvořím moderní, rychlé a přehledné weby pro každého.">
+  <meta property="og:description" content="Tvořím moderní, rychlé a přehledné webové stránky pro podnikatele a firmy.">
   <meta property="og:type" content="website">
   <title>Vojtěch Straka — Webový vývojář</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a84ff'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='white' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230071e3'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='28' font-weight='bold' fill='white' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,18 +18,26 @@
 </head>
 <body>
 
-  <div class="bg" aria-hidden="true"></div>
+  <!-- ===== Animované pozadí ===== -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-grid"></div>
+  </div>
 
-  <!-- ===== Dynamic Island navigace ===== -->
+  <!-- ===== Navigace ===== -->
   <nav class="island" aria-label="Hlavní navigace">
     <a href="#home" class="island-logo" aria-label="Vojtěch Straka — domů">VS</a>
     <div class="island-links">
-      <a href="#home" class="island-link active" data-spy="home" data-i18n="nav.home">Domů</a>
-      <a href="#about" class="island-link" data-spy="about" data-i18n="nav.about">O mně</a>
-      <a href="#projects" class="island-link" data-spy="projects" data-i18n="nav.projects">Projekty</a>
-      <a href="#contact" class="island-link" data-spy="contact" data-i18n="nav.contact">Kontakt</a>
+      <a href="#home"     class="island-link active" data-spy="home"     data-i18n="nav.home">Domů</a>
+      <a href="#services" class="island-link"         data-spy="services" data-i18n="nav.services">Služby</a>
+      <a href="#projects" class="island-link"         data-spy="projects" data-i18n="nav.projects">Projekty</a>
+      <a href="cenik.html" class="island-link"        data-i18n="nav.pricing">Ceník</a>
+      <a href="about.html" class="island-link"        data-i18n="nav.about">O mně</a>
+      <a href="#contact"  class="island-link"         data-spy="contact"  data-i18n="nav.contact">Kontakt</a>
     </div>
-    <div class="lang-switch" role="group" aria-label="Přepínač jazyka / Language switcher">
+    <div class="lang-switch" role="group" aria-label="Přepínač jazyka">
       <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
     </div>
@@ -37,20 +45,35 @@
 
   <!-- ===== Hero ===== -->
   <header id="home" class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
+    <!-- Pozadí hory s mlhou / Mountain background with fog -->
+    <div class="hero-mountain" aria-hidden="true">
+      <div class="hero-mountain-img"></div>
+      <div class="hero-clouds hero-clouds-back"></div>
+      <div class="hero-mountain-fog"></div>
+      <div class="hero-clouds hero-clouds-front"></div>
+      <div class="hero-wash"></div>
+    </div>
+
     <div class="hero-inner">
       <span class="hero-chip fx d1">
         <span class="dot" aria-hidden="true"></span>
         <span data-i18n="hero.chip">Dostupný pro nové projekty</span>
       </span>
       <h1 class="hero-name fx d2">Vojtěch Straka</h1>
-      <p class="hero-tagline fx d3"><span id="typed">Tvořím moderní, rychlé a přehledné weby pro každého.</span><span class="cursor" aria-hidden="true"></span></p>
+      <p class="hero-tagline fx d3"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
       <div class="hero-cta fx d4">
         <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Zobrazit projekty</a>
-        <a href="#contact" class="btn btn-glass" data-i18n="hero.cta2">Napište mi</a>
+        <a href="#contact"  class="btn btn-glass"   data-i18n="hero.cta2">Napište mi</a>
+      </div>
+      <div class="hero-badges fx d5">
+        <span class="hero-badge">HTML & CSS</span>
+        <span class="hero-badge">JavaScript</span>
+        <span class="hero-badge">PHP</span>
+        <span class="hero-badge">SEO</span>
+        <span class="hero-badge">UI Design</span>
       </div>
     </div>
-    <a href="#about" class="hero-scroll fx d5">
+    <a href="#services" class="hero-scroll fx d6">
       <span data-i18n="hero.scroll">Posuňte dolů</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </a>
@@ -58,257 +81,147 @@
 
   <main>
 
-    <!-- ===== O mně / About ===== -->
-    <section id="about" class="section">
-      <div class="wrap">
-
-        <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="about.eyebrow">Kdo jsem</p>
-          <h2 class="section-title" data-i18n="about.title">O mně.</h2>
-        </div>
-
-        <!-- Úvodní citát / intro quote -->
-        <blockquote class="about-intro reveal" data-i18n="about.intro">Jsem 17letý student IT školy z České republiky, který věří, že skvělý web je přesně tak jednoduchý, jak musí být — ne méně, ne více.</blockquote>
-
-        <!-- Profil + příběh / profile + story -->
-        <div class="about-main">
-
-          <div class="glass card about-profile reveal">
-            <div class="profile-avatar" aria-hidden="true">VS</div>
-            <p class="profile-name">Vojtěch Straka</p>
-            <p class="profile-role" data-i18n="about.role">Webový vývojář & student IT</p>
-            <div class="profile-divider" aria-hidden="true"></div>
-            <div class="profile-facts">
-              <div class="profile-fact">
-                <span class="fact-icon" aria-hidden="true">🇨🇿</span>
-                <div>
-                  <span class="fact-label" data-i18n="about.factLabel1">Lokace</span>
-                  <span class="fact-val" data-i18n="about.fact1">Česká republika</span>
-                </div>
-              </div>
-              <div class="profile-fact">
-                <span class="fact-icon" aria-hidden="true">🎓</span>
-                <div>
-                  <span class="fact-label" data-i18n="about.factLabel2">Vzdělání</span>
-                  <span class="fact-val" data-i18n="about.fact2">Střední škola — obor IT</span>
-                </div>
-              </div>
-              <div class="profile-fact">
-                <span class="fact-icon" aria-hidden="true">📅</span>
-                <div>
-                  <span class="fact-label" data-i18n="about.factLabel3">Věk</span>
-                  <span class="fact-val" data-i18n="about.fact3">17 let</span>
-                </div>
-              </div>
-              <div class="profile-fact">
-                <span class="fact-icon" aria-hidden="true">💻</span>
-                <div>
-                  <span class="fact-label" data-i18n="about.factLabel4">Praxe</span>
-                  <span class="fact-val" data-i18n="about.fact4">2+ roky tvorby webů</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-story reveal" style="--d:.1s">
-            <div class="story-block">
-              <h4 data-i18n="about.storyTitle1">Jak to začalo</h4>
-              <p data-i18n="about.storyBody1">K webovým technologiím jsem se dostal před dvěma lety — z čisté zvědavosti. První HTML soubor byl jen pár řádků, ale ten pocit, když se stránka poprvé zobrazí v prohlížeči, mě chytil okamžitě. Od té doby jsem nepřestal.</p>
-            </div>
-            <div class="story-block">
-              <h4 data-i18n="about.storyTitle2">Vzdělání</h4>
-              <p data-i18n="about.storyBody2">Studuji střední školu se zaměřením na informační technologie v České republice. Denně pracuji s tématy jako počítačové sítě, programování a databáze — základ, na kterém každý den stavím při práci na reálných projektech.</p>
-            </div>
-            <div class="story-block">
-              <h4 data-i18n="about.storyTitle3">Přístup k práci</h4>
-              <p data-i18n="about.storyBody3">Každý projekt začínám tak, že pochopím, co klient skutečně potřebuje. Pak hledám nejjednodušší řešení, které funguje perfektně. Nevěřím na zbytečné efekty ani na složité věci pro složité věci. Inspiruji se přístupem Apple: méně, ale lépe.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Zájmy / Interests -->
-        <div class="interests-head reveal">
-          <p class="eyebrow" data-i18n="about.intEyebrow">Zájmy & inspirace</p>
-          <h3 class="interests-title" data-i18n="about.interests">Co mě pohání.</h3>
-        </div>
-
-        <div class="interests-grid">
-          <div class="glass card interest-card reveal">
-            <span class="interest-emoji" aria-hidden="true">🍏</span>
-            <h4 data-i18n="about.int1">Apple & Technologie</h4>
-            <p data-i18n="about.int1.desc">Sleduji každou keynote a čtu každou recenzi. Způsob, jakým Apple přistupuje k hardwaru i softwaru, mě každý den inspiruje k lepší práci.</p>
-          </div>
-          <div class="glass card interest-card reveal" style="--d:.07s">
-            <span class="interest-emoji" aria-hidden="true">🎨</span>
-            <h4 data-i18n="about.int2">Design</h4>
-            <p data-i18n="about.int2.desc">Barvy, mezery, typografie — věřím, že vizuální detail rozhoduje o celkovém dojmu z webu. Dobrý design se nemá vysvětlovat, má být cítit.</p>
-          </div>
-          <div class="glass card interest-card reveal" style="--d:.14s">
-            <span class="interest-emoji" aria-hidden="true">🛠️</span>
-            <h4 data-i18n="about.int3">Tvoření</h4>
-            <p data-i18n="about.int3.desc">Nejraději mám okamžik, kdy se nápad promění v něco skutečného — ať je to web, grafika, nebo jen funkční skript. Proces tvoření mě baví stejně jako výsledek.</p>
-          </div>
-          <div class="glass card interest-card reveal" style="--d:.21s">
-            <span class="interest-emoji" aria-hidden="true">✨</span>
-            <h4 data-i18n="about.int4">Minimalismus</h4>
-            <p data-i18n="about.int4.desc">Méně je více. Každý prvek na stránce musí mít důvod být tam — jinak pryč. Právě tahle filozofie dělá weby přehledné a zážitek z nich příjemný.</p>
-          </div>
-        </div>
-
-        <!-- Statistiky / Stats -->
-        <div class="stats">
-          <div class="glass stat reveal">
-            <span class="stat-num" data-count="17">0</span>
-            <span class="stat-label" data-i18n="about.stat1">let</span>
-          </div>
-          <div class="glass stat reveal" style="--d:.1s">
-            <span class="stat-num" data-count="2" data-suffix="+">0</span>
-            <span class="stat-label" data-i18n="about.stat2">roky zkušeností</span>
-          </div>
-          <div class="glass stat reveal" style="--d:.2s">
-            <span class="stat-num" data-count="100" data-suffix=" %">0</span>
-            <span class="stat-label" data-i18n="about.stat3">nasazení v každém projektu</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===== Dovednosti / Skills ===== -->
-    <section id="skills" class="section">
+    <!-- ===== Služby / Services ===== -->
+    <section id="services" class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="skills.eyebrow">Co umím</p>
-          <h2 class="section-title" data-i18n="skills.title">Dovednosti.</h2>
-          <p class="section-sub" data-i18n="skills.sub">Technologie a nástroje, se kterými pracuji nejraději.</p>
+          <p class="eyebrow" data-i18n="services.eyebrow">Co nabízím</p>
+          <h2 class="section-title" data-i18n="services.title">Služby.</h2>
+          <p class="section-sub" data-i18n="services.sub">Moderní webové stránky pro podnikatele, firmy i jednotlivce — od návrhu po spuštění.</p>
         </div>
-        <div class="skills-grid">
-          <div class="glass card skill-card reveal" style="--level:75%">
-            <div class="skill-top"><span class="tile tile-py">Py</span><span class="skill-pct">75&nbsp;%</span></div>
-            <h3>Python</h3>
-            <p data-i18n="skills.python">Skripty, automatizace a logika v zákulisí.</p>
-            <div class="bar"><div class="bar-fill"></div></div>
+        <div class="services-grid">
+          <div class="glass card service-card reveal">
+            <div class="service-icon-wrap" style="--c:#0071e3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 data-i18n="service1.name">Prezentační web</h3>
+            <p data-i18n="service1.desc">Firemní nebo osobní web, který vás reprezentuje. Zákazníci vás najdou, důvěřují vám a kontaktují.</p>
+            <a href="cenik.html" class="service-link" data-i18n="services.learn">Zjistit více →</a>
           </div>
-          <div class="glass card skill-card reveal" style="--level:90%; --d:.08s">
-            <div class="skill-top"><span class="tile tile-html">&lt;/&gt;</span><span class="skill-pct">90&nbsp;%</span></div>
-            <h3>HTML5</h3>
-            <p data-i18n="skills.html">Sémantický a moderní základ každého webu.</p>
-            <div class="bar"><div class="bar-fill"></div></div>
+          <div class="glass card service-card reveal" style="--d:.07s">
+            <div class="service-icon-wrap" style="--c:#5e5ce6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </div>
+            <h3 data-i18n="service2.name">Design na míru</h3>
+            <p data-i18n="service2.desc">Každý design je unikátní. Pracuji s vašimi barvami, logem a představami — výsledek bude 100% váš.</p>
+            <a href="cenik.html" class="service-link" data-i18n="services.learn">Zjistit více →</a>
           </div>
-          <div class="glass card skill-card reveal" style="--level:70%; --d:.16s">
-            <div class="skill-top"><span class="tile tile-php">php</span><span class="skill-pct">70&nbsp;%</span></div>
-            <h3>PHP</h3>
-            <p data-i18n="skills.php">Dynamické weby a komunikace se serverem.</p>
-            <div class="bar"><div class="bar-fill"></div></div>
+          <div class="glass card service-card reveal" style="--d:.14s">
+            <div class="service-icon-wrap" style="--c:#28cd41">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 data-i18n="service3.name">Rychlé dodání</h3>
+            <p data-i18n="service3.desc">Základní web hotový od 5 pracovních dnů. Bez kompromisů na kvalitě — vaše stránky fungují v řádu dnů.</p>
+            <a href="cenik.html" class="service-link" data-i18n="services.learn">Zjistit více →</a>
           </div>
-          <div class="glass card skill-card reveal" style="--level:80%; --d:.24s">
-            <div class="skill-top"><span class="tile tile-ps">Ps</span><span class="skill-pct">80&nbsp;%</span></div>
-            <h3>Adobe Photoshop</h3>
-            <p data-i18n="skills.ps">Grafika, úprava fotek a návrhy designu.</p>
-            <div class="bar"><div class="bar-fill"></div></div>
+          <div class="glass card service-card reveal" style="--d:.21s">
+            <div class="service-icon-wrap" style="--c:#ff9500">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <h3 data-i18n="service4.name">SEO optimalizace</h3>
+            <p data-i18n="service4.desc">Web bez návštěvníků je jen tichá galerie. Zajistím, aby vás zákazníci našli přes Google organicky.</p>
+            <a href="cenik.html" class="service-link" data-i18n="services.learn">Zjistit více →</a>
+          </div>
+          <div class="glass card service-card reveal" style="--d:.28s">
+            <div class="service-icon-wrap" style="--c:#ff3b30">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 data-i18n="service5.name">Údržba & podpora</h3>
+            <p data-i18n="service5.desc">Po spuštění nejste sami. Nabízím údržbu, aktualizace obsahu a technickou podporu podle potřeby.</p>
+            <a href="cenik.html" class="service-link" data-i18n="services.learn">Zjistit více →</a>
+          </div>
+          <div class="glass card service-card reveal" style="--d:.35s">
+            <div class="service-icon-wrap" style="--c:#00c7be">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3 data-i18n="service6.name">Landing Page</h3>
+            <p data-i18n="service6.desc">Jedna silná stránka, která prodává. Ideální pro akce, produkty nebo jednoduché prezentace s CTA.</p>
+            <a href="cenik.html" class="service-link" data-i18n="services.learn">Zjistit více →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Projekty / Projects (karty se generují ze script.js) ===== -->
-    <section id="projects" class="section">
+    <!-- ===== Projekty / Projects ===== -->
+    <section id="projects" class="section section-dark">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow" data-i18n="projects.eyebrow">Moje práce</p>
           <h2 class="section-title" data-i18n="projects.title">Projekty.</h2>
-          <p class="section-sub" data-i18n="projects.sub">Vybrané weby, na kterých jsem pracoval. Náhledy se načítají přímo ze živých stránek.</p>
+          <p class="section-sub" data-i18n="projects.sub">Ukázky webů různých oborů — od květinářství po módní butiky. Každý web je originální.</p>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-          <!-- Projekty přidáš v souboru script.js (pole "projects") / Add projects in script.js -->
-        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
       </div>
     </section>
 
-    <!-- ===== Ceník / Pricing ===== -->
-    <section id="pricing" class="section">
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section section-tint">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="pricing.eyebrow">Ceník</p>
-          <h2 class="section-title" data-i18n="pricing.title">Jednoduché ceny.</h2>
-          <p class="section-sub" data-i18n="pricing.sub">Férové ceny bez skrytých poplatků.</p>
+          <p class="eyebrow" data-i18n="faq.eyebrow">Časté otázky</p>
+          <h2 class="section-title" data-i18n="faq.title">Máte dotazy?</h2>
+          <p class="section-sub" data-i18n="faq.sub">Odpovědi na nejčastější otázky. Nenašli jste odpověď? Napište mi.</p>
         </div>
-        <div class="pricing-grid">
-
-          <div class="glass card plan reveal">
-            <h3 class="plan-name" data-i18n="plan1.name">Jednostránkový web</h3>
-            <p class="plan-desc" data-i18n="plan1.desc">Ideální start — vše podstatné na jedné přehledné stránce.</p>
-            <div class="plan-price">
-              <span class="price" data-i18n="plan1.price">2 990 Kč</span>
-              <span class="per" data-i18n="plan1.per">jednorázově</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f1">Moderní design na míru</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f2">Responzivní zobrazení (mobil i počítač)</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f3">Kontaktní formulář nebo odkazy</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f4">Základní SEO optimalizace</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f5">Dodání do 7 dnů</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f6">1 kolo úprav zdarma</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-glass btn-block" data-i18n="pricing.cta">Mám zájem</a>
-          </div>
-
-          <div class="glass card plan featured reveal" style="--d:.12s">
-            <span class="plan-badge" data-i18n="plan2.badge">Sleva 17 %</span>
-            <h3 class="plan-name" data-i18n="plan2.name">Web na míru</h3>
-            <p class="plan-desc" data-i18n="plan2.desc">Až 5 stránek přesně podle vašich představ.</p>
-            <div class="plan-price">
-              <span class="price-old" data-i18n="plan2.oldPrice">5 990 Kč</span>
-              <span class="price" data-i18n="plan2.price">4 990 Kč</span>
-              <span class="per" data-i18n="plan2.per">jednorázově</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f1">Vše z balíčku Jednostránkový web</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f2">Až 5 samostatných stránek</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f3">Animace a interaktivní prvky</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f4">Pokročilá SEO optimalizace</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f5">Česká i anglická verze webu</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f6">Dodání do 14 dnů</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f7">3 kola úprav zdarma</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f8">30 dní podpory po spuštění zdarma</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-block" data-i18n="pricing.cta">Mám zájem</a>
-          </div>
-
+        <div class="faq-grid">
+          <details class="glass faq-item reveal">
+            <summary class="faq-question" data-i18n="faq.q1">Kolik trvá vytvoření webu?</summary>
+            <div class="faq-answer" data-i18n="faq.a1">Jednostránkový web od 5 pracovních dnů, prezentační web (více stránek) 10–14 dní. Záleží na rozsahu. Termín vždy upřesníme předem.</div>
+          </details>
+          <details class="glass faq-item reveal" style="--d:.06s">
+            <summary class="faq-question" data-i18n="faq.q2">Kolik stojí doména a hosting?</summary>
+            <div class="faq-answer" data-i18n="faq.a2">Doména a hosting nejsou součástí ceny, ale pomohu vám s výběrem. Doména cca 200 Kč/rok, hosting od 150 Kč/měsíc.</div>
+          </details>
+          <details class="glass faq-item reveal" style="--d:.12s">
+            <summary class="faq-question" data-i18n="faq.q3">Jak probíhá platba?</summary>
+            <div class="faq-answer" data-i18n="faq.a3">50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba převodem na bankovní účet. Na vyžádání vystavím fakturu.</div>
+          </details>
+          <details class="glass faq-item reveal" style="--d:.18s">
+            <summary class="faq-question" data-i18n="faq.q4">Mohu si vyzkoušet web před spuštěním?</summary>
+            <div class="faq-answer" data-i18n="faq.a4">Ano! Během vývoje zasílám náhled na privátní adrese. Zkontrolujete vše, dáte zpětnou vazbu a požádáte o úpravy.</div>
+          </details>
+          <details class="glass faq-item reveal" style="--d:.24s">
+            <summary class="faq-question" data-i18n="faq.q5">Co zahrnují úpravy zdarma?</summary>
+            <div class="faq-answer" data-i18n="faq.a5">Kola úprav zahrnují textové změny, drobné designové úpravy a opravy chyb. Větší přepracování jsou účtována hodinovou sazbou.</div>
+          </details>
+          <details class="glass faq-item reveal" style="--d:.30s">
+            <summary class="faq-question" data-i18n="faq.q6">Zajišťujete SEO?</summary>
+            <div class="faq-answer" data-i18n="faq.a6">Základní SEO — meta tagy, struktura URL, rychlost — je součástí každého balíčku. Pokročilá optimalizace je k dispozici v balíčku Prezentační web.</div>
+          </details>
         </div>
-        <p class="pricing-note reveal" data-i18n="pricing.note">Potřebujete něco jiného? Napište mi a domluvíme se na řešení na míru.</p>
       </div>
     </section>
 
     <!-- ===== Kontakt / Contact ===== -->
-    <section id="contact" class="section">
+    <section id="contact" class="section contact-section">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow" data-i18n="contact.eyebrow">Ozvěte se</p>
           <h2 class="section-title" data-i18n="contact.title">Pojďme tvořit.</h2>
-          <p class="section-sub" data-i18n="contact.sub">Máte nápad na web? Rád ho s vámi proberu — odpovídám zpravidla do 24 hodin.</p>
+          <p class="section-sub" data-i18n="contact.sub">Máte nápad na web? Rád ho proberu — odpovídám zpravidla do 24 hodin.</p>
+          <div class="contact-chip reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="contact.available">Aktuálně přijímám nové projekty</span>
+          </div>
         </div>
         <div class="contact-grid">
 
           <div class="glass card contact-card reveal">
             <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>
             </div>
             <p class="contact-label" data-i18n="contact.emailLabel">E-mail</p>
             <p class="contact-value">vojtechstraka@senecio.dev</p>
             <div class="contact-actions">
-              <a class="btn btn-primary btn-sm" href="mailto:vojtechstraka0@senecio.dev" data-i18n="contact.emailBtn">Napsat e-mail</a>
+              <a class="btn btn-primary btn-sm" href="mailto:vojtechstraka@senecio.dev" data-i18n="contact.emailBtn">Napsat e-mail</a>
               <button type="button" class="btn btn-glass btn-sm" data-copy="vojtechstraka@senecio.dev"><span data-i18n="contact.copy">Kopírovat</span></button>
             </div>
           </div>
 
           <div class="glass card contact-card reveal" style="--d:.1s">
             <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             </div>
             <p class="contact-label">Discord</p>
-            <!-- TODO: uprav na svůj skutečný Discord username / replace with your real Discord username -->
             <p class="contact-value">seneci0</p>
             <div class="contact-actions">
               <button type="button" class="btn btn-glass btn-sm" data-copy="seneci0"><span data-i18n="contact.copy">Kopírovat</span></button>
@@ -322,15 +235,22 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-logo" aria-hidden="true">VS</div>
-    <p class="footer-copy">© <span id="year">2026</span> Vojtěch Straka · <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></p>
+    <div class="footer-inner">
+      <div class="footer-logo" aria-hidden="true">VS</div>
+      <p class="footer-name">Vojtěch Straka</p>
+      <p class="footer-desc" data-i18n="footer.desc">Webový vývojář · Česká republika</p>
+      <div class="footer-links">
+        <a href="#home" data-i18n="nav.home">Domů</a>
+        <a href="#services" data-i18n="nav.services">Služby</a>
+        <a href="cenik.html" data-i18n="nav.pricing">Ceník</a>
+        <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+      </div>
+      <p class="footer-copy">© <span id="year">2026</span> Vojtěch Straka · <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></p>
+    </div>
   </footer>
 
   <noscript>
-    <style>
-      .reveal { opacity: 1 !important; transform: none !important; }
-      .fx { animation: none !important; opacity: 1 !important; }
-    </style>
+    <style>.reveal{opacity:1!important;transform:none!important}.fx{animation:none!important;opacity:1!important}</style>
   </noscript>
   <script src="script.js"></script>
 </body>

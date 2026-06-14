@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TaskFlow — jednoduché řešení pro správu týmových projektů.">
+  <meta name="color-scheme" content="light">
+  <title>TaskFlow — Správa projektů</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --text-dim: #6e6e73;
+      --blue: #0071e3;
+      --blue-soft: rgba(0, 113, 227, 0.1);
+      --radius: 16px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+
+    /* ===== Navigace ===== */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-right: 16px;
+    }
+
+    nav a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dim);
+      transition: all 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-btn {
+      padding: 8px 18px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-left: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      background: #0077ed;
+      transform: translateY(-2px);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      animation: slideUp 0.8s var(--ease) both;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(0, 113, 227, 0.1);
+      border: 1px solid rgba(0, 113, 227, 0.2);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 88px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: clamp(16px, 2vw, 22px);
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(0, 113, 227, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #0077ed;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 113, 227, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--text);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-secondary:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Funkce / Features ===== */
+    .section {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 12px 0;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 12px auto 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* ===== CTA Section ===== */
+    .cta-section {
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .cta-box {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, var(--blue), #5e5ce6);
+      border-radius: 24px;
+      color: #fff;
+    }
+
+    .cta-box h2 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-box p {
+      font-size: 16px;
+      margin-bottom: 28px;
+      opacity: 0.95;
+    }
+
+    .cta-box .btn {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .cta-box .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      background: var(--surface);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      nav { padding: 8px 16px; gap: 4px; }
+      .logo { margin-right: 8px; font-size: 14px; }
+      nav a { padding: 6px 10px; font-size: 12px; }
+      .nav-btn { padding: 6px 14px; margin-left: 4px; }
+
+      .hero { padding: 100px 18px 60px; }
+      h1 { margin-bottom: 12px; }
+      .subtitle { margin-bottom: 24px; }
+
+      .features-grid { grid-template-columns: 1fr; gap: 16px; }
+      .feature-card { padding: 24px; }
+
+      .cta-box { padding: 40px 24px; }
+      .cta-box h2 { font-size: 28px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { position: static; transform: none; margin-bottom: 20px; }
+      .hero { padding: 80px 16px 50px; }
+      .cta-group { gap: 8px; }
+      .btn { padding: 11px 20px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigace -->
+  <nav>
+    <span class="logo">TaskFlow</span>
+    <a href="#features">Funkce</a>
+    <a href="#cta" class="nav-btn">Začít zdarma</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="chip">✨ Vytvořeno s péčí</span>
+      <h1>Jednoduché řešení pro týmové projekty</h1>
+      <p class="subtitle">TaskFlow vám pomůže organizovat práci, komunikovat s týmem a dosahovat cílů. Bez zbytečné složitosti.</p>
+      <div class="cta-group">
+        <button class="btn btn-primary">Vyzkoušet zdarma</button>
+        <button class="btn btn-secondary">Více informací</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funkce -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Funkce</h2>
+        <p class="section-sub">Všechno, co potřebujete pro efektivní správu projektů</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">📋</span>
+          <h3>Jednoduché úkoly</h3>
+          <p>Vytvářejte, organizujte a sledujte úkoly. Vidět vždy, kdo na čem pracuje a jak daleko je s prací.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">💬</span>
+          <h3>Týmová komunikace</h3>
+          <p>Diskutujte přímo u projektů. Žádné dlouhé vlákna emailů — vše je na jednom místě.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3>Přehledy & analýzy</h3>
+          <p>Vidíte, jak pokročila práce. Jednoduché grafy a statistiky na přehledu všeho.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⏰</span>
+          <h3>Termíny a upozornění</h3>
+          <p>Nikdy nezapomenete na důležité datum. Dostanete upozornění právě v čas.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔗</span>
+          <h3>Integrace</h3>
+          <p>Připojte své oblíbené nástroje — Slack, Google Drive, Zapier a další.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔒</span>
+          <h3>Bezpečnost</h3>
+          <p>Vaše data jsou chráněna. Šifrování, pravidelné zálohování, GDPR kompatibilita.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="cta">
+    <div class="cta-box">
+      <h2>Připraveni začít?</h2>
+      <p>Vyzkoušejte TaskFlow zcela zdarma po dobu 14 dní. Žádná kreditní karta není potřeba.</p>
+      <button class="btn">Vyzkoušet zdarma</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 TaskFlow. Vytvořeno s <span style="color: #ff0000;">♥</span> od <a href="/">Vojtěcha Straky</a>
+  </footer>
+
+</body>
+</html>

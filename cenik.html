@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ceník tvorby webových stránek — jednoduché ceny, platební podmínky a ukázka zdarma.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#e9ebf1">
+  <title>Ceník — Vojtěch Straka</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230071e3'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='28' font-weight='bold' fill='white' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Animované pozadí ===== -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- ===== Navigace ===== -->
+  <nav class="island" aria-label="Hlavní navigace">
+    <a href="index.html#home" class="island-logo" aria-label="Vojtěch Straka — domů">VS</a>
+    <div class="island-links">
+      <a href="index.html#home"     class="island-link" data-i18n="nav.home">Domů</a>
+      <a href="index.html#services" class="island-link" data-i18n="nav.services">Služby</a>
+      <a href="index.html#projects" class="island-link" data-i18n="nav.projects">Projekty</a>
+      <a href="cenik.html"          class="island-link active" data-i18n="nav.pricing">Ceník</a>
+      <a href="about.html"          class="island-link" data-i18n="nav.about">O mně</a>
+      <a href="index.html#contact"  class="island-link" data-i18n="nav.contact">Kontakt</a>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Přepínač jazyka">
+      <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </nav>
+
+  <!-- ===== Page hero ===== -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow fx d1" data-i18n="pricing.eyebrow">Ceník</p>
+      <h1 class="page-hero-title fx d2" data-i18n="pricing.title">Jednoduché ceny.</h1>
+      <p class="page-hero-sub fx d3" data-i18n="pricing.sub">Férové ceny bez skrytých poplatků. Vždy víte, za co platíte.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section" style="padding-top: 20px;">
+      <div class="wrap">
+
+        <!-- Ukázka zdarma / Free sample banner -->
+        <div class="free-sample reveal">
+          <div class="free-sample-left">
+            <span class="free-sample-tag" data-i18n="free.tag">Zdarma</span>
+            <h3 class="free-sample-title" data-i18n="free.title">1 ukázková stránka zdarma</h3>
+            <p class="free-sample-desc" data-i18n="free.desc">Než se rozhodnete, vytvořím vám nezávaznou ukázku jedné stránky ve vašem stylu. Slouží pouze jako náhled — není to hotový web a nebude nikde zveřejněn.</p>
+          </div>
+          <div class="free-sample-right">
+            <span class="free-sample-price">0&nbsp;Kč</span>
+            <a href="index.html#contact" class="btn btn-primary" data-i18n="free.cta">Chci ukázku zdarma</a>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+
+          <div class="glass card plan reveal">
+            <h3 class="plan-name" data-i18n="plan1.name">Jednostránkový web</h3>
+            <p class="plan-desc" data-i18n="plan1.desc">Ideální start — vše podstatné na jedné přehledné stránce.</p>
+            <div class="plan-price">
+              <span class="price" data-i18n="plan1.price">2 990 Kč</span>
+              <span class="per" data-i18n="plan1.per">jednorázově</span>
+            </div>
+            <ul class="plan-features">
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f1">Moderní design na míru</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f2">Responzivní — mobil i počítač</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f3">Kontaktní formulář nebo odkazy</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f4">Základní SEO optimalizace</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f5">Dodání od 5 pracovních dnů</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan1.f6">1 kolo úprav zdarma</span></li>
+            </ul>
+            <a href="index.html#contact" class="btn btn-glass btn-block" data-i18n="pricing.cta">Mám zájem</a>
+          </div>
+
+          <div class="glass card plan featured reveal" style="--d:.12s">
+            <span class="plan-badge" data-i18n="plan2.badge">Nejoblíbenější</span>
+            <h3 class="plan-name" data-i18n="plan2.name">Prezentační web</h3>
+            <p class="plan-desc" data-i18n="plan2.desc">Více stránek, více obsahu, více zákazníků — přesně podle vašich představ.</p>
+            <div class="plan-price">
+              <span class="price-old" data-i18n="plan2.oldPrice">5 990 Kč</span>
+              <span class="price" data-i18n="plan2.price">4 990 Kč</span>
+              <span class="per" data-i18n="plan2.per">jednorázově</span>
+            </div>
+            <ul class="plan-features">
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f1">Vše z Jednostránkového webu</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f2">Až 5 samostatných stránek</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f3">Animace a interaktivní prvky</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f4">Pokročilá SEO optimalizace</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f5">Česká i anglická verze webu</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f6">Dodání do 14 dnů</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f7">3 kola úprav zdarma</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan2.f8">30 dní podpory po spuštění</span></li>
+            </ul>
+            <a href="index.html#contact" class="btn btn-primary btn-block" data-i18n="pricing.cta">Mám zájem</a>
+          </div>
+
+          <div class="glass card plan plan-custom reveal" style="--d:.24s">
+            <h3 class="plan-name" data-i18n="plan3.name">Web na míru</h3>
+            <p class="plan-desc" data-i18n="plan3.desc">Komplexní projekt s vlastními požadavky? Napište mi a navrhneme řešení přesně pro vás.</p>
+            <div class="plan-price">
+              <span class="price price-contact" data-i18n="plan3.price">Cena na míru</span>
+            </div>
+            <ul class="plan-features">
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan3.f1">Neomezený počet stránek</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan3.f2">Individuální funkce dle zadání</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan3.f3">CMS / admin panel</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan3.f4">Pokročilá SEO & analytika</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan3.f5">Priority podpora po spuštění</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="plan3.f6">Termín a cena po konzultaci</span></li>
+            </ul>
+            <a href="index.html#contact" class="btn btn-glass btn-block" data-i18n="plan3.cta">Nezávazná konzultace</a>
+          </div>
+
+        </div>
+
+        <!-- Platební podmínky / Payment terms -->
+        <div class="payment-terms reveal">
+          <h3 class="payment-title" data-i18n="payment.title">Platební podmínky</h3>
+          <div class="payment-grid">
+            <div class="payment-item">
+              <div class="payment-num">50%</div>
+              <div class="payment-text">
+                <strong data-i18n="payment.deposit.label">Záloha předem</strong>
+                <span data-i18n="payment.deposit.desc">50 % ceny projektu uhradíte před zahájením práce jako zálohu.</span>
+              </div>
+            </div>
+            <div class="payment-item">
+              <div class="payment-num">5+</div>
+              <div class="payment-text">
+                <strong data-i18n="payment.time.label">Pracovních dnů</strong>
+                <span data-i18n="payment.time.desc">Zpracování jednostránkového webu od 5 pracovních dnů po přijetí zálohy.</span>
+              </div>
+            </div>
+            <div class="payment-item">
+              <div class="payment-num">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              </div>
+              <div class="payment-text">
+                <strong data-i18n="payment.transfer.label">Bankovní převod</strong>
+                <span data-i18n="payment.transfer.desc">Platba výhradně převodem na bankovní účet. Po dohodě lze vystavit fakturu.</span>
+              </div>
+            </div>
+            <div class="payment-item">
+              <div class="payment-num">50%</div>
+              <div class="payment-text">
+                <strong data-i18n="payment.final.label">Doplatek po dokončení</strong>
+                <span data-i18n="payment.final.desc">Zbývajících 50 % uhradíte po schválení hotového webu a před jeho spuštěním.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="pricing-note reveal" data-i18n="pricing.note">Potřebujete něco jiného? Napište mi — vždy najdeme řešení.</p>
+
+        <div style="text-align:center; margin-top:36px;">
+          <a href="index.html#contact" class="btn btn-primary" data-i18n="pricing.cta">Mám zájem</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo" aria-hidden="true">VS</div>
+      <p class="footer-name">Vojtěch Straka</p>
+      <p class="footer-desc" data-i18n="footer.desc">Webový vývojář · Česká republika</p>
+      <div class="footer-links">
+        <a href="index.html#home" data-i18n="nav.home">Domů</a>
+        <a href="index.html#services" data-i18n="nav.services">Služby</a>
+        <a href="cenik.html" data-i18n="nav.pricing">Ceník</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Kontakt</a>
+      </div>
+      <p class="footer-copy">© <span id="year">2026</span> Vojtěch Straka · <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></p>
+    </div>
+  </footer>
+
+  <noscript>
+    <style>.reveal{opacity:1!important;transform:none!important}.fx{animation:none!important;opacity:1!important}</style>
+  </noscript>
+  <script src="script.js"></script>
+</body>
+</html>

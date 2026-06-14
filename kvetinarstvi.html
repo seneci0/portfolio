@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Květinářství Novotná — čerstvé květiny, svatební vazba a kytice na míru.">
+  <meta name="color-scheme" content="light">
+  <title>Květinářství Novotná — čerstvé květiny a vazby</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf6f0;
+      --green: #2f4a3c;
+      --green-soft: #4a6b58;
+      --rose: #c98a8a;
+      --rose-deep: #b06b6b;
+      --ink: #2a2521;
+      --dim: #6f655c;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease: cubic-bezier(0.22,1,0.36,1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    /* Demo ukázka pruh */
+    .demo-ribbon {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--green); color: #fff;
+      text-align: center; font-size: 12.5px; font-weight: 500;
+      padding: 7px 16px; letter-spacing: 0.02em;
+    }
+    .demo-ribbon a { text-decoration: underline; font-weight: 600; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 34px; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6vw;
+      transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled { background: rgba(250,246,240,0.92); backdrop-filter: blur(14px); padding: 12px 6vw; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .brand { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--green); letter-spacing: 0.01em; }
+    .brand span { color: var(--rose-deep); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--ink); transition: color 0.25s; }
+    .nav-links a:hover { color: var(--rose-deep); }
+    .nav-cta { padding: 10px 22px; background: var(--green); color: #fff; border-radius: 999px; font-size: 13.5px; font-weight: 600; transition: background 0.3s, transform 0.3s; }
+    .nav-cta:hover { background: var(--green-soft); transform: translateY(-2px); }
+
+    /* Hero */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 140px 6vw 80px; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(250,246,240,0.96) 0%, rgba(250,246,240,0.82) 38%, rgba(250,246,240,0.25) 70%, rgba(250,246,240,0.05) 100%); }
+    .hero-inner { position: relative; max-width: 600px; }
+    .hero .tagline { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 18px; }
+    .hero h1 { font-family: var(--serif); font-size: clamp(48px, 8vw, 92px); font-weight: 700; line-height: 1.04; color: var(--green); letter-spacing: -0.01em; }
+    .hero h1 em { font-style: italic; color: var(--rose-deep); }
+    .hero p.lead { margin-top: 22px; font-size: 17px; color: var(--dim); max-width: 460px; }
+    .hero-btns { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+    .btn { padding: 14px 30px; border-radius: 999px; font-size: 15px; font-weight: 600; transition: transform 0.3s, background 0.3s, box-shadow 0.3s; display: inline-block; }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 8px 24px rgba(47,74,60,0.28); }
+    .btn-primary:hover { background: var(--green-soft); transform: translateY(-2px); }
+    .btn-ghost { background: rgba(255,255,255,0.7); color: var(--green); border: 1px solid rgba(47,74,60,0.25); }
+    .btn-ghost:hover { background: #fff; transform: translateY(-2px); }
+
+    /* Sekce */
+    section { padding: 100px 6vw; }
+    .head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+    .head .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose-deep); }
+    .head h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 54px); font-weight: 700; color: var(--green); margin-top: 10px; line-height: 1.1; }
+    .head p { margin-top: 14px; color: var(--dim); font-size: 16px; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* O nás */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: #fff; border-radius: 28px; padding: 60px; }
+    .about-img { border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose-deep); }
+    .about-text h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); font-weight: 700; color: var(--green); margin: 12px 0 18px; line-height: 1.12; }
+    .about-text p { color: var(--dim); margin-bottom: 16px; }
+    .about-sign { font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--rose-deep); margin-top: 8px; }
+
+    /* Galerie */
+    .gallery { background: var(--cream); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .bloom { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.4s var(--ease), box-shadow 0.4s; }
+    .bloom:hover { transform: translateY(-6px); box-shadow: 0 18px 44px rgba(0,0,0,0.1); }
+    .bloom-img { aspect-ratio: 1; overflow: hidden; }
+    .bloom-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+    .bloom:hover .bloom-img img { transform: scale(1.07); }
+    .bloom-body { padding: 22px 24px 26px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .bloom-body h3 { font-family: var(--serif); font-size: 23px; font-weight: 600; color: var(--green); }
+    .bloom-body p { font-size: 13px; color: var(--dim); margin-top: 4px; }
+    .bloom-price { font-weight: 700; color: var(--rose-deep); white-space: nowrap; font-size: 15px; }
+
+    /* Služby */
+    .services { background: var(--green); color: #fff; border-radius: 28px; margin: 0 6vw; }
+    .services .head h2 { color: #fff; }
+    .services .head .eyebrow { color: var(--rose); }
+    .services .head p { color: rgba(255,255,255,0.7); }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+    .svc { text-align: center; }
+    .svc-ico { width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 28px; }
+    .svc h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+    .svc p { font-size: 14px; color: rgba(255,255,255,0.72); }
+
+    /* Kontakt */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .contact-info h2 { font-family: var(--serif); font-size: clamp(32px,4vw,48px); font-weight: 700; color: var(--green); line-height: 1.1; }
+    .contact-info p { color: var(--dim); margin: 16px 0 28px; }
+    .contact-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .contact-row .ico { width: 44px; height: 44px; border-radius: 50%; background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .contact-row strong { display: block; font-size: 14px; color: var(--ink); }
+    .contact-row span { font-size: 14px; color: var(--dim); }
+    .contact-form { background: #fff; border-radius: 22px; padding: 38px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
+    .contact-form label { display: block; font-size: 13px; font-weight: 600; color: var(--green); margin: 0 0 6px; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 12px 16px; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; font: inherit; font-size: 14px; margin-bottom: 18px; background: var(--cream); transition: border-color 0.25s; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--green); }
+    .contact-form button { width: 100%; padding: 14px; background: var(--green); color: #fff; border-radius: 12px; font-weight: 600; transition: background 0.3s; }
+    .contact-form button:hover { background: var(--green-soft); }
+
+    /* Footer */
+    footer { background: var(--green); color: rgba(255,255,255,0.8); text-align: center; padding: 50px 6vw; }
+    footer .brand { color: #fff; margin-bottom: 10px; }
+    footer .brand span { color: var(--rose); }
+    footer .fnote { font-size: 13px; margin-top: 14px; }
+    footer a { color: var(--rose); }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .about, .contact { grid-template-columns: 1fr; gap: 30px; padding: 40px; }
+      .about { padding: 30px; }
+      .gallery-grid, .svc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .gallery-grid, .svc-grid { grid-template-columns: 1fr; }
+      section { padding: 70px 6vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-ribbon">
+    🎁 Toto je <strong>ukázkový web</strong> vytvořený jako příklad — není to existující firma. &nbsp;<a href="index.html">← Zpět na portfolio</a>
+  </div>
+
+  <nav id="nav">
+    <span class="brand">Květinářství <span>Novotná</span></span>
+    <div class="nav-links">
+      <a href="#about">O nás</a>
+      <a href="#gallery">Kytice</a>
+      <a href="#services">Služby</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+    <a href="#contact" class="nav-cta">Objednat</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="tagline">Čerstvé květiny každý den</p>
+      <h1>Květiny, které <em>vyprávějí</em> váš příběh</h1>
+      <p class="lead">Vážeme kytice s láskou a citem pro detail. Pro každou příležitost — od narozenin po svatbu vašich snů.</p>
+      <div class="hero-btns">
+        <a href="#gallery" class="btn btn-primary">Prohlédnout kytice</a>
+        <a href="#contact" class="btn btn-ghost">Objednat na míru</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- O nás -->
+  <section id="about">
+    <div class="about reveal">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" alt="Florista při práci" loading="lazy">
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">Naše příběh</p>
+        <h2>Už 15 let vážeme radost</h2>
+        <p>Květinářství Novotná vzniklo z lásky ke květinám a touhy přinášet lidem úsměv. Každá kytice u nás vzniká ručně, z čerstvých sezónních květin od lokálních pěstitelů.</p>
+        <p>Věříme, že květiny nejsou jen dekorace — jsou způsob, jak vyjádřit to, na co někdy nestačí slova.</p>
+        <p class="about-sign">— Markéta Novotná</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie -->
+  <section id="gallery" class="gallery">
+    <div class="head reveal">
+      <p class="eyebrow">Naše tvorba</p>
+      <h2>Oblíbené kytice</h2>
+      <p>Výběr z naší stálé nabídky. Každou kytici uvážeme čerstvou na počkání.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="bloom reveal">
+        <div class="bloom-img"><img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=700&q=80" alt="Pivoňková kytice" loading="lazy"></div>
+        <div class="bloom-body"><div><h3>Letní pivoňky</h3><p>Pivoňky, eustoma, zeleň</p></div><span class="bloom-price">od 690 Kč</span></div>
+      </div>
+      <div class="bloom reveal">
+        <div class="bloom-img"><img src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?auto=format&fit=crop&w=700&q=80" alt="Růžová kytice" loading="lazy"></div>
+        <div class="bloom-body"><div><h3>Romantická</h3><p>Růže, frézie, gypsophila</p></div><span class="bloom-price">od 850 Kč</span></div>
+      </div>
+      <div class="bloom reveal">
+        <div class="bloom-img"><img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=700&q=80" alt="Polní kytice" loading="lazy"></div>
+        <div class="bloom-body"><div><h3>Polní vázání</h3><p>Sezónní lučni květy</p></div><span class="bloom-price">od 540 Kč</span></div>
+      </div>
+      <div class="bloom reveal">
+        <div class="bloom-img"><img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=700&q=80" alt="Tulipány" loading="lazy"></div>
+        <div class="bloom-body"><div><h3>Jarní tulipány</h3><p>Tulipány, narcisy</p></div><span class="bloom-price">od 420 Kč</span></div>
+      </div>
+      <div class="bloom reveal">
+        <div class="bloom-img"><img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=700&q=80" alt="Bílá svatební kytice" loading="lazy"></div>
+        <div class="bloom-body"><div><h3>Svatební bílá</h3><p>Růže, hortenzie, eukalyptus</p></div><span class="bloom-price">od 1 290 Kč</span></div>
+      </div>
+      <div class="bloom reveal">
+        <div class="bloom-img"><img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=700&q=80" alt="Sušená kytice" loading="lazy"></div>
+        <div class="bloom-body"><div><h3>Sušené květy</h3><p>Trvanlivá dekorace</p></div><span class="bloom-price">od 380 Kč</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Služby -->
+  <section class="services" id="services">
+    <div class="head reveal">
+      <p class="eyebrow">Co nabízíme</p>
+      <h2>Naše služby</h2>
+      <p>Postaráme se o květiny pro každý okamžik vašeho života.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="svc-ico">💐</div><h3>Kytice na míru</h3><p>Uvážeme kytici přesně podle vašich představ a příležitosti.</p></div>
+      <div class="svc reveal"><div class="svc-ico">💍</div><h3>Svatební floristika</h3><p>Kompletní květinová výzdoba svatby — od kytice po výzdobu sálu.</p></div>
+      <div class="svc reveal"><div class="svc-ico">🚚</div><h3>Rozvoz květin</h3><p>Doručíme čerstvou kytici po celém městě ještě týž den.</p></div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="contact">
+    <div class="contact reveal">
+      <div class="contact-info">
+        <h2>Navštivte nás</h2>
+        <p>Rádi vám poradíme s výběrem. Zastavte se v naší prodejně nebo nám napište — ozveme se obratem.</p>
+        <div class="contact-row"><span class="ico">📍</span><div><strong>Adresa</strong><span>Květinová 12, 100 00 Praha</span></div></div>
+        <div class="contact-row"><span class="ico">📞</span><div><strong>Telefon</strong><span>+420 777 123 456</span></div></div>
+        <div class="contact-row"><span class="ico">🕐</span><div><strong>Otevírací doba</strong><span>Po–Pá 8–18 · So 8–12</span></div></div>
+      </div>
+      <form class="contact-form" onsubmit="alert('Toto je pouze ukázka — formulář neodesílá data.'); return false;">
+        <label for="jm">Jméno</label>
+        <input id="jm" type="text" placeholder="Vaše jméno" required>
+        <label for="em">E-mail</label>
+        <input id="em" type="email" placeholder="vas@email.cz" required>
+        <label for="zr">Zpráva</label>
+        <textarea id="zr" rows="4" placeholder="Co pro vás můžeme uvázat?"></textarea>
+        <button type="submit">Odeslat poptávku</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand">Květinářství <span>Novotná</span></div>
+    <p>Čerstvé květiny · ruční vazba · rozvoz po Praze</p>
+    <p class="fnote">Ukázkový web vytvořil <a href="index.html">Vojtěch Straka</a> · © 2026</p>
+  </footer>
+
+  <script>
+    // Nav scroll efekt
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), { passive: true });
+    // Reveal
+    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
