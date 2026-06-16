@@ -5,64 +5,59 @@
    ============================================================ */
 const projects = [
   {
-    title: { cs: 'Květinářství Novotná', en: 'Novotná Flower Shop' },
+    title: { cs: 'RING — Boxerská akademie', en: 'RING — Boxing Academy' },
     desc: {
-      cs: 'Elegantní web pro místní květinářství. Galerie kytic, kontaktní formulář a napojení na Google Mapy.',
-      en: 'Elegant website for a local florist. Bouquet gallery, contact form and Google Maps integration.'
+      cs: 'Tvrdý, tmavý web pro boxerskou akademii — trenéři, 3 kategorie, fotky ze studia i ze zápasů, nábor a ceník.',
+      en: 'Hard, dark website for a boxing academy — coaches, 3 categories, studio & fight photos, recruitment and pricing.'
     },
-    url: './kvetinarstvi.html',
-    tags: ['HTML5', 'CSS3', 'Design'],
-    gradient: 'linear-gradient(135deg, #a8e063, #56ab2f)'
+    url: './box.html',
+    image: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Dark UI', 'Animace'],
+    gradient: 'linear-gradient(135deg, #1a1a1a, #7a1f1f)'
   },
   {
-    title: { cs: 'LUXE Fashion Boutique', en: 'LUXE Fashion Boutique' },
+    title: { cs: 'FitCoach — osobní trenér', en: 'FitCoach — Personal Trainer' },
     desc: {
-      cs: 'Prémiová prezentace módního butiku — lookbook, ceník, rezervace a Instagram feed.',
-      en: 'Premium fashion boutique presentation — lookbook, pricing, reservations and Instagram feed.'
+      cs: 'Web osobního trenéra pro všechny věkové kategorie — služby, recenze, jídelníčky na míru a ceník.',
+      en: 'Personal trainer website for all ages — services, reviews, custom meal plans and pricing.'
     },
-    url: 'https://vogue.com',
-    tags: ['Web Design', 'Animace', 'Mobile'],
-    gradient: 'linear-gradient(135deg, #1a1a2e, #c9a96e)'
+    url: './fitness.html',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Web Design', 'Recenze', 'Mobile'],
+    gradient: 'linear-gradient(135deg, #0e2a1e, #1f7a4d)'
   },
   {
-    title: { cs: 'Restaurace U Matěje', en: 'U Matěje Restaurant' },
+    title: { cs: 'AddLab — 3D tisk na zakázku', en: 'AddLab — Custom 3D Printing' },
     desc: {
-      cs: 'Moderní web pro restauraci s online menu, rezervačním formulářem a galerií interiéru.',
-      en: 'Modern restaurant site with online menu, booking form and interior gallery.'
+      cs: 'Web firmy na 3D tisk na míru — realizace vašich projektů, praxe a učení ve firmě, ukázky prací a ceník.',
+      en: 'Website for a custom 3D printing studio — realizing your projects, internships, showcase and pricing.'
     },
-    url: 'https://www.tripadvisor.com',
-    tags: ['PHP', 'Rezervace', 'SEO'],
-    gradient: 'linear-gradient(135deg, #d4813a, #8b2500)'
+    url: './print3d.html',
+    image: 'https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=1000&q=80',
+    tags: ['JavaScript', '3D', 'Tech'],
+    gradient: 'linear-gradient(135deg, #0b1f3a, #1f6fae)'
   },
   {
-    title: { cs: 'RealityPro Group', en: 'RealityPro Group' },
+    title: { cs: 'Studio Světlo — fotograf', en: 'Studio Světlo — Photographer' },
     desc: {
-      cs: 'Profesionální stránky realitní kanceláře s listingem nemovitostí a filtrovatelným vyhledáváním.',
-      en: 'Professional real estate agency website with property listings and filterable search.'
+      cs: 'Elegantní tmavé portfolio fotografa — galerie, balíčky focení a rezervace termínu.',
+      en: 'Elegant dark photographer portfolio — gallery, session packages and bookings.'
     },
-    url: 'https://sreality.cz',
-    tags: ['JavaScript', 'PHP', 'MySQL'],
-    gradient: 'linear-gradient(135deg, #1e3c72, #2a5298)'
+    url: './foto.html',
+    image: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Design', 'Galerie', 'CSS'],
+    gradient: 'linear-gradient(135deg, #2a2622, #7a6a52)'
   },
   {
-    title: { cs: 'TaskFlow — Demo web', en: 'TaskFlow — Demo website' },
+    title: { cs: 'NetConnect — poskytovatel internetu', en: 'NetConnect — Internet Provider' },
     desc: {
-      cs: '🎁 Ukázka webu zadarmo. Moderní jednostránkový web pro SaaS produkt s animacemi a CTA sekcemi.',
-      en: '🎁 Free website sample. Modern one-page website for a SaaS product with animations and CTA sections.'
+      cs: 'Přehledný web poskytovatele internetu — tarify, pokrytí, rychlosti a online objednávka.',
+      en: 'Clean website for an internet provider — plans, coverage, speeds and online order.'
     },
-    url: './demo.html',
-    tags: ['HTML5', 'CSS3', 'Animace'],
-    gradient: 'linear-gradient(135deg, #0071e3, #5e5ce6)'
-  },
-  {
-    title: { cs: 'Foto Studio Marek', en: 'Marek Photo Studio' },
-    desc: {
-      cs: 'Portfolio fotografa s lightboxem, ceníkem focení a online rezervací termínu.',
-      en: "Photographer's portfolio with lightbox, photo pricing and online session booking."
-    },
-    url: 'https://unsplash.com',
-    tags: ['Design', 'Lightbox', 'CSS'],
-    gradient: 'linear-gradient(135deg, #2c2c2c, #686868)'
+    url: './internet.html',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Tarify', 'Responzivní'],
+    gradient: 'linear-gradient(135deg, #06283d, #1f8fae)'
   }
 ];
 
@@ -94,14 +89,15 @@ const translations = {
     'services.title': 'Služby.',
     'services.sub': 'Moderní webové stránky pro podnikatele, firmy i jednotlivce — od návrhu po spuštění.',
     'services.learn': 'Zjistit více →',
+    'services.hint': 'Procházejte šipkami',
     'service1.name': 'Prezentační web',
     'service1.desc': 'Firemní nebo osobní web, který vás reprezentuje. Zákazníci vás najdou, důvěřují vám a kontaktují.',
     'service2.name': 'Design na míru',
     'service2.desc': 'Každý design je unikátní. Pracuji s vašimi barvami, logem a představami — výsledek bude 100% váš.',
     'service3.name': 'Rychlé dodání',
     'service3.desc': 'Základní web hotový od 5 pracovních dnů. Bez kompromisů na kvalitě — vaše stránky fungují v řádu dnů.',
-    'service4.name': 'SEO optimalizace',
-    'service4.desc': 'Web bez návštěvníků je jen tichá galerie. Zajistím, aby vás zákazníci našli přes Google organicky.',
+    'service4.name': 'Grafika & video',
+    'service4.desc': 'Loga, bannery a grafika ve Photoshopu i sestřih videa v Premiere — vizuály na míru z jedné ruky.',
     'service5.name': 'Údržba & podpora',
     'service5.desc': 'Po spuštění nejste sami. Nabízím údržbu, aktualizace obsahu a technickou podporu podle potřeby.',
     'service6.name': 'Landing Page',
@@ -109,43 +105,45 @@ const translations = {
 
     'projects.eyebrow': 'Moje práce',
     'projects.title': 'Projekty.',
-    'projects.sub': 'Ukázky webů různých oborů — od květinářství po módní butiky. Každý web je originální.',
+    'projects.sub': 'Vybrané weby z různých oborů — od boxerské akademie po 3D tisk. Každý web je originální.',
     'projects.visit': 'Zobrazit ukázku',
+    'projects.hint': 'Procházejte šipkami',
 
     'pricing.eyebrow': 'Ceník',
     'pricing.title': 'Jednoduché ceny.',
     'pricing.sub': 'Férové ceny bez skrytých poplatků. Vždy víte, za co platíte.',
     'plan1.name': 'Jednostránkový web',
     'plan1.desc': 'Ideální start — vše podstatné na jedné přehledné stránce.',
-    'plan1.price': '2 990 Kč',
+    'plan1.price': '3 900 Kč',
     'plan1.per': 'jednorázově',
     'plan1.f1': 'Moderní design na míru',
     'plan1.f2': 'Responzivní — mobil i počítač',
     'plan1.f3': 'Kontaktní formulář nebo odkazy',
-    'plan1.f4': 'Základní SEO optimalizace',
+    'plan1.f4': 'Napojení na sociální sítě',
     'plan1.f5': 'Dodání od 5 pracovních dnů',
     'plan1.f6': '1 kolo úprav zdarma',
     'plan2.badge': 'Nejoblíbenější',
     'plan2.name': 'Prezentační web',
     'plan2.desc': 'Více stránek, více obsahu, více zákazníků — přesně podle vašich představ.',
     'plan2.oldPrice': '5 990 Kč',
-    'plan2.price': '4 990 Kč',
+    'plan2.price': '5 990 Kč',
     'plan2.per': 'jednorázově',
     'plan2.f1': 'Vše z Jednostránkového webu',
     'plan2.f2': 'Až 5 samostatných stránek',
     'plan2.f3': 'Animace a interaktivní prvky',
-    'plan2.f4': 'Pokročilá SEO optimalizace',
+    'plan2.f4': 'Grafika a bannery na míru',
     'plan2.f5': 'Česká i anglická verze webu',
     'plan2.f6': 'Dodání do 14 dnů',
     'plan2.f7': '3 kola úprav zdarma',
     'plan2.f8': '30 dní podpory po spuštění',
     'plan3.name': 'Web na míru',
     'plan3.desc': 'Komplexní projekt s vlastními požadavky? Napište mi a navrhneme řešení přesně pro vás.',
-    'plan3.price': 'Cena na míru',
+    'plan3.price': 'od 6 900 Kč',
+    'plan3.per': 'podle rozsahu',
     'plan3.f1': 'Neomezený počet stránek',
     'plan3.f2': 'Individuální funkce dle zadání',
     'plan3.f3': 'CMS / admin panel',
-    'plan3.f4': 'Pokročilá SEO & analytika',
+    'plan3.f4': 'Analytika a napojení služeb',
     'plan3.f5': 'Priority podpora po spuštění',
     'plan3.f6': 'Termín a cena po konzultaci',
     'plan3.cta': 'Nezávazná konzultace',
@@ -155,14 +153,20 @@ const translations = {
     'free.title': '1 ukázková stránka zdarma',
     'free.desc': 'Než se rozhodnete, vytvořím vám nezávaznou ukázku jedné stránky ve vašem stylu. Slouží pouze jako náhled — není to hotový web a nebude nikde zveřejněn.',
     'free.cta': 'Chci ukázku zdarma',
+    'trial.tag': 'Zkušební web · sleva 50 %',
+    'trial.title': 'Zkušební web na ukázku',
+    'trial.desc': 'Vyzkoušejte si spolupráci na malém zkušebním webu se slevou 50 %. Slouží pouze jako ukázka — nebude nikde zveřejněn ani nasazen.',
+    'trial.old': '2 000 Kč',
+    'trial.price': '1 000 Kč',
+    'trial.cta': 'Chci zkušební web',
 
     'payment.title': 'Platební podmínky',
     'payment.deposit.label': 'Záloha předem',
     'payment.deposit.desc': '50 % ceny projektu uhradíte před zahájením práce jako zálohu.',
     'payment.time.label': 'Pracovních dnů',
     'payment.time.desc': 'Zpracování jednostránkového webu od 5 pracovních dnů po přijetí zálohy.',
-    'payment.transfer.label': 'Bankovní převod',
-    'payment.transfer.desc': 'Platba výhradně převodem na bankovní účet. Na vyžádání vystavím fakturu.',
+    'payment.transfer.label': 'Platba přes PayPal',
+    'payment.transfer.desc': 'Platba probíhá přes PayPal — rychle a bezpečně online.',
     'payment.final.label': 'Doplatek po dokončení',
     'payment.final.desc': 'Zbývajících 50 % uhradíte po schválení hotového webu a před jeho spuštěním.',
 
@@ -195,13 +199,13 @@ const translations = {
     'faq.q2': 'Kolik stojí doména a hosting?',
     'faq.a2': 'Doména a hosting nejsou součástí ceny, ale pomohu vám s výběrem. Doména cca 200 Kč/rok, hosting od 150 Kč/měsíc.',
     'faq.q3': 'Jak probíhá platba?',
-    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba převodem na bankovní účet. Na vyžádání vystavím fakturu.',
+    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba probíhá jednoduše přes PayPal.',
     'faq.q4': 'Mohu si vyzkoušet web před spuštěním?',
     'faq.a4': 'Ano! Během vývoje zasílám náhled na privátní adrese. Zkontrolujete vše, dáte zpětnou vazbu a požádáte o úpravy.',
     'faq.q5': 'Co zahrnují úpravy zdarma?',
     'faq.a5': 'Kola úprav zahrnují textové změny, drobné designové úpravy a opravy chyb. Větší přepracování jsou účtována hodinovou sazbou.',
-    'faq.q6': 'Zajišťujete SEO?',
-    'faq.a6': 'Základní SEO — meta tagy, struktura URL, rychlost — je součástí každého balíčku. Pokročilá optimalizace je v balíčku Prezentační web.',
+    'faq.q6': 'Pomůžete i s grafikou nebo logem?',
+    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo ve Photoshopu a podle potřeby i krátké video v Premiere. Vše sladěné s vaším webem.',
 
     'contact.eyebrow': 'Ozvěte se',
     'contact.title': 'Pojďme tvořit.',
@@ -239,14 +243,15 @@ const translations = {
     'services.title': 'Services.',
     'services.sub': 'Modern websites for entrepreneurs, companies, and individuals — from design to launch.',
     'services.learn': 'Learn more →',
+    'services.hint': 'Browse with the arrows',
     'service1.name': 'Business website',
     'service1.desc': 'A company or personal website that represents you. Customers find you, trust you, and contact you.',
     'service2.name': 'Custom design',
     'service2.desc': 'Every design is unique. I work with your colours, logo, and ideas — the result will be 100% yours.',
     'service3.name': 'Fast delivery',
     'service3.desc': 'A basic website ready from 5 working days. No compromises on quality — your site is live within days.',
-    'service4.name': 'SEO optimization',
-    'service4.desc': 'A website without visitors is just a silent gallery. I ensure customers find you on Google organically.',
+    'service4.name': 'Graphics & video',
+    'service4.desc': 'Logos, banners and graphics in Photoshop plus video editing in Premiere — custom visuals from one place.',
     'service5.name': 'Maintenance & support',
     'service5.desc': 'After launch, you are not alone. I offer maintenance, content updates, and technical support as needed.',
     'service6.name': 'Landing Page',
@@ -254,43 +259,45 @@ const translations = {
 
     'projects.eyebrow': 'My work',
     'projects.title': 'Projects.',
-    'projects.sub': 'Website samples from various industries — from florists to fashion boutiques. Every site is original.',
+    'projects.sub': 'Selected websites from different industries — from a boxing academy to 3D printing. Every site is original.',
     'projects.visit': 'View demo',
+    'projects.hint': 'Browse with the arrows',
 
     'pricing.eyebrow': 'Pricing',
     'pricing.title': 'Simple pricing.',
     'pricing.sub': 'Fair prices with no hidden fees. You always know what you\'re paying for.',
     'plan1.name': 'One-page website',
     'plan1.desc': 'The perfect start — everything that matters on one clear page.',
-    'plan1.price': '2,990 CZK',
+    'plan1.price': '3,900 CZK',
     'plan1.per': 'one-time',
     'plan1.f1': 'Modern custom design',
     'plan1.f2': 'Responsive — mobile & desktop',
     'plan1.f3': 'Contact form or links',
-    'plan1.f4': 'Basic SEO optimization',
+    'plan1.f4': 'Social media integration',
     'plan1.f5': 'Delivery from 5 working days',
     'plan1.f6': '1 round of free revisions',
     'plan2.badge': 'Most popular',
     'plan2.name': 'Business website',
     'plan2.desc': 'More pages, more content, more customers — tailored exactly to your needs.',
     'plan2.oldPrice': '5,990 CZK',
-    'plan2.price': '4,990 CZK',
+    'plan2.price': '5,990 CZK',
     'plan2.per': 'one-time',
     'plan2.f1': 'Everything from One-page website',
     'plan2.f2': 'Up to 5 separate pages',
     'plan2.f3': 'Animations & interactive elements',
-    'plan2.f4': 'Advanced SEO optimization',
+    'plan2.f4': 'Custom graphics & banners',
     'plan2.f5': 'Czech & English version',
     'plan2.f6': 'Delivery within 14 days',
     'plan2.f7': '3 rounds of free revisions',
     'plan2.f8': '30 days of post-launch support',
     'plan3.name': 'Custom project',
     'plan3.desc': 'Complex project with unique requirements? Contact me and we\'ll design a solution just for you.',
-    'plan3.price': 'Price on request',
+    'plan3.price': 'from 6,900 CZK',
+    'plan3.per': 'depending on scope',
     'plan3.f1': 'Unlimited pages',
     'plan3.f2': 'Custom features per specification',
     'plan3.f3': 'CMS / admin panel',
-    'plan3.f4': 'Advanced SEO & analytics',
+    'plan3.f4': 'Analytics & service integrations',
     'plan3.f5': 'Priority support after launch',
     'plan3.f6': 'Timeline & price after consultation',
     'plan3.cta': 'Free consultation',
@@ -300,14 +307,20 @@ const translations = {
     'free.title': '1 sample page for free',
     'free.desc': 'Before you decide, I\'ll create a no-obligation sample of one page in your style. It serves only as a preview — it is not a finished website and will not be published anywhere.',
     'free.cta': 'Get a free sample',
+    'trial.tag': 'Trial website · 50% off',
+    'trial.title': 'Trial website for preview',
+    'trial.desc': 'Try our collaboration on a small trial website at 50% off. It serves only as a preview — it will not be published or deployed anywhere.',
+    'trial.old': '2,000 CZK',
+    'trial.price': '1,000 CZK',
+    'trial.cta': 'Get a trial website',
 
     'payment.title': 'Payment terms',
     'payment.deposit.label': 'Deposit upfront',
     'payment.deposit.desc': '50% of the project price is paid as a deposit before work begins.',
     'payment.time.label': 'Working days',
     'payment.time.desc': 'A one-page website takes from 5 working days after the deposit is received.',
-    'payment.transfer.label': 'Bank transfer',
-    'payment.transfer.desc': 'Payment exclusively by bank transfer. An invoice can be issued on request.',
+    'payment.transfer.label': 'Payment via PayPal',
+    'payment.transfer.desc': 'Payment is handled through PayPal — fast and secure online.',
     'payment.final.label': 'Final payment on delivery',
     'payment.final.desc': 'The remaining 50% is paid after the completed website is approved, before launch.',
 
@@ -340,13 +353,13 @@ const translations = {
     'faq.q2': 'How much do domain and hosting cost?',
     'faq.a2': 'Domain and hosting are not included in the price, but I help you choose. Domain ~200 CZK/year, hosting from 150 CZK/month.',
     'faq.q3': 'How does payment work?',
-    'faq.a3': '50% deposit before work begins, 50% final payment after the website is completed and approved. Payment by bank transfer. Invoice available on request.',
+    'faq.a3': '50% deposit before work begins, 50% final payment after the website is completed and approved. Payment is handled simply through PayPal.',
     'faq.q4': 'Can I preview the website before launch?',
     'faq.a4': 'Yes! During development I send you a preview at a private URL. Check everything, give feedback, and request changes.',
     'faq.q5': 'What do free revisions include?',
     'faq.a5': 'Revision rounds cover text changes, minor design tweaks, and bug fixes. Larger reworks are charged at an hourly rate.',
-    'faq.q6': 'Do you handle SEO?',
-    'faq.a6': 'Basic SEO — meta tags, URL structure, speed — is included in every package. Advanced optimization is included in the Business website plan.',
+    'faq.q6': 'Can you help with graphics or a logo?',
+    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Photoshop, and short videos in Premiere if needed. All matched to your website.',
 
     'contact.eyebrow': 'Get in touch',
     'contact.title': "Let's create.",
@@ -420,15 +433,14 @@ function renderProjects(instant) {
 
   projects.forEach((p, i) => {
     const card = document.createElement('article');
-    card.className = 'glass card project-card reveal' + (instant ? ' in-view' : '');
-    card.style.setProperty('--d', (i * 0.07) + 's');
+    card.className = 'glass card project-card';
 
     let host = p.url;
     try { host = new URL(p.url).hostname.replace(/^www\./, ''); } catch (e) { host = p.title[lang]; }
     const letter = (p.title[lang][0] || '•').toUpperCase();
 
     const gradient = p.gradient || 'linear-gradient(135deg, #0071e3, #5e5ce6)';
-    const imgSrc = previewUrl(p.url);
+    const imgSrc = p.image || previewUrl(p.url);
 
     const num = String(i + 1).padStart(2, '0');
 
@@ -463,8 +475,39 @@ function renderProjects(instant) {
     projectsGrid.appendChild(card);
   });
 
-  if (!instant) observeReveal(projectsGrid);
+  if (projActive > projects.length - 1) projActive = projects.length - 1;
+  projLayout();
 }
+
+/* Projekty — 3D coverflow ovládaný šipkami / arrow-driven coverflow */
+let projActive = 0;
+function projLayout() {
+  if (!projectsGrid) return;
+  const cards = projectsGrid.querySelectorAll('.project-card');
+  const gap = window.innerWidth < 640 ? 230 : 320;
+  cards.forEach((c, i) => {
+    const off = i - projActive;
+    const ab = Math.abs(off);
+    c.style.transform =
+      'translateX(' + (off * gap) + 'px) translateZ(' + (ab ? -180 : 0) + 'px)' +
+      ' rotateY(' + (off * -34) + 'deg) scale(' + (off === 0 ? 1 : 0.86) + ')';
+    c.style.opacity = ab > 2 ? '0' : '1';
+    c.style.zIndex = String(30 - ab);
+    c.style.pointerEvents = off === 0 ? 'auto' : 'none';
+    c.classList.toggle('is-active', off === 0);
+  });
+}
+function projGo(dir) {
+  projActive = Math.max(0, Math.min(projActive + dir, projects.length - 1));
+  projLayout();
+}
+(function () {
+  const prev = document.querySelector('.proj-prev');
+  const next = document.querySelector('.proj-next');
+  if (prev) prev.addEventListener('click', () => projGo(-1));
+  if (next) next.addEventListener('click', () => projGo(1));
+  window.addEventListener('resize', projLayout, { passive: true });
+})();
 
 /* ============================================================
    Psací efekt — rotuje mezi frázemi
@@ -670,6 +713,33 @@ if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
     heroEl.style.setProperty('--my', '0');
   });
 }
+
+/* ============================================================
+   Služby — 3D kruhový karusel / 3D circular carousel
+   ============================================================ */
+(function () {
+  const ring = document.getElementById('svcRing');
+  if (!ring) return;
+  const cards = Array.from(ring.querySelectorAll('.svc3d'));
+  const n = cards.length || 1;
+  const step = 360 / n;
+  let angle = 0;
+
+  function update() {
+    ring.style.setProperty('--ring', angle + 'deg');
+    let idx = Math.round(-angle / step) % n;
+    if (idx < 0) idx += n;
+    cards.forEach((c, i) => c.classList.toggle('is-front', i === idx));
+  }
+  function rotate(dir) { angle -= dir * step; update(); }
+  update();
+
+  // Pouze šipky na webu
+  const prev = document.querySelector('.svc-prev');
+  const next = document.querySelector('.svc-next');
+  if (prev) prev.addEventListener('click', () => rotate(-1));
+  if (next) next.addEventListener('click', () => rotate(1));
+})();
 
 /* ============================================================
    Počítadla stats

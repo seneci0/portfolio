@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Studio Světlo — fotograf. Svatby, portréty a události. Galerie, balíčky focení a rezervace.">
+  <meta name="color-scheme" content="dark">
+  <title>Studio Světlo — Fotograf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#101012; --bg2:#16161a; --line:#2a2a30;
+      --gold:#c9a25a; --txt:#ece9e4; --dim:#9a978f;
+      --serif:"Cormorant Garamond",Georgia,serif; --sans:"Inter",sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:80px}
+    body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+    .ribbon{position:fixed;top:0;left:0;right:0;z-index:200;background:#1c1c20;color:var(--gold);text-align:center;font-size:12.5px;font-weight:500;padding:7px 16px;border-bottom:1px solid var(--line)}
+    .ribbon a{text-decoration:underline;color:#fff}
+    nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 6vw;transition:.4s}
+    nav.s{background:rgba(16,16,18,.9);backdrop-filter:blur(12px);padding:13px 6vw;border-bottom:1px solid var(--line)}
+    .brand{font-family:var(--serif);font-size:27px;letter-spacing:.02em}
+    .brand span{color:var(--gold)}
+    .nlinks{display:flex;gap:30px}
+    .nlinks a{font-size:13px;font-weight:500;letter-spacing:.05em;color:var(--dim);transition:.25s;text-transform:uppercase}
+    .nlinks a:hover{color:var(--gold)}
+    .nbtn{padding:10px 22px;border:1px solid var(--gold);color:var(--gold);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;transition:.3s}
+    .nbtn:hover{background:var(--gold);color:#101012}
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 6vw 90px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1600&q=80') center/cover;filter:brightness(.5) saturate(.9)}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,transparent 30%,rgba(16,16,18,.85))}
+    .hero-in{position:relative;max-width:820px}
+    .hero .sub{font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+    .hero h1{font-family:var(--serif);font-size:clamp(52px,10vw,120px);line-height:1;font-weight:600}
+    .hero h1 i{color:var(--gold)}
+    .hero p{margin:22px auto 0;max-width:520px;color:#cfccc5;font-size:17px}
+    .hero-cta{display:flex;gap:16px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+    .btn{padding:14px 34px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:.3s;display:inline-block}
+    .btn-g{background:var(--gold);color:#101012}
+    .btn-g:hover{background:#d8b56e;transform:translateY(-2px)}
+    .btn-o{border:1px solid var(--line);color:#fff}.btn-o:hover{border-color:var(--gold)}
+    section{padding:110px 6vw}
+    .head{max-width:680px;margin:0 auto 60px;text-align:center}
+    .head .ek{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+    .head h2{font-family:var(--serif);font-size:clamp(36px,6vw,62px);font-weight:600;margin-top:8px;line-height:1.05}
+    .head p{margin-top:14px;color:var(--dim)}
+    .reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.22,1,.36,1)}.reveal.in{opacity:1;transform:none}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:0 auto}
+    .about-img{height:520px;overflow:hidden}
+    .about-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2)}
+    .about h2{font-family:var(--serif);font-size:clamp(32px,4.5vw,52px);font-weight:600;line-height:1.1}
+    .about p{color:var(--dim);margin-top:18px}
+    .about .sig{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--gold);margin-top:18px}
+    .gal{columns:3;column-gap:14px;max-width:1150px;margin:0 auto}
+    .gal>div{break-inside:avoid;margin-bottom:14px;overflow:hidden;position:relative}
+    .gal img{width:100%;transition:.6s;filter:grayscale(.15)}
+    .gal>div:hover img{transform:scale(1.05);filter:none}
+    .gtile{display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:26px;color:#3a3a40;background:linear-gradient(135deg,#17171b,#1e1e23)}
+    .h220{height:220px}.h300{height:300px}.h260{height:260px}
+    .price{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1040px;margin:0 auto}
+    .pc{border:1px solid var(--line);background:var(--bg2);padding:38px 30px;text-align:center;transition:.35s}
+    .pc.f{border-color:var(--gold)}
+    .pc:hover{transform:translateY(-6px)}
+    .pc h3{font-family:var(--serif);font-size:26px;font-weight:600}
+    .pc .amt{font-family:var(--serif);font-size:48px;color:var(--gold);margin:8px 0 2px}
+    .pc .per{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+    .pc ul{list-style:none;margin:22px 0;text-align:left}
+    .pc li{padding:9px 0;border-top:1px solid var(--line);font-size:14px;color:#cfccc5}
+    .pc li::before{content:"— ";color:var(--gold)}
+    .cta{text-align:center;max-width:700px;margin:0 auto}
+    .cta h2{font-family:var(--serif);font-size:clamp(34px,6vw,60px);font-weight:600}
+    .cta p{color:var(--dim);margin:16px 0 28px}
+    footer{background:#0b0b0d;border-top:1px solid var(--line);text-align:center;padding:50px 6vw;color:var(--dim)}
+    footer .brand{margin-bottom:8px}footer a{color:var(--gold)}footer p{font-size:13px;margin-top:6px}
+    @media(max-width:860px){.nlinks{display:none}.about{grid-template-columns:1fr}.about-img{height:340px}.gal{columns:2}.price{grid-template-columns:1fr}}
+    @media(max-width:520px){.gal{columns:1}}
+  </style>
+</head>
+<body>
+  <div class="ribbon">📷 Ukázkový web vytvořený jako příklad — není to existující studio. &nbsp;<a href="index.html">← Zpět na portfolio</a></div>
+
+  <nav id="nav">
+    <span class="brand">Studio <span>Světlo</span></span>
+    <div class="nlinks"><a href="#omne">O mně</a><a href="#galerie">Galerie</a><a href="#baliky">Balíčky</a><a href="#kontakt">Kontakt</a></div>
+    <a href="#kontakt" class="nbtn">Rezervovat</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-in">
+      <p class="sub">Svatby · Portréty · Události</p>
+      <h1>Zachytím váš <i>okamžik</i></h1>
+      <p>Fotografie, které vyprávějí příběh. Přirozeně, s citem pro světlo a detail.</p>
+      <div class="hero-cta">
+        <a href="#galerie" class="btn btn-g">Prohlédnout galerii</a>
+        <a href="#kontakt" class="btn btn-o">Rezervovat termín</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="omne" class="alt" style="background:var(--bg2)">
+    <div class="about">
+      <div class="about-img reveal"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Ukázka práce"></div>
+      <div class="reveal">
+        <p class="ek" style="color:var(--gold);letter-spacing:.3em;text-transform:uppercase;font-size:12.5px">O mně</p>
+        <h2>Vidím svět ve světle a stínu</h2>
+        <p>Focení mě baví už přes deset let. Specializuji se na svatby a portréty — momenty, které se nedají zopakovat. Pracuji nenásilně, abyste se cítili přirozeně a fotky byly skutečné.</p>
+        <p>Každý pár, každá rodina a každý člověk má svůj příběh. Mým úkolem je ho zachytit tak, aby vás za roky vrátil přesně do toho okamžiku.</p>
+        <p class="sig">— Adam Světlý</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="head reveal"><p class="ek">Výběr prací</p><h2>Galerie</h2></div>
+    <div class="gal reveal">
+      <div><img class="h300" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt=""></div>
+      <div><img class="h220" src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=600&q=80" alt=""></div>
+      <div class="gtile h260">Portrét</div>
+      <div class="gtile h220">Svatba</div>
+      <div><img class="h300" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt=""></div>
+      <div class="gtile h260">Událost</div>
+      <div><img class="h260" src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=600&q=80" alt=""></div>
+      <div class="gtile h220">Rodina</div>
+      <div class="gtile h300">Příroda</div>
+    </div>
+  </section>
+
+  <section id="baliky" style="background:var(--bg2)">
+    <div class="head reveal"><p class="ek">Ceník</p><h2>Balíčky focení</h2><p>Vyberte si, co potřebujete — nebo se domluvíme na míru.</p></div>
+    <div class="price">
+      <div class="pc reveal"><h3>Portrét</h3><div class="amt">2 500</div><div class="per">Kč</div><ul><li>1 hodina focení</li><li>1 lokace</li><li>15 upravených fotek</li><li>Dodání do 7 dní</li></ul><a href="#kontakt" class="btn btn-o" style="width:100%">Vybrat</a></div>
+      <div class="pc f reveal" style="transition-delay:.08s"><h3>Svatba</h3><div class="amt">14 900</div><div class="per">Kč</div><ul><li>Celý den focení</li><li>2 fotografové</li><li>400+ upravených fotek</li><li>Online galerie</li><li>Tištěné album</li></ul><a href="#kontakt" class="btn btn-g" style="width:100%">Vybrat</a></div>
+      <div class="pc reveal" style="transition-delay:.16s"><h3>Událost</h3><div class="amt">na míru</div><div class="per">dle rozsahu</div><ul><li>Firemní akce, oslavy</li><li>Reportážní styl</li><li>Rychlé dodání</li></ul><a href="#kontakt" class="btn btn-o" style="width:100%">Poptat</a></div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="cta reveal">
+      <p class="ek" style="color:var(--gold);letter-spacing:.3em;text-transform:uppercase;font-size:12.5px">Rezervace</p>
+      <h2>Domluvme si focení</h2>
+      <p>Napište mi, co máte v plánu, a já se ozvu s volnými termíny. Těším se na váš příběh.</p>
+      <a href="mailto:foto@studiosvetlo.cz" class="btn btn-g">foto@studiosvetlo.cz</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand">Studio <span>Světlo</span></div>
+    <p>Fotograf · Praha · +420 777 666 777</p>
+    <p>Ukázkový web vytvořil <a href="index.html">Vojtěch Straka</a> · © 2026</p>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>30),{passive:true});
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

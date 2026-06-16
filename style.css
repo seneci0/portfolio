@@ -459,16 +459,28 @@ a:focus-visible, button:focus-visible {
 }
 
 .hero-name {
-  margin-top: 24px;
-  font-size: clamp(54px, 10.5vw, 118px);
+  margin-top: 22px;
+  font-size: clamp(62px, 13vw, 150px);
   font-weight: 900;
-  letter-spacing: -0.05em;
-  line-height: 1.0;
-  color: var(--text);
-  background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  color: #1d1d1f;
+  /* 3D vystoupení z obrazovky — reaguje na pohyb myši */
+  transform:
+    perspective(900px)
+    rotateX(calc(var(--my, 0) * -5deg))
+    rotateY(calc(var(--mx, 0) * 7deg));
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out;
+  text-shadow:
+    0 1px 0 #cfd3dd,
+    0 2px 0 #c7cbd6,
+    0 3px 0 #c0c4d0,
+    0 4px 0 #b9bdca,
+    0 5px 0 #b2b6c3,
+    0 7px 10px rgba(20,28,48,0.20),
+    0 14px 28px rgba(20,28,48,0.22),
+    0 24px 50px rgba(20,28,48,0.18);
 }
 
 .hero-tagline {
@@ -762,9 +774,123 @@ a:focus-visible, button:focus-visible {
    Služby / Services
    ============================================================ */
 
-/* Služby navazují na bílé mraky a plynule přejdou do tónu webu / white top blends from clouds */
-#services {
-  background: linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0.75) 22%, rgba(255,255,255,0) 60%);
+/* ============================================================
+   Služby — 3D kruhový karusel / 3D circular carousel
+   ============================================================ */
+.services-3d { position: relative; overflow: hidden; }
+
+/* Pozadí s mraky — nahoře splyne s bílou (návaznost na hero) */
+.svc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=2000&q=80') center 35% / cover no-repeat;
+}
+.svc-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    #ffffff 0%,
+    rgba(255,255,255,0.85) 14%,
+    rgba(255,255,255,0.62) 42%,
+    rgba(var(--bg-rgb),0.82) 80%,
+    var(--bg) 100%);
+}
+.services-3d > .wrap { position: relative; z-index: 1; }
+
+.svc-stage {
+  --cw: 300px;
+  --ch: 344px;
+  --R: 320px;
+  position: relative;
+  height: 460px;
+  margin-top: 24px;
+  perspective: 1300px;
+  perspective-origin: 50% 44%;
+}
+
+.svc-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--cw);
+  height: var(--ch);
+  margin-left: calc(var(--cw) / -2);
+  margin-top: calc(var(--ch) / -2);
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--R) * -1)) rotateY(var(--ring, 0deg));
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.svc3d {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--cw);
+  height: var(--ch);
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: rotateY(calc(var(--i) * 60deg)) translateZ(var(--R));
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  opacity: 0.5;
+  transition: opacity 0.6s ease, box-shadow 0.6s ease;
+}
+.svc3d.is-front {
+  opacity: 1;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,113,227,0.12);
+}
+.svc3d .service-icon-wrap { margin: 0 auto 18px; }
+.svc3d h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
+.svc3d p { font-size: 14px; line-height: 1.6; color: var(--text-dim); flex: 1; }
+.svc3d .service-link { margin-top: 16px; }
+
+.svc-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s var(--ease), background 0.3s;
+}
+.svc-nav:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
+.svc-nav:active { transform: translateY(-50%) scale(0.95); }
+.svc-nav svg { width: 22px; height: 22px; }
+.svc-prev { left: 2%; }
+.svc-next { right: 2%; }
+
+.svc-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+.svc-hint svg { width: 16px; height: 16px; opacity: 0.7; }
+
+@media (max-width: 560px) {
+  .svc-stage { --cw: 260px; --ch: 372px; --R: 250px; height: 480px; }
+  .svc-nav { width: 42px; height: 42px; }
+  .svc-prev { left: 0; }
+  .svc-next { right: 0; }
 }
 
 .services-grid {
@@ -934,6 +1060,77 @@ a:focus-visible, button:focus-visible {
 .project-card:hover .project-overlay { opacity: 1; }
 .project-card:hover .project-view { transform: translateY(0) scale(1); }
 
+/* Projekty — 3D coverflow ovládaný šipkami / arrow-driven coverflow */
+.proj-carousel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.proj-viewport {
+  position: relative;
+  flex: 1;
+  height: 430px;
+  perspective: 1500px;
+  overflow: hidden;
+}
+.proj-track { position: absolute; inset: 0; transform-style: preserve-3d; }
+
+.proj-track .project-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 392px;
+  margin: -196px 0 0 -170px;
+  overflow: hidden;
+  transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
+  will-change: transform, opacity;
+}
+.proj-track .project-card.is-active {
+  box-shadow: 0 30px 70px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,113,227,0.14);
+}
+.proj-track .project-preview { aspect-ratio: auto; height: 200px; }
+.proj-track .project-body { overflow: hidden; }
+
+.proj-nav {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s var(--ease), background 0.3s;
+}
+.proj-nav:hover { background: #fff; transform: scale(1.1); }
+.proj-nav:active { transform: scale(0.95); }
+.proj-nav svg { width: 22px; height: 22px; }
+
+.proj-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+  .proj-viewport { height: 470px; }
+  .proj-track .project-card { width: 280px; height: 440px; margin: -220px 0 0 -140px; }
+  .proj-nav { width: 42px; height: 42px; }
+}
+
 .project-body {
   display: flex;
   flex-direction: column;
@@ -1058,6 +1255,24 @@ a:focus-visible, button:focus-visible {
   color: var(--green);
 }
 
+.free-sample-priceold {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-faint);
+  text-decoration: line-through;
+  line-height: 1;
+}
+
+/* Varianta zkušebního webu (modrá) */
+.free-sample.trial {
+  background: linear-gradient(135deg, rgba(0,113,227,0.1), rgba(94,92,230,0.08));
+  border-color: rgba(0,113,227,0.25);
+  box-shadow: 0 8px 32px rgba(0,113,227,0.1);
+}
+.free-sample.trial::after { background: radial-gradient(circle, rgba(0,113,227,0.14), transparent 70%); }
+.free-sample.trial .free-sample-tag { background: var(--blue); box-shadow: 0 4px 12px rgba(0,113,227,0.35); }
+.free-sample.trial .free-sample-price { color: var(--blue); }
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1124,6 +1339,8 @@ a:focus-visible, button:focus-visible {
   font-size: clamp(28px, 3.5vw, 36px);
   color: var(--blue);
 }
+
+.price.range { font-size: clamp(24px, 3.2vw, 33px); }
 
 .price-old {
   font-size: 17px;
@@ -1448,6 +1665,8 @@ a:focus-visible, button:focus-visible {
 .tile-js   { background: linear-gradient(135deg, #f7df1e, #e6c200); color: #1d1d1f; }
 .tile-php  { background: linear-gradient(135deg, #5d61a8, #777bb3); font-size: 11px; }
 .tile-ps   { background: linear-gradient(135deg, #001e36, #00385f); color: #31a8ff; }
+.tile-py   { background: linear-gradient(135deg, #366a96, #ffd43b); color: #fff; }
+.tile-pr   { background: linear-gradient(135deg, #1d0a3a, #9a73ff); color: #eccbff; }
 
 .bar {
   height: 5px;

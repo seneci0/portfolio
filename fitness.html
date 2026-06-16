@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FitCoach — osobní trenér pro všechny věkové kategorie. Tréninky, jídelníčky na míru, výsledky.">
+  <meta name="color-scheme" content="light">
+  <title>FitCoach — Osobní trenér</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6faf7; --card:#fff; --ink:#10231a; --dim:#5c6b63;
+      --grn:#10b981; --grn2:#059669; --lime:#84cc16; --line:#e4ece7;
+      --head:"Poppins",sans-serif; --sans:"Inter",sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:80px}
+    body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+    .ribbon{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--grn2);color:#fff;text-align:center;font-size:12.5px;font-weight:600;padding:7px 16px}
+    .ribbon a{text-decoration:underline}
+    nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;transition:.4s}
+    nav.s{background:rgba(246,250,247,.92);backdrop-filter:blur(12px);box-shadow:0 4px 24px rgba(16,185,129,.08);padding:11px 6vw}
+    .brand{font-family:var(--head);font-weight:800;font-size:23px;color:var(--grn2)}
+    .brand span{color:var(--lime)}
+    .nlinks{display:flex;gap:28px}
+    .nlinks a{font-size:14px;font-weight:600;color:var(--dim);transition:.25s}
+    .nlinks a:hover{color:var(--grn2)}
+    .nbtn{padding:11px 22px;background:var(--grn);color:#fff;border-radius:999px;font-weight:700;font-size:13.5px;transition:.3s}
+    .nbtn:hover{background:var(--grn2);transform:translateY(-2px)}
+    .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;padding:150px 6vw 80px}
+    .hero-txt .tag{display:inline-block;background:rgba(16,185,129,.12);color:var(--grn2);font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;margin-bottom:20px}
+    .hero h1{font-family:var(--head);font-weight:900;font-size:clamp(44px,7vw,82px);line-height:1.02;letter-spacing:-.02em}
+    .hero h1 em{font-style:normal;color:var(--grn2)}
+    .hero p{margin-top:20px;font-size:18px;color:var(--dim);max-width:480px}
+    .hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+    .btn{padding:14px 30px;border-radius:999px;font-weight:700;font-size:15px;transition:.3s;display:inline-block}
+    .btn-g{background:var(--grn);color:#fff;box-shadow:0 10px 26px rgba(16,185,129,.32)}
+    .btn-g:hover{background:var(--grn2);transform:translateY(-2px)}
+    .btn-o{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .btn-o:hover{transform:translateY(-2px)}
+    .hero-img{position:relative;height:74vh;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(16,40,30,.22)}
+    .hero-img img{width:100%;height:100%;object-fit:cover}
+    .hero-badge{position:absolute;left:20px;bottom:20px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.14)}
+    .hero-badge b{font-family:var(--head);font-size:24px;color:var(--grn2);display:block}
+    .hero-badge span{font-size:12px;color:var(--dim)}
+    section{padding:100px 6vw}
+    .head{max-width:680px;margin:0 auto 56px;text-align:center}
+    .head .ek{color:var(--grn2);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:12.5px}
+    .head h2{font-family:var(--head);font-weight:800;font-size:clamp(32px,5vw,52px);margin-top:10px;letter-spacing:-.02em}
+    .head p{margin-top:14px;color:var(--dim)}
+    .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+    .grid3{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:1040px;margin:0 auto}
+    .svc{display:grid;grid-template-columns:56px 1fr;column-gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;transition:.35s}
+    .svc:hover{transform:translateX(6px);box-shadow:0 14px 36px rgba(16,40,30,.1);border-color:var(--grn)}
+    .svc .ic{grid-row:span 2;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--grn),var(--lime));display:flex;align-items:center;justify-content:center;font-size:26px}
+    .svc h3{font-family:var(--head);font-weight:700;font-size:18px;align-self:end}
+    .svc p{color:var(--dim);font-size:13.5px;align-self:start;margin-top:2px}
+    .ages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto}
+    .age{background:linear-gradient(135deg,#0e2a1e,#10b981);color:#fff;border-radius:20px;padding:30px 24px;text-align:center}
+    .age .e{font-size:40px}
+    .age h3{font-family:var(--head);font-weight:700;margin:8px 0 6px}
+    .age p{font-size:13.5px;opacity:.85}
+    .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+    .rev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+    .stars{color:#f5b301;font-size:15px;letter-spacing:2px}
+    .rev p{margin:12px 0;font-size:14.5px;color:#33433b}
+    .rev .who{display:flex;align-items:center;gap:12px}
+    .rev .who .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--grn),var(--lime));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--head)}
+    .rev .who b{font-size:14px}.rev .who span{font-size:12px;color:var(--dim);display:block}
+    .price{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1040px;margin:0 auto}
+    .pc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 28px;text-align:center;transition:.35s}
+    .pc.f{background:linear-gradient(135deg,#0e2a1e,#10b981);color:#fff;transform:scale(1.03)}
+    .pc:hover{transform:translateY(-6px)}.pc.f:hover{transform:scale(1.03) translateY(-6px)}
+    .pc h3{font-family:var(--head);font-weight:700}
+    .pc .amt{font-family:var(--head);font-weight:900;font-size:46px;margin:10px 0 2px}
+    .pc .per{font-size:13px;opacity:.7}
+    .pc ul{list-style:none;margin:20px 0;text-align:left}
+    .pc li{padding:8px 0;font-size:14px;border-top:1px solid rgba(125,125,125,.18)}
+    .pc li::before{content:"✓ ";color:var(--lime);font-weight:800}
+    footer{background:#0e2a1e;color:#bfe6d6;text-align:center;padding:50px 6vw}
+    footer .brand{color:#fff;margin-bottom:8px}footer .brand span{color:var(--lime)}
+    footer a{color:var(--lime)}footer p{font-size:13px;margin-top:6px}
+    @media(max-width:860px){.nlinks{display:none}.hero{grid-template-columns:1fr}.hero-img{height:50vh}.grid3,.ages,.revs,.price{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="ribbon">💪 Ukázkový web vytvořený jako příklad — není to existující trenér. &nbsp;<a href="index.html">← Zpět na portfolio</a></div>
+
+  <nav id="nav">
+    <span class="brand">Fit<span>Coach</span></span>
+    <div class="nlinks"><a href="#sluzby">Služby</a><a href="#proko">Pro koho</a><a href="#recenze">Recenze</a><a href="#cenik">Ceník</a></div>
+    <a href="#cenik" class="nbtn">Začít trénovat</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-txt">
+      <span class="tag">Osobní trenér · pro každý věk</span>
+      <h1>Tvoje nejlepší <em>forma</em> začíná dnes</h1>
+      <p>Tréninky na míru, jídelníčky podle tvého cíle a podpora na každém kroku. Ať je ti 15 nebo 65 — najdeme cestu.</p>
+      <div class="hero-cta">
+        <a href="#cenik" class="btn btn-g">Vybrat balíček</a>
+        <a href="#sluzby" class="btn btn-o">Co nabízím</a>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1100&q=80" alt="Trénink">
+      <div class="hero-badge"><b>250+</b><span>spokojených klientů</span></div>
+    </div>
+  </header>
+
+  <section id="sluzby">
+    <div class="head reveal"><p class="ek">Co nabízím</p><h2>Služby na míru</h2><p>Komplexní péče o tvé tělo i kondici.</p></div>
+    <div class="grid3">
+      <div class="svc reveal"><div class="ic">🏋️</div><h3>Osobní tréninky</h3><p>Individuální plán podle tvé úrovně a cílů. Síla, kondice, hubnutí nebo nabírání.</p></div>
+      <div class="svc reveal" style="transition-delay:.07s"><div class="ic">🥗</div><h3>Jídelníčky na míru</h3><p>Jídelníček sestavený přesně na tvůj cíl, chutě a denní režim. Bez hladovění.</p></div>
+      <div class="svc reveal" style="transition-delay:.14s"><div class="ic">📊</div><h3>Sledování pokroku</h3><p>Pravidelná měření, fotky a úpravy plánu, ať se pořád posouváš dopředu.</p></div>
+      <div class="svc reveal"><div class="ic">🏠</div><h3>Online vedení</h3><p>Tréninky a podpora i na dálku — přes appku, videohovory a zpětnou vazbu.</p></div>
+      <div class="svc reveal" style="transition-delay:.07s"><div class="ic">🧘</div><h3>Regenerace</h3><p>Mobilita, protahování a prevence zranění jako součást každého plánu.</p></div>
+      <div class="svc reveal" style="transition-delay:.14s"><div class="ic">🎯</div><h3>Motivace</h3><p>Jsem s tebou. Drobné cíle, velké výsledky a nikdy na to nejsi sám.</p></div>
+    </div>
+  </section>
+
+  <section id="proko" style="background:#eef6f1">
+    <div class="head reveal"><p class="ek">Pro koho</p><h2>Trénuji všechny věkové kategorie</h2></div>
+    <div class="ages">
+      <div class="age reveal"><div class="e">🧒</div><h3>Mládež 15–18</h3><p>Zdravý základ, technika a sebevědomí pro mladé sportovce.</p></div>
+      <div class="age reveal" style="transition-delay:.08s"><div class="e">💼</div><h3>Dospělí 19–55</h3><p>Forma, hubnutí i síla i při náročné práci a rodině.</p></div>
+      <div class="age reveal" style="transition-delay:.16s"><div class="e">🌿</div><h3>Senioři 55+</h3><p>Šetrný pohyb pro zdraví, mobilitu a energii do každého dne.</p></div>
+    </div>
+  </section>
+
+  <section id="recenze">
+    <div class="head reveal"><p class="ek">Co říkají klienti</p><h2>Recenze</h2></div>
+    <div class="revs">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>„Za 4 měsíce jsem zhubla 12 kg a hlavně se cítím skvěle. Jídelníček byl super jednoduchý.”</p><div class="who"><div class="av">PK</div><div><b>Petra K.</b><span>klientka 8 měsíců</span></div></div></div>
+      <div class="rev reveal" style="transition-delay:.08s"><div class="stars">★★★★★</div><p>„Konečně trenér, který to umí vysvětlit. Síla šla nahoru a záda mě přestala bolet.”</p><div class="who"><div class="av">JM</div><div><b>Jan M.</b><span>klient 1 rok</span></div></div></div>
+      <div class="rev reveal" style="transition-delay:.16s"><div class="stars">★★★★★</div><p>„Je mi 61 a cítím se na 40. Cvičení na míru bez bolesti, doporučuji všem.”</p><div class="who"><div class="av">VS</div><div><b>Věra S.</b><span>klientka 6 měsíců</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="cenik" style="background:#eef6f1">
+    <div class="head reveal"><p class="ek">Ceník</p><h2>Vyber si balíček</h2><p>Bez vstupních poplatků, zrušíš kdykoliv.</p></div>
+    <div class="price">
+      <div class="pc reveal"><h3>Start</h3><div class="amt">990</div><div class="per">Kč / měsíc</div><ul><li>2 tréninky týdně</li><li>Základní jídelníček</li><li>Měsíční měření</li></ul><a href="#" class="btn btn-o" style="width:100%">Vybrat</a></div>
+      <div class="pc f reveal" style="transition-delay:.08s"><h3>Pro</h3><div class="amt">1 790</div><div class="per">Kč / měsíc</div><ul><li>Neomezené tréninky</li><li>Jídelníček na míru</li><li>Online vedení v appce</li><li>Týdenní kontrola</li></ul><a href="#" class="btn" style="width:100%;background:#fff;color:var(--grn2)">Vybrat</a></div>
+      <div class="pc reveal" style="transition-delay:.16s"><h3>Online</h3><div class="amt">690</div><div class="per">Kč / měsíc</div><ul><li>Plán na dálku</li><li>Jídelníček na míru</li><li>Podpora přes chat</li></ul><a href="#" class="btn btn-o" style="width:100%">Vybrat</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand">Fit<span>Coach</span></div>
+    <p>Osobní trenér · Praha & online · +420 777 222 333</p>
+    <p>Ukázkový web vytvořil <a href="index.html">Vojtěch Straka</a> · © 2026</p>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>30),{passive:true});
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
