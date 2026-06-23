@@ -1,8 +1,8 @@
 
 
 :root {
-  --bg: #e9ebf1;
-  --bg-rgb: 233, 235, 241;
+  --bg: #e2e3e6;
+  --bg-rgb: 226, 227, 230;
   --surface: #ffffff;
   --text: #1d1d1f;
   --text-dim: #6e6e73;
@@ -55,8 +55,28 @@ a:focus-visible, button:focus-visible {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: linear-gradient(180deg, #edeef3 0%, #e7e9ef 55%, #e9ebf1 100%);
+  background: linear-gradient(180deg, #e7e8eb 0%, #dddee2 55%, #e2e3e6 100%);
 }
+
+.page-photo {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(var(--bg-rgb),0.72), rgba(var(--bg-rgb),0.72)),
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80') center / cover no-repeat;
+  filter: grayscale(1) contrast(1.02);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 72%, transparent 100%);
+  will-change: transform;
+  animation: pagePhoto 30s ease-in-out infinite alternate;
+}
+@keyframes pagePhoto {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to   { transform: scale(1.16) translate3d(0, -2.5%, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .page-photo { animation: none; transform: scale(1.06); } }
 
 .bg-grid {
   position: absolute;
@@ -223,13 +243,14 @@ a:focus-visible, button:focus-visible {
   position: absolute;
   inset: -12% -4% 0 -4%;
   z-index: 0;
-  background-color: #c3cdd6;
+  background-color: #c7c9cd;
   background-image:
     linear-gradient(rgba(255,255,255,0.04), rgba(255,255,255,0.04)),
     url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+  filter: grayscale(1) brightness(1.03) contrast(1.02);
   will-change: transform;
   transform:
     translate(calc(var(--mx, 0) * 7px), calc(var(--my, 0) * 5px))
@@ -262,6 +283,7 @@ a:focus-visible, button:focus-visible {
   background-size: cover;
   background-repeat: no-repeat;
   
+  filter: grayscale(1) brightness(0.92);
   -webkit-mask-image: linear-gradient(to top, #000 46%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.4) 78%, transparent 92%);
   mask-image: linear-gradient(to top, #000 46%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.4) 78%, transparent 92%);
   transition: transform 0.25s ease-out;
@@ -271,7 +293,7 @@ a:focus-visible, button:focus-visible {
   height: 80%;
   z-index: 1;
   opacity: 0.5;
-  filter: blur(2px);
+  filter: grayscale(1) blur(2px);
   background-position: center 35%;
   transform:
     translate(calc(var(--mx, 0) * 13px), calc(var(--my, 0) * 8px))
@@ -430,11 +452,11 @@ a:focus-visible, button:focus-visible {
 
 .hero-name {
   margin-top: 18px;
-  font-size: clamp(74px, 16vw, 210px);
+  font-size: clamp(60px, 12.5vw, 168px);
   font-weight: 900;
-  letter-spacing: -0.06em;
-  line-height: 0.84;
-  color: #15171c;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  color: #0d0f14;
   transform:
     perspective(1000px)
     rotateX(calc(var(--my, 0) * -6deg))
@@ -442,20 +464,31 @@ a:focus-visible, button:focus-visible {
   transform-style: preserve-3d;
   transition: transform 0.25s ease-out;
   text-shadow:
-    0 1px 0 #d2d6df,
-    0 2px 0 #cbcfd9,
-    0 3px 0 #c4c8d3,
-    0 4px 0 #bcc1cd,
-    0 5px 0 #b5bac7,
-    0 6px 0 #aeb3c1,
-    0 7px 0 #a7adbb,
-    0 9px 14px rgba(18,26,46,0.22),
-    0 18px 34px rgba(18,26,46,0.24),
-    0 30px 60px rgba(18,26,46,0.20);
+    0 1px 0 #babdc6,
+    0 2px 0 #aeb1bb,
+    0 3px 0 #a2a6b1,
+    0 4px 0 #969ba7,
+    0 5px 0 #8b909d,
+    0 6px 0 #808693,
+    0 7px 0 #767c8a,
+    0 8px 0 #6c7280,
+    0 9px 0 #636978,
+    0 12px 18px rgba(10,14,25,0.34),
+    0 24px 44px rgba(10,14,25,0.30),
+    0 40px 70px rgba(10,14,25,0.22);
+}
+
+.hero-role {
+  margin-top: 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
 }
 
 .hero-tagline {
-  margin-top: 20px;
+  margin-top: 14px;
   max-width: 700px;
   min-height: 1.6em;
   font-size: clamp(17px, 2.3vw, 23px);
@@ -1687,15 +1720,16 @@ a:focus-visible, button:focus-visible {
 .contact-section::before {
   content: "";
   position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(760px, 90vw);
-  height: 420px;
-  background: radial-gradient(closest-side, rgba(0,113,227,0.1), transparent 70%);
-  filter: blur(40px);
+  inset: 0;
+  background:
+    linear-gradient(rgba(var(--bg-rgb),0.6), rgba(var(--bg-rgb),0.6)),
+    url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=2000&q=80') center / cover no-repeat;
+  filter: grayscale(1) contrast(1.03);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 28%, #000 72%, transparent 100%);
   pointer-events: none;
 }
+.contact-section > .wrap { position: relative; z-index: 1; }
 
 .contact-chip {
   display: inline-flex;
@@ -1724,9 +1758,9 @@ a:focus-visible, button:focus-visible {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-  max-width: 800px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 980px;
   margin: 0 auto;
   position: relative;
 }
