@@ -18,7 +18,6 @@
 </head>
 <body>
 
-  <!-- ===== Animované pozadí ===== -->
   <div class="bg" aria-hidden="true">
     <div class="bg-blob bg-blob-1"></div>
     <div class="bg-blob bg-blob-2"></div>
@@ -26,7 +25,6 @@
     <div class="bg-grid"></div>
   </div>
 
-  <!-- ===== Navigace ===== -->
   <nav class="island" aria-label="Hlavní navigace">
     <a href="#home" class="island-logo" aria-label="Vojtěch Straka — domů">VS</a>
     <div class="island-links">
@@ -43,15 +41,12 @@
     </div>
   </nav>
 
-  <!-- ===== Hero ===== -->
   <header id="home" class="hero">
-    <!-- Pozadí hory s mlhou / Mountain background with fog -->
+    
     <div class="hero-mountain" aria-hidden="true">
       <div class="hero-mountain-img"></div>
       <div class="hero-clouds hero-clouds-back"></div>
       <div class="hero-mountain-fog"></div>
-      <div class="hero-clouds hero-clouds-front"></div>
-      <div class="hero-wash"></div>
     </div>
 
     <div class="hero-inner">
@@ -72,6 +67,10 @@
         <span class="hero-badge">Premiere Pro</span>
       </div>
     </div>
+
+    <div class="hero-clouds hero-clouds-front" aria-hidden="true"></div>
+    <div class="hero-wash" aria-hidden="true"></div>
+
     <a href="#services" class="hero-scroll fx d6">
       <span data-i18n="hero.scroll">Posuňte dolů</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -80,7 +79,6 @@
 
   <main>
 
-    <!-- ===== Služby / Services (3D kruhový karusel) ===== -->
     <section id="services" class="section services-3d">
       <div class="svc-bg" aria-hidden="true"></div>
       <div class="wrap">
@@ -158,7 +156,6 @@
       </div>
     </section>
 
-    <!-- ===== Projekty / Projects ===== -->
     <section id="projects" class="section section-dark">
       <div class="wrap">
         <div class="section-head reveal">
@@ -183,7 +180,6 @@
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
     <section id="faq" class="section section-tint">
       <div class="wrap">
         <div class="section-head reveal">
@@ -220,7 +216,6 @@
       </div>
     </section>
 
-    <!-- ===== Kontakt / Contact ===== -->
     <section id="contact" class="section contact-section">
       <div class="wrap">
         <div class="section-head reveal">
@@ -254,6 +249,28 @@
             <p class="contact-value">seneci0</p>
             <div class="contact-actions">
               <button type="button" class="btn btn-glass btn-sm" data-copy="seneci0"><span data-i18n="contact.copy">Kopírovat</span></button>
+            </div>
+          </div>
+
+          <div class="glass card contact-card reveal" style="--d:.2s">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+            </div>
+            <p class="contact-label">Facebook</p>
+            <p class="contact-value">Vojtěch Straka</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary btn-sm" href="https://www.facebook.com/profile.php?id=61591118077606" target="_blank" rel="noopener" data-i18n="contact.openBtn">Otevřít profil</a>
+            </div>
+          </div>
+
+          <div class="glass card contact-card reveal" style="--d:.3s">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <p class="contact-label">Instagram</p>
+            <p class="contact-value">@senecio.dev</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary btn-sm" href="https://www.instagram.com/senecio.dev/" target="_blank" rel="noopener" data-i18n="contact.openBtn">Otevřít profil</a>
             </div>
           </div>
 

@@ -1,7 +1,4 @@
-/* ============================================================
-   Vojtěch Straka — portfolio
-   Apple-inspired · dominantní design · animované pozadí
-   ============================================================ */
+
 
 :root {
   --bg: #e9ebf1;
@@ -53,10 +50,6 @@ a:focus-visible, button:focus-visible {
   border-radius: 8px;
 }
 
-/* ============================================================
-   Animované pozadí / Animated background
-   ============================================================ */
-
 .bg {
   position: fixed;
   inset: 0;
@@ -65,7 +58,6 @@ a:focus-visible, button:focus-visible {
   background: linear-gradient(180deg, #edeef3 0%, #e7e9ef 55%, #e9ebf1 100%);
 }
 
-/* Mřížka teček */
 .bg-grid {
   position: absolute;
   inset: 0;
@@ -73,7 +65,6 @@ a:focus-visible, button:focus-visible {
   background-size: 28px 28px;
 }
 
-/* Animované blobby / orbs */
 .bg-blob {
   position: absolute;
   border-radius: 50%;
@@ -121,10 +112,6 @@ a:focus-visible, button:focus-visible {
   from { transform: translate(0, 0) scale(1); }
   to   { transform: translate(-5%, -10%) scale(1.15); }
 }
-
-/* ============================================================
-   Navigace / Island nav
-   ============================================================ */
 
 .island {
   position: fixed;
@@ -212,10 +199,6 @@ a:focus-visible, button:focus-visible {
 .lang-btn:hover { color: var(--text); }
 .lang-btn.active { background: var(--text); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.22); }
 
-/* ============================================================
-   Hero
-   ============================================================ */
-
 .hero {
   position: relative;
   min-height: 100vh;
@@ -229,7 +212,6 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
 }
 
-/* Pozadí hory s mlhou / Mountain backdrop with fog */
 .hero-mountain {
   position: absolute;
   inset: 0;
@@ -256,7 +238,6 @@ a:focus-visible, button:focus-visible {
   transition: transform 0.25s ease-out;
 }
 
-/* Jemné splynutí dole tak, aby byla vidět CELÁ hora / faint bottom blend, whole mountain visible */
 .hero-mountain-fog {
   position: absolute;
   inset: 0;
@@ -264,14 +245,12 @@ a:focus-visible, button:focus-visible {
   background:
     linear-gradient(to bottom, rgba(var(--bg-rgb),0.3) 0%, rgba(var(--bg-rgb),0) 16%),
     linear-gradient(to bottom,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,0) 76%,
-      rgba(255,255,255,0.55) 90%,
-      #ffffff 100%);
+      rgba(var(--bg-rgb),0) 0%,
+      rgba(var(--bg-rgb),0) 74%,
+      rgba(var(--bg-rgb),0.55) 90%,
+      var(--bg) 100%);
 }
 
-/* Reálné mraky (fotka) ve dvou hloubkách → 3D drone efekt
-   Real cloud photo in two depth layers → 3D drone effect */
 .hero-clouds {
   position: absolute;
   left: 0;
@@ -282,13 +261,12 @@ a:focus-visible, button:focus-visible {
   background-image: url('https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
   background-repeat: no-repeat;
-  /* horní hrana mraků měkce mizí (žádný ostrý okraj) */
+  
   -webkit-mask-image: linear-gradient(to top, #000 46%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.4) 78%, transparent 92%);
   mask-image: linear-gradient(to top, #000 46%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.4) 78%, transparent 92%);
   transition: transform 0.25s ease-out;
 }
 
-/* Vzdálená vrstva mraků (hloubka) / distant cloud layer */
 .hero-clouds-back {
   height: 80%;
   z-index: 1;
@@ -302,7 +280,6 @@ a:focus-visible, button:focus-visible {
   animation: cloudPan 64s ease-in-out infinite alternate-reverse;
 }
 
-/* Přední vrstva mraků — hlavní, prolétneš skrz / foreground clouds you fly through */
 .hero-clouds-front {
   height: 98%;
   z-index: 3;
@@ -315,7 +292,6 @@ a:focus-visible, button:focus-visible {
   animation: cloudPan 46s ease-in-out infinite alternate;
 }
 
-/* Spodní splynutí fotky do čistě bílé (návaznost na Služby) / blend into pure white */
 .hero-clouds-front::after {
   content: "";
   position: absolute;
@@ -323,7 +299,7 @@ a:focus-visible, button:focus-visible {
   right: 0;
   bottom: 0;
   height: 42%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 45%, #ffffff 88%);
+  background: linear-gradient(to bottom, rgba(var(--bg-rgb),0) 0%, rgba(var(--bg-rgb),0.7) 45%, var(--bg) 88%);
 }
 
 @keyframes cloudPan {
@@ -331,19 +307,16 @@ a:focus-visible, button:focus-visible {
   to   { background-position: 56% bottom; }
 }
 
-/* Bílý závoj — při scrollu přebílí horu, aby přechod do Služeb byl vždy čistě bílý
-   White wash — fades in on scroll so the hero always blends seamlessly into white */
 .hero-wash {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  background: #ffffff;
+  z-index: 6;
+  background: var(--bg);
   opacity: 0;
   pointer-events: none;
   will-change: opacity;
 }
 
-/* Jemné prosvětlení za textem pro čitelnost / soft light behind text */
 .hero-inner::before {
   content: "";
   position: absolute;
@@ -354,7 +327,6 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
 }
 
-/* Glow */
 .hero-glow {
   position: absolute;
   top: 40%;
@@ -367,7 +339,6 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
 }
 
-/* Plovoucí dekorativní prvky */
 .hero-float {
   position: absolute;
   pointer-events: none;
@@ -417,7 +388,6 @@ a:focus-visible, button:focus-visible {
   to   { transform: translateY(-14px); }
 }
 
-/* Hero content */
 .hero-inner {
   position: relative;
   z-index: 1;
@@ -459,28 +429,29 @@ a:focus-visible, button:focus-visible {
 }
 
 .hero-name {
-  margin-top: 22px;
-  font-size: clamp(62px, 13vw, 150px);
+  margin-top: 18px;
+  font-size: clamp(74px, 16vw, 210px);
   font-weight: 900;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-  color: #1d1d1f;
-  /* 3D vystoupení z obrazovky — reaguje na pohyb myši */
+  letter-spacing: -0.06em;
+  line-height: 0.84;
+  color: #15171c;
   transform:
-    perspective(900px)
-    rotateX(calc(var(--my, 0) * -5deg))
-    rotateY(calc(var(--mx, 0) * 7deg));
+    perspective(1000px)
+    rotateX(calc(var(--my, 0) * -6deg))
+    rotateY(calc(var(--mx, 0) * 8deg));
   transform-style: preserve-3d;
   transition: transform 0.25s ease-out;
   text-shadow:
-    0 1px 0 #cfd3dd,
-    0 2px 0 #c7cbd6,
-    0 3px 0 #c0c4d0,
-    0 4px 0 #b9bdca,
-    0 5px 0 #b2b6c3,
-    0 7px 10px rgba(20,28,48,0.20),
-    0 14px 28px rgba(20,28,48,0.22),
-    0 24px 50px rgba(20,28,48,0.18);
+    0 1px 0 #d2d6df,
+    0 2px 0 #cbcfd9,
+    0 3px 0 #c4c8d3,
+    0 4px 0 #bcc1cd,
+    0 5px 0 #b5bac7,
+    0 6px 0 #aeb3c1,
+    0 7px 0 #a7adbb,
+    0 9px 14px rgba(18,26,46,0.22),
+    0 18px 34px rgba(18,26,46,0.24),
+    0 30px 60px rgba(18,26,46,0.20);
 }
 
 .hero-tagline {
@@ -558,7 +529,6 @@ a:focus-visible, button:focus-visible {
   50%       { transform: translateY(6px); opacity: 1; }
 }
 
-/* Entrance animations */
 .fx { opacity: 0; animation: rise 0.9s var(--ease) forwards; }
 .d1 { animation-delay: 0.4s; }
 .d2 { animation-delay: 0.55s; }
@@ -571,10 +541,6 @@ a:focus-visible, button:focus-visible {
   from { opacity: 0; transform: translateY(30px); filter: blur(6px); }
   to   { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-
-/* ============================================================
-   Page hero (podstránky) / sub-page hero
-   ============================================================ */
 
 .page-hero {
   position: relative;
@@ -600,7 +566,6 @@ a:focus-visible, button:focus-visible {
 
 .page-hero.has-img::before { display: none; }
 
-/* Mlžný obrázek na podstránce „O mně" — jiný motiv než hlavní strana */
 .page-hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 
 .page-hero-img {
@@ -660,10 +625,6 @@ a:focus-visible, button:focus-visible {
   color: var(--text-dim);
 }
 
-/* ============================================================
-   Tlačítka / Buttons
-   ============================================================ */
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -685,8 +646,8 @@ a:focus-visible, button:focus-visible {
 }
 .btn-primary:hover {
   background: var(--blue-dark);
-  box-shadow: 0 10px 32px rgba(0,113,227,0.45);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0,113,227,0.5);
+  transform: translateY(-3px) scale(1.03);
 }
 
 .btn-glass {
@@ -706,10 +667,6 @@ a:focus-visible, button:focus-visible {
 
 .btn-sm  { padding: 9px 18px; font-size: 13px; }
 .btn-block { width: 100%; margin-top: 24px; }
-
-/* ============================================================
-   Sekce — sdílené / Sections shared
-   ============================================================ */
 
 .section { padding: 110px 24px; position: relative; }
 .section-dark { background: rgba(0,0,0,0.015); }
@@ -742,7 +699,6 @@ a:focus-visible, button:focus-visible {
   color: var(--text-dim);
 }
 
-/* Glass karta */
 .glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -756,45 +712,38 @@ a:focus-visible, button:focus-visible {
 .card { padding: 28px 30px; }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0,113,227,0.22);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,113,227,0.1);
+  transform: translateY(-7px) scale(1.012);
+  border-color: rgba(0,113,227,0.28);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,113,227,0.12);
 }
 
-/* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+  transform: translateY(34px) scale(0.985);
+  filter: blur(4px);
+  transition: opacity 0.9s var(--ease), transform 1s var(--ease), filter 0.9s var(--ease);
   transition-delay: var(--d, 0s);
 }
-.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal.in-view { opacity: 1; transform: none; filter: none; }
 
-/* ============================================================
-   Služby / Services
-   ============================================================ */
-
-/* ============================================================
-   Služby — 3D kruhový karusel / 3D circular carousel
-   ============================================================ */
 .services-3d { position: relative; overflow: hidden; }
 
-/* Pozadí s mraky — nahoře splyne s bílou (návaznost na hero) */
 .svc-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url('https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=2000&q=80') center 35% / cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=2000&q=80') center 45% / cover no-repeat;
 }
 .svc-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-    #ffffff 0%,
-    rgba(255,255,255,0.85) 14%,
-    rgba(255,255,255,0.62) 42%,
-    rgba(var(--bg-rgb),0.82) 80%,
+    var(--bg) 0%,
+    rgba(var(--bg-rgb),0.95) 16%,
+    rgba(var(--bg-rgb),0.84) 40%,
+    rgba(var(--bg-rgb),0.72) 62%,
+    rgba(var(--bg-rgb),0.88) 86%,
     var(--bg) 100%);
 }
 .services-3d > .wrap { position: relative; z-index: 1; }
@@ -829,25 +778,36 @@ a:focus-visible, button:focus-visible {
   top: 0;
   width: var(--cw);
   height: var(--ch);
-  padding: 34px 28px;
+  padding: 36px 28px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  overflow: hidden;
+  background-image: radial-gradient(135% 95% at 50% -18%, color-mix(in srgb, var(--c, #0071e3) 18%, transparent), transparent 60%);
   transform: rotateY(calc(var(--i) * 60deg)) translateZ(var(--R));
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   opacity: 0.5;
-  transition: opacity 0.6s ease, box-shadow 0.6s ease;
+  transition: opacity 0.6s ease, box-shadow 0.6s ease, transform 0.6s ease;
+}
+.svc3d::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--c, #0071e3), color-mix(in srgb, var(--c, #0071e3) 35%, #ffffff));
 }
 .svc3d.is-front {
   opacity: 1;
-  box-shadow: 0 28px 70px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,113,227,0.12);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.2), 0 0 0 1px color-mix(in srgb, var(--c, #0071e3) 30%, transparent), 0 0 50px color-mix(in srgb, var(--c, #0071e3) 16%, transparent);
 }
-.svc3d .service-icon-wrap { margin: 0 auto 18px; }
-.svc3d h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
+.svc3d .service-icon-wrap { margin: 0 auto 20px; }
+.svc3d h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
 .svc3d p { font-size: 14px; line-height: 1.6; color: var(--text-dim); flex: 1; }
-.svc3d .service-link { margin-top: 16px; }
+.svc3d .service-link {
+  margin-top: 18px; font-weight: 700; color: var(--c, #0071e3);
+  display: inline-flex; align-items: center; gap: 4px; transition: gap 0.25s;
+}
+.svc3d .service-link:hover { gap: 9px; }
 
 .svc-nav {
   position: absolute;
@@ -907,19 +867,19 @@ a:focus-visible, button:focus-visible {
 }
 
 .service-icon-wrap {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: color-mix(in srgb, var(--c, #0071e3) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--c, #0071e3) 22%, transparent);
+  width: 60px;
+  height: 60px;
+  border-radius: 17px;
+  background: linear-gradient(140deg, var(--c, #0071e3), color-mix(in srgb, var(--c, #0071e3) 55%, #ffffff));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--c, #0071e3);
+  color: #fff;
   margin-bottom: 20px;
   flex-shrink: 0;
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--c, #0071e3) 36%, transparent);
 }
-.service-icon-wrap svg { width: 26px; height: 26px; }
+.service-icon-wrap svg { width: 27px; height: 27px; }
 
 .service-card h3 {
   font-size: 18px;
@@ -946,10 +906,6 @@ a:focus-visible, button:focus-visible {
   display: inline-block;
 }
 .service-link:hover { color: var(--blue-dark); }
-
-/* ============================================================
-   Projekty / Projects
-   ============================================================ */
 
 .projects-grid {
   display: grid;
@@ -1012,7 +968,6 @@ a:focus-visible, button:focus-visible {
   color: var(--text-dim);
 }
 
-/* Pořadové číslo / index badge */
 .project-num {
   position: absolute;
   top: 12px;
@@ -1026,7 +981,6 @@ a:focus-visible, button:focus-visible {
   opacity: 0.85;
 }
 
-/* Overlay s výzvou na proklik / hover overlay */
 .project-overlay {
   position: absolute;
   inset: 0;
@@ -1060,7 +1014,6 @@ a:focus-visible, button:focus-visible {
 .project-card:hover .project-overlay { opacity: 1; }
 .project-card:hover .project-view { transform: translateY(0) scale(1); }
 
-/* Projekty — 3D coverflow ovládaný šipkami / arrow-driven coverflow */
 .proj-carousel {
   display: flex;
   align-items: center;
@@ -1174,11 +1127,6 @@ a:focus-visible, button:focus-visible {
 .project-link:hover { gap: 9px; }
 .project-link svg { width: 14px; height: 14px; }
 
-/* ============================================================
-   Ceník / Pricing
-   ============================================================ */
-
-/* Ukázka zdarma / Free sample banner */
 .free-sample {
   display: flex;
   align-items: center;
@@ -1263,7 +1211,6 @@ a:focus-visible, button:focus-visible {
   line-height: 1;
 }
 
-/* Varianta zkušebního webu (modrá) */
 .free-sample.trial {
   background: linear-gradient(135deg, rgba(0,113,227,0.1), rgba(94,92,230,0.08));
   border-color: rgba(0,113,227,0.25);
@@ -1377,7 +1324,6 @@ a:focus-visible, button:focus-visible {
 }
 .check svg { width: 10px; height: 10px; color: var(--blue); }
 
-/* Platební podmínky */
 .payment-terms {
   margin-top: 60px;
   padding: 40px 36px;
@@ -1400,8 +1346,8 @@ a:focus-visible, button:focus-visible {
 
 .payment-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 24px;
 }
 
 .payment-item {
@@ -1453,10 +1399,6 @@ a:focus-visible, button:focus-visible {
   font-size: 14.5px;
   color: var(--text-dim);
 }
-
-/* ============================================================
-   O mně / About — nový layout
-   ============================================================ */
 
 .about-grid {
   display: grid;
@@ -1515,7 +1457,8 @@ a:focus-visible, button:focus-visible {
 }
 .profile-fact:last-child { border-bottom: none; }
 
-.fact-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.fact-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; color: var(--blue); display: inline-flex; }
+.fact-icon svg { width: 18px; height: 18px; display: block; }
 
 .fact-label {
   display: block;
@@ -1529,7 +1472,6 @@ a:focus-visible, button:focus-visible {
 
 .fact-val { font-size: 14px; font-weight: 500; color: var(--text); }
 
-/* Stats pod profilem */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1555,7 +1497,6 @@ a:focus-visible, button:focus-visible {
 
 .stat-label { font-size: 11px; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 
-/* Pravý sloupec */
 .about-right {
   display: flex;
   flex-direction: column;
@@ -1573,7 +1514,6 @@ a:focus-visible, button:focus-visible {
   padding-left: 22px;
 }
 
-/* Timeline */
 .timeline {
   display: flex;
   flex-direction: column;
@@ -1625,7 +1565,6 @@ a:focus-visible, button:focus-visible {
   color: var(--text-dim);
 }
 
-/* Dovednosti — inline boxy */
 .skill-boxes {
   display: flex;
   flex-direction: column;
@@ -1686,10 +1625,6 @@ a:focus-visible, button:focus-visible {
 .skill-box.in-view .bar-fill,
 .skill-boxes.in-view .skill-box .bar-fill { width: var(--level, 50%); }
 
-/* ============================================================
-   FAQ
-   ============================================================ */
-
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1748,11 +1683,6 @@ a:focus-visible, button:focus-visible {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   Kontakt / Contact
-   ============================================================ */
-
-/* Pozadí + akcent sekce kontakt */
 .contact-section { position: relative; overflow: hidden; }
 .contact-section::before {
   content: "";
@@ -1767,7 +1697,6 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
 }
 
-/* Chip dostupnosti */
 .contact-chip {
   display: inline-flex;
   align-items: center;
@@ -1812,7 +1741,6 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
 }
 
-/* Animovaný horní proužek na hover */
 .contact-card::before {
   content: "";
   position: absolute;
@@ -1876,10 +1804,6 @@ a:focus-visible, button:focus-visible {
   margin-top: 22px;
 }
 
-/* ============================================================
-   Patička / Footer
-   ============================================================ */
-
 .footer {
   padding: 60px 24px 44px;
   border-top: 1px solid rgba(0,0,0,0.07);
@@ -1930,10 +1854,6 @@ a:focus-visible, button:focus-visible {
 
 .footer-copy { font-size: 12px; color: var(--text-faint); }
 
-/* ============================================================
-   Responzivita / Responsive
-   ============================================================ */
-
 @media (max-width: 1080px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid  { grid-template-columns: 1fr; max-width: 520px; }
@@ -1975,10 +1895,6 @@ a:focus-visible, button:focus-visible {
   .payment-grid { grid-template-columns: 1fr; }
   .about-stats  { grid-template-columns: 1fr; }
 }
-
-/* ============================================================
-   Omezený pohyb / Reduced motion
-   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

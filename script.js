@@ -1,8 +1,5 @@
 'use strict';
 
-/* ============================================================
-   PROJEKTY — přidej nebo uprav tady
-   ============================================================ */
 const projects = [
   {
     title: { cs: 'RING — Boxerská akademie', en: 'RING — Boxing Academy' },
@@ -61,9 +58,6 @@ const projects = [
   }
 ];
 
-/* ============================================================
-   PŘEKLADY
-   ============================================================ */
 const translations = {
   cs: {
     'meta.title': 'Vojtěch Straka — Webový vývojář',
@@ -138,7 +132,7 @@ const translations = {
     'plan2.f8': '30 dní podpory po spuštění',
     'plan3.name': 'Web na míru',
     'plan3.desc': 'Komplexní projekt s vlastními požadavky? Napište mi a navrhneme řešení přesně pro vás.',
-    'plan3.price': 'od 6 900 Kč',
+    'plan3.price': 'od 8 900 Kč',
     'plan3.per': 'podle rozsahu',
     'plan3.f1': 'Neomezený počet stránek',
     'plan3.f2': 'Individuální funkce dle zadání',
@@ -165,10 +159,14 @@ const translations = {
     'payment.deposit.desc': '50 % ceny projektu uhradíte před zahájením práce jako zálohu.',
     'payment.time.label': 'Pracovních dnů',
     'payment.time.desc': 'Zpracování jednostránkového webu od 5 pracovních dnů po přijetí zálohy.',
-    'payment.transfer.label': 'Platba přes PayPal',
-    'payment.transfer.desc': 'Platba probíhá přes PayPal — rychle a bezpečně online.',
+    'payment.transfer.label': 'Bankovní převod',
+    'payment.transfer.desc': 'Platba probíhá převodem na bankovní účet.',
     'payment.final.label': 'Doplatek po dokončení',
     'payment.final.desc': 'Zbývajících 50 % uhradíte po schválení hotového webu a před jeho spuštěním.',
+    'payment.hosting.label': 'Nasazení webu',
+    'payment.hosting.desc': 'Pomůžu vám web nasadit a zprovoznit — doménu si platíte sami.',
+    'payment.dpp.label': 'Spolupráce na DPP',
+    'payment.dpp.desc': 'Práce probíhá legálně na dohodu o provedení práce (DPP).',
 
     'about.eyebrow': 'Kdo jsem',
     'about.title': 'O mně.',
@@ -199,7 +197,7 @@ const translations = {
     'faq.q2': 'Kolik stojí doména a hosting?',
     'faq.a2': 'Doména a hosting nejsou součástí ceny, ale pomohu vám s výběrem. Doména cca 200 Kč/rok, hosting od 150 Kč/měsíc.',
     'faq.q3': 'Jak probíhá platba?',
-    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba probíhá jednoduše přes PayPal.',
+    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba probíhá převodem na bankovní účet.',
     'faq.q4': 'Mohu si vyzkoušet web před spuštěním?',
     'faq.a4': 'Ano! Během vývoje zasílám náhled na privátní adrese. Zkontrolujete vše, dáte zpětnou vazbu a požádáte o úpravy.',
     'faq.q5': 'Co zahrnují úpravy zdarma?',
@@ -213,6 +211,7 @@ const translations = {
     'contact.available': 'Aktuálně přijímám nové projekty',
     'contact.emailLabel': 'E-mail',
     'contact.emailBtn': 'Napsat e-mail',
+    'contact.openBtn': 'Otevřít profil',
     'contact.copy': 'Kopírovat',
     'contact.copied': 'Zkopírováno ✓',
     'footer.desc': 'Webový vývojář · Česká republika',
@@ -292,7 +291,7 @@ const translations = {
     'plan2.f8': '30 days of post-launch support',
     'plan3.name': 'Custom project',
     'plan3.desc': 'Complex project with unique requirements? Contact me and we\'ll design a solution just for you.',
-    'plan3.price': 'from 6,900 CZK',
+    'plan3.price': 'from 8,900 CZK',
     'plan3.per': 'depending on scope',
     'plan3.f1': 'Unlimited pages',
     'plan3.f2': 'Custom features per specification',
@@ -319,10 +318,14 @@ const translations = {
     'payment.deposit.desc': '50% of the project price is paid as a deposit before work begins.',
     'payment.time.label': 'Working days',
     'payment.time.desc': 'A one-page website takes from 5 working days after the deposit is received.',
-    'payment.transfer.label': 'Payment via PayPal',
-    'payment.transfer.desc': 'Payment is handled through PayPal — fast and secure online.',
+    'payment.transfer.label': 'Bank transfer',
+    'payment.transfer.desc': 'Payment is made by transfer to a bank account.',
     'payment.final.label': 'Final payment on delivery',
     'payment.final.desc': 'The remaining 50% is paid after the completed website is approved, before launch.',
+    'payment.hosting.label': 'Website deployment',
+    'payment.hosting.desc': "I'll help you deploy and launch the site — you pay for the domain yourself.",
+    'payment.dpp.label': 'Work agreement (DPP)',
+    'payment.dpp.desc': 'Work is carried out legally under a Czech work agreement (DPP).',
 
     'about.eyebrow': 'Who I am',
     'about.title': 'About me.',
@@ -353,7 +356,7 @@ const translations = {
     'faq.q2': 'How much do domain and hosting cost?',
     'faq.a2': 'Domain and hosting are not included in the price, but I help you choose. Domain ~200 CZK/year, hosting from 150 CZK/month.',
     'faq.q3': 'How does payment work?',
-    'faq.a3': '50% deposit before work begins, 50% final payment after the website is completed and approved. Payment is handled simply through PayPal.',
+    'faq.a3': '50% deposit before work begins, 50% final payment after the website is completed and approved. Payment is made by bank transfer.',
     'faq.q4': 'Can I preview the website before launch?',
     'faq.a4': 'Yes! During development I send you a preview at a private URL. Check everything, give feedback, and request changes.',
     'faq.q5': 'What do free revisions include?',
@@ -367,6 +370,7 @@ const translations = {
     'contact.available': 'Currently accepting new projects',
     'contact.emailLabel': 'Email',
     'contact.emailBtn': 'Send an email',
+    'contact.openBtn': 'Open profile',
     'contact.copy': 'Copy',
     'contact.copied': 'Copied ✓',
     'footer.desc': 'Web Developer · Czech Republic',
@@ -374,9 +378,6 @@ const translations = {
   }
 };
 
-/* ============================================================
-   Stav
-   ============================================================ */
 let lang = 'cs';
 try { lang = localStorage.getItem('lang') || 'cs'; } catch (e) {}
 if (!translations[lang]) lang = 'cs';
@@ -385,9 +386,6 @@ let booted = false;
 const t = (key) => translations[lang][key] ?? key;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ============================================================
-   Scroll reveal
-   ============================================================ */
 const revealIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -401,9 +399,6 @@ function observeReveal(scope) {
   (scope || document).querySelectorAll('.reveal:not(.in-view)').forEach((el) => revealIO.observe(el));
 }
 
-/* ============================================================
-   Skill bar observer (skill-boxes are nested, need special handling)
-   ============================================================ */
 const skillIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -417,9 +412,6 @@ const skillIO = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.skill-boxes').forEach((el) => skillIO.observe(el));
 
-/* ============================================================
-   Projekty
-   ============================================================ */
 const projectsGrid = document.getElementById('projectsGrid');
 
 function previewUrl(url) {
@@ -479,7 +471,6 @@ function renderProjects(instant) {
   projLayout();
 }
 
-/* Projekty — 3D coverflow ovládaný šipkami / arrow-driven coverflow */
 let projActive = 0;
 function projLayout() {
   if (!projectsGrid) return;
@@ -509,9 +500,6 @@ function projGo(dir) {
   window.addEventListener('resize', projLayout, { passive: true });
 })();
 
-/* ============================================================
-   Psací efekt — rotuje mezi frázemi
-   ============================================================ */
 const typedEl = document.getElementById('typed');
 let typeToken = 0;
 let typeTimer = null;
@@ -586,9 +574,6 @@ function startTyping() {
   typeTimer = setTimeout(step, 300);
 }
 
-/* ============================================================
-   Přepínání jazyka
-   ============================================================ */
 function setLang(next) {
   lang = translations[next] ? next : 'cs';
   try { localStorage.setItem('lang', lang); } catch (e) {}
@@ -614,9 +599,6 @@ document.querySelectorAll('.lang-btn').forEach((btn) => {
   btn.addEventListener('click', () => { if (btn.dataset.lang !== lang) setLang(btn.dataset.lang); });
 });
 
-/* ============================================================
-   Scrollspy
-   ============================================================ */
 const spyLinks = {};
 document.querySelectorAll('.island-link').forEach((a) => { spyLinks[a.dataset.spy] = a; });
 
@@ -634,9 +616,6 @@ const spyIO = new IntersectionObserver((entries) => {
   if (s) spyIO.observe(s);
 });
 
-/* ============================================================
-   Scroll efekty — island + parallax hero
-   ============================================================ */
 const island = document.querySelector('.island');
 const heroEl = document.querySelector('.hero');
 const heroInner = document.querySelector('.hero-inner');
@@ -656,35 +635,31 @@ window.addEventListener('scroll', () => {
     if (!reducedMotion) {
       const vh = window.innerHeight || 1;
       if (y <= vh) {
-        const p = y / vh;             // 0 → 1 napříč úvodem
-        const cp = Math.min(p * 1.1, 1);
+        const p = y / vh;
+        const cp = Math.min(p * 0.8, 1);
 
-        // Text se vzdaluje a mizí
         if (heroInner) {
-          heroInner.style.opacity = String(Math.max(0, 1 - p * 1.3));
-          heroInner.style.transform = 'translateY(' + (y * 0.3) + 'px) scale(' + (1 - p * 0.06) + ')';
+          heroInner.style.opacity = String(Math.max(0, 1 - p * 0.85));
+          heroInner.style.transform = 'translateY(' + (y * 0.14) + 'px) scale(' + (1 + p * 0.07).toFixed(3) + ')';
+          heroInner.style.filter = 'blur(' + (p * 3.5).toFixed(2) + 'px)';
         }
-        // Drone se zvedá — hora se oddálí (zoom out)
         if (mountainImg) {
-          mountainImg.style.setProperty('--mtnY', (-y * 0.04) + 'px');
-          mountainImg.style.setProperty('--mtnSc', (1.12 - p * 0.24).toFixed(4));
+          mountainImg.style.setProperty('--mtnY', (-y * 0.03) + 'px');
+          mountainImg.style.setProperty('--mtnSc', (1.12 - p * 0.16).toFixed(4));
         }
-        // Vzdálené mraky stoupají pomaleji (hloubka)
         if (cloudsBack) {
-          cloudsBack.style.setProperty('--cbY', (54 - cp * 80) + '%');
-          cloudsBack.style.setProperty('--cbSc', (1.05 + cp * 0.35).toFixed(4));
+          cloudsBack.style.setProperty('--cbY', (52 - cp * 60) + '%');
+          cloudsBack.style.setProperty('--cbSc', (1.05 + cp * 0.25).toFixed(4));
         }
-        // Přední mraky stoupají a zvětšují se — prolétneš skrz ně
         if (cloudsFront) {
-          cloudsFront.style.setProperty('--cfY', (72 - cp * 122) + '%');
-          cloudsFront.style.setProperty('--cfSc', (1 + cp * 0.75).toFixed(4));
+          cloudsFront.style.setProperty('--cfY', (74 - cp * 120) + '%');
+          cloudsFront.style.setProperty('--cfSc', (1 + cp * 0.55).toFixed(4));
         }
-        // Čistý bílý přechod na text
         if (heroWash) {
-          heroWash.style.opacity = String(Math.min(Math.max(p - 0.05, 0) * 1.7, 1));
+          heroWash.style.opacity = String(Math.min(Math.max(p - 0.15, 0) * 1.3, 1));
         }
       }
-      // Parallax obrázku na podstránce „O mně"
+      
       if (pageHeroImg) {
         pageHeroImg.style.transform = 'translateY(' + (y * 0.32) + 'px) scale(1.06)';
       }
@@ -693,7 +668,6 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-/* 3D náklon scény podle pohybu myši / pointer-driven 3D parallax */
 if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
   let pointerTicking = false;
   heroEl.addEventListener('pointermove', (e) => {
@@ -714,9 +688,6 @@ if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
   });
 }
 
-/* ============================================================
-   Služby — 3D kruhový karusel / 3D circular carousel
-   ============================================================ */
 (function () {
   const ring = document.getElementById('svcRing');
   if (!ring) return;
@@ -734,16 +705,12 @@ if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
   function rotate(dir) { angle -= dir * step; update(); }
   update();
 
-  // Pouze šipky na webu
   const prev = document.querySelector('.svc-prev');
   const next = document.querySelector('.svc-next');
   if (prev) prev.addEventListener('click', () => rotate(-1));
   if (next) next.addEventListener('click', () => rotate(1));
 })();
 
-/* ============================================================
-   Počítadla stats
-   ============================================================ */
 function animateCount(el) {
   const target = Number(el.dataset.count) || 0;
   const suffix = el.dataset.suffix || '';
@@ -767,9 +734,6 @@ const countIO = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.stat-num').forEach((el) => countIO.observe(el));
 
-/* ============================================================
-   Kopírování
-   ============================================================ */
 document.querySelectorAll('[data-copy]').forEach((btn) => {
   btn.addEventListener('click', async () => {
     const value = btn.getAttribute('data-copy');
@@ -790,9 +754,6 @@ document.querySelectorAll('[data-copy]').forEach((btn) => {
   });
 });
 
-/* ============================================================
-   Start
-   ============================================================ */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
