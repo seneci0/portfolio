@@ -256,7 +256,6 @@ a:focus-visible, button:focus-visible {
     translate(calc(var(--mx, 0) * 7px), calc(var(--my, 0) * 5px))
     translateY(var(--mtnY, 0px))
     scale(var(--mtnSc, 1.12));
-  transition: transform 0.25s ease-out;
 }
 
 .hero-mountain-fog {
@@ -286,7 +285,6 @@ a:focus-visible, button:focus-visible {
   filter: grayscale(1) brightness(0.92);
   -webkit-mask-image: linear-gradient(to top, #000 46%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.4) 78%, transparent 92%);
   mask-image: linear-gradient(to top, #000 46%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.4) 78%, transparent 92%);
-  transition: transform 0.25s ease-out;
 }
 
 .hero-clouds-back {
@@ -780,6 +778,61 @@ a:focus-visible, button:focus-visible {
     var(--bg) 100%);
 }
 .services-3d > .wrap { position: relative; z-index: 1; }
+
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1120px; margin: 0 auto; }
+.svc-card {
+  position: relative; overflow: hidden;
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 22px;
+  padding: 34px 30px;
+  -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.5s var(--ease), border-color 0.35s, box-shadow 0.35s;
+}
+.svc-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--c, #0071e3), color-mix(in srgb, var(--c, #0071e3) 40%, #ffffff));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.55s var(--ease);
+}
+.svc-card::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(130% 80% at 50% -12%, color-mix(in srgb, var(--c, #0071e3) 16%, transparent), transparent 60%);
+  opacity: 0; transition: opacity 0.45s;
+}
+.svc-card:hover {
+  transform: translateY(-9px);
+  border-color: color-mix(in srgb, var(--c, #0071e3) 38%, transparent);
+  box-shadow: 0 28px 64px rgba(0,0,0,0.12);
+}
+.svc-card:hover::before { transform: scaleX(1); }
+.svc-card:hover::after { opacity: 1; }
+.svc-num {
+  position: absolute; top: 22px; right: 26px;
+  font-family: var(--font); font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--c, #0071e3) 55%, var(--text-faint));
+  opacity: 0.55;
+}
+.svc-ic {
+  position: relative; width: 60px; height: 60px; border-radius: 17px;
+  background: linear-gradient(140deg, var(--c, #0071e3), color-mix(in srgb, var(--c, #0071e3) 55%, #ffffff));
+  display: flex; align-items: center; justify-content: center; color: #fff; margin-bottom: 20px;
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--c, #0071e3) 36%, transparent);
+  transition: transform 0.5s var(--ease);
+}
+.svc-card:hover .svc-ic { transform: scale(1.08) rotate(-5deg); }
+.svc-ic svg { width: 27px; height: 27px; }
+.svc-card h3 { position: relative; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
+.svc-card p { position: relative; font-size: 14px; line-height: 1.62; color: var(--text-dim); }
+.svc-card .service-link {
+  position: relative; margin-top: 18px; display: inline-flex; align-items: center; gap: 4px;
+  font-size: 13.5px; font-weight: 700; color: var(--c, #0071e3); transition: gap 0.25s;
+}
+.svc-card:hover .service-link { gap: 9px; }
+.svc-grid .reveal:nth-child(2) { transition-delay: .06s; }
+.svc-grid .reveal:nth-child(3) { transition-delay: .12s; }
+.svc-grid .reveal:nth-child(5) { transition-delay: .06s; }
+.svc-grid .reveal:nth-child(6) { transition-delay: .12s; }
+@media (max-width: 1000px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
 
 .svc-stage {
   --cw: 300px;
@@ -1533,8 +1586,29 @@ a:focus-visible, button:focus-visible {
 .about-right {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 30px;
 }
+
+.about-h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em; color: var(--text); margin-bottom: 14px; }
+.about-bio p { font-size: 16px; line-height: 1.7; color: var(--text-dim); margin-bottom: 14px; }
+.about-bio p:last-child { margin-bottom: 0; }
+
+.about-sub {
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--blue); margin-bottom: -8px; display: flex; align-items: center; gap: 12px;
+}
+.about-sub::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,113,227,0.3), transparent); }
+
+.about-approach { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.appr {
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px;
+  padding: 20px 18px; transition: transform 0.4s var(--ease), border-color 0.3s, box-shadow 0.3s;
+}
+.appr:hover { transform: translateY(-5px); border-color: rgba(0,113,227,0.22); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.appr-n { font-size: 12px; font-weight: 800; color: var(--blue); letter-spacing: 0.05em; }
+.appr b { display: block; margin: 8px 0 4px; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
+.appr p { font-size: 13px; line-height: 1.55; color: var(--text-dim); }
+@media (max-width: 560px) { .about-approach { grid-template-columns: 1fr; } }
 
 .about-quote {
   font-size: clamp(18px, 2.2vw, 24px);
@@ -1839,11 +1913,29 @@ a:focus-visible, button:focus-visible {
 }
 
 .footer {
-  padding: 60px 24px 44px;
+  padding: 60px 24px 0;
   border-top: 1px solid rgba(0,0,0,0.07);
   background: rgba(255,255,255,0.6);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.footer-big {
+  margin-top: 46px;
+  font-size: clamp(52px, 16vw, 230px);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.78;
+  text-align: center;
+  white-space: nowrap;
+  padding-bottom: 8px;
+  background: linear-gradient(180deg, #0071e3 0%, #5e9ef0 42%, rgba(0,113,227,0) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .footer-inner {

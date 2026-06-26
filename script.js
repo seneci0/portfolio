@@ -90,8 +90,8 @@ const translations = {
     'service2.desc': 'Každý design je unikátní. Pracuji s vašimi barvami, logem a představami — výsledek bude 100% váš.',
     'service3.name': 'Rychlé dodání',
     'service3.desc': 'Základní web hotový od 5 pracovních dnů. Bez kompromisů na kvalitě — vaše stránky fungují v řádu dnů.',
-    'service4.name': 'Grafika & video',
-    'service4.desc': 'Loga, bannery a grafika ve Photoshopu i sestřih videa v Premiere — vizuály na míru z jedné ruky.',
+    'service4.name': 'Grafika',
+    'service4.desc': 'Loga, bannery a grafika ve Photoshopu — vizuály na míru, sladěné s vaším webem.',
     'service5.name': 'Údržba & podpora',
     'service5.desc': 'Po spuštění nejste sami. Nabízím údržbu, aktualizace obsahu a technickou podporu podle potřeby.',
     'service6.name': 'Landing Page',
@@ -108,7 +108,7 @@ const translations = {
     'pricing.sub': 'Férové ceny bez skrytých poplatků. Vždy víte, za co platíte.',
     'plan1.name': 'Jednostránkový web',
     'plan1.desc': 'Ideální start — vše podstatné na jedné přehledné stránce.',
-    'plan1.price': '3 900 Kč',
+    'plan1.price': '3 990 Kč',
     'plan1.per': 'jednorázově',
     'plan1.f1': 'Moderní design na míru',
     'plan1.f2': 'Responzivní — mobil i počítač',
@@ -132,7 +132,7 @@ const translations = {
     'plan2.f8': '30 dní podpory po spuštění',
     'plan3.name': 'Web na míru',
     'plan3.desc': 'Komplexní projekt s vlastními požadavky? Napište mi a navrhneme řešení přesně pro vás.',
-    'plan3.price': 'od 8 900 Kč',
+    'plan3.price': 'od 8 990 Kč',
     'plan3.per': 'podle rozsahu',
     'plan3.f1': 'Neomezený počet stránek',
     'plan3.f2': 'Individuální funkce dle zadání',
@@ -163,15 +163,26 @@ const translations = {
     'payment.transfer.desc': 'Platba probíhá převodem na bankovní účet.',
     'payment.final.label': 'Doplatek po dokončení',
     'payment.final.desc': 'Zbývajících 50 % uhradíte po schválení hotového webu a před jeho spuštěním.',
-    'payment.hosting.label': 'Nasazení webu',
-    'payment.hosting.desc': 'Pomůžu vám web nasadit a zprovoznit — doménu si platíte sami.',
+    'payment.hosting.label': 'Nasazení na vaši doménu',
+    'payment.hosting.desc': 'Hosting neprovozuji — web vám ale pomůžu nasadit na vlastní doménu, kterou si platíte sami.',
     'payment.dpp.label': 'Spolupráce na DPP',
     'payment.dpp.desc': 'Práce probíhá legálně na dohodu o provedení práce (DPP).',
 
     'about.eyebrow': 'Kdo jsem',
     'about.title': 'O mně.',
-    'about.intro': 'Jsem 17letý student IT školy z České republiky, který věří, že skvělý web je přesně tak jednoduchý, jak musí být — ne méně, ne více.',
+    'about.intro': 'Je mi 17, studuju IT a dělám weby — jednoduché, rychlé a hezké. Nic navíc, jen to, co funguje.',
     'about.role': 'Webový vývojář & student IT',
+    'about.bioTitle': 'Pár vět o mně',
+    'about.bio1': 'Webům se věnuju přes dva roky — začal jsem ze zvědavosti a zůstal, protože mě baví sledovat, jak nápad ožívá v prohlížeči. Studuju střední školu se zaměřením na IT.',
+    'about.bio2': 'U každého webu mi jde hlavně o to, aby byl přehledný, rychlý a fungoval na mobilu i počítači. Žádné zbytečnosti — jen čistý design, který klientovi přivádí zákazníky.',
+    'about.a1t': 'Jednoduchost',
+    'about.a1d': 'Méně je více. Každý prvek na webu musí mít důvod, proč tam je.',
+    'about.a2t': 'Rychlost',
+    'about.a2d': 'Web hotový v řádu dnů a svižný i při načítání.',
+    'about.a3t': 'Komunikace',
+    'about.a3d': 'Jsem na příjmu — odpovídám rychle a srozumitelně.',
+    'about.journey': 'Moje cesta',
+    'about.tools': 'S čím pracuju',
     'about.factLabel1': 'Lokace',
     'about.fact1': 'Česká republika',
     'about.factLabel2': 'Vzdělání',
@@ -195,7 +206,7 @@ const translations = {
     'faq.q1': 'Kolik trvá vytvoření webu?',
     'faq.a1': 'Jednostránkový web od 5 pracovních dnů, prezentační web (více stránek) 10–14 dní. Záleží na rozsahu. Termín vždy upřesníme předem.',
     'faq.q2': 'Kolik stojí doména a hosting?',
-    'faq.a2': 'Doména a hosting nejsou součástí ceny, ale pomohu vám s výběrem. Doména cca 200 Kč/rok, hosting od 150 Kč/měsíc.',
+    'faq.a2': 'Hosting neprovozuji, ale rád poradím s výběrem a web vám nasadím na vaši vlastní doménu. Doménu i hosting si platíte sami — doména stojí cca 200 Kč/rok.',
     'faq.q3': 'Jak probíhá platba?',
     'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba probíhá převodem na bankovní účet.',
     'faq.q4': 'Mohu si vyzkoušet web před spuštěním?',
@@ -203,7 +214,7 @@ const translations = {
     'faq.q5': 'Co zahrnují úpravy zdarma?',
     'faq.a5': 'Kola úprav zahrnují textové změny, drobné designové úpravy a opravy chyb. Větší přepracování jsou účtována hodinovou sazbou.',
     'faq.q6': 'Pomůžete i s grafikou nebo logem?',
-    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo ve Photoshopu a podle potřeby i krátké video v Premiere. Vše sladěné s vaším webem.',
+    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo ve Photoshopu, sladěné s vaším webem.',
 
     'contact.eyebrow': 'Ozvěte se',
     'contact.title': 'Pojďme tvořit.',
@@ -249,8 +260,8 @@ const translations = {
     'service2.desc': 'Every design is unique. I work with your colours, logo, and ideas — the result will be 100% yours.',
     'service3.name': 'Fast delivery',
     'service3.desc': 'A basic website ready from 5 working days. No compromises on quality — your site is live within days.',
-    'service4.name': 'Graphics & video',
-    'service4.desc': 'Logos, banners and graphics in Photoshop plus video editing in Premiere — custom visuals from one place.',
+    'service4.name': 'Graphics',
+    'service4.desc': 'Logos, banners and graphics in Photoshop — custom visuals matched to your website.',
     'service5.name': 'Maintenance & support',
     'service5.desc': 'After launch, you are not alone. I offer maintenance, content updates, and technical support as needed.',
     'service6.name': 'Landing Page',
@@ -267,7 +278,7 @@ const translations = {
     'pricing.sub': 'Fair prices with no hidden fees. You always know what you\'re paying for.',
     'plan1.name': 'One-page website',
     'plan1.desc': 'The perfect start — everything that matters on one clear page.',
-    'plan1.price': '3,900 CZK',
+    'plan1.price': '3,990 CZK',
     'plan1.per': 'one-time',
     'plan1.f1': 'Modern custom design',
     'plan1.f2': 'Responsive — mobile & desktop',
@@ -291,7 +302,7 @@ const translations = {
     'plan2.f8': '30 days of post-launch support',
     'plan3.name': 'Custom project',
     'plan3.desc': 'Complex project with unique requirements? Contact me and we\'ll design a solution just for you.',
-    'plan3.price': 'from 8,900 CZK',
+    'plan3.price': 'from 8,990 CZK',
     'plan3.per': 'depending on scope',
     'plan3.f1': 'Unlimited pages',
     'plan3.f2': 'Custom features per specification',
@@ -322,15 +333,26 @@ const translations = {
     'payment.transfer.desc': 'Payment is made by transfer to a bank account.',
     'payment.final.label': 'Final payment on delivery',
     'payment.final.desc': 'The remaining 50% is paid after the completed website is approved, before launch.',
-    'payment.hosting.label': 'Website deployment',
-    'payment.hosting.desc': "I'll help you deploy and launch the site — you pay for the domain yourself.",
+    'payment.hosting.label': 'Deploy to your domain',
+    'payment.hosting.desc': "I don't run hosting — but I'll help you deploy the site to your own domain, which you pay for yourself.",
     'payment.dpp.label': 'Work agreement (DPP)',
     'payment.dpp.desc': 'Work is carried out legally under a Czech work agreement (DPP).',
 
     'about.eyebrow': 'Who I am',
     'about.title': 'About me.',
-    'about.intro': "I'm a 17-year-old IT student from the Czech Republic who believes a great website is exactly as simple as it needs to be — not less, not more.",
+    'about.intro': "I'm 17, I study IT and I build websites — simple, fast and good-looking. Nothing extra, just what works.",
     'about.role': 'Web Developer & IT student',
+    'about.bioTitle': 'A few words about me',
+    'about.bio1': "I've been building websites for over two years — I started out of curiosity and stayed because I love watching an idea come to life in the browser. I'm studying IT at high school.",
+    'about.bio2': 'With every website my goal is the same: clear, fast and working perfectly on both mobile and desktop. No clutter — just clean design that brings clients real customers.',
+    'about.a1t': 'Simplicity',
+    'about.a1d': 'Less is more. Every element on the site has to earn its place.',
+    'about.a2t': 'Speed',
+    'about.a2d': 'Sites finished in days — and fast to load, too.',
+    'about.a3t': 'Communication',
+    'about.a3d': "I'm reachable — I reply quickly and in plain language.",
+    'about.journey': 'My journey',
+    'about.tools': 'What I work with',
     'about.factLabel1': 'Location',
     'about.fact1': 'Czech Republic',
     'about.factLabel2': 'Education',
@@ -354,7 +376,7 @@ const translations = {
     'faq.q1': 'How long does it take?',
     'faq.a1': 'A one-page website from 5 working days, a business website (multiple pages) 10–14 days. Depends on scope. We always confirm the timeline upfront.',
     'faq.q2': 'How much do domain and hosting cost?',
-    'faq.a2': 'Domain and hosting are not included in the price, but I help you choose. Domain ~200 CZK/year, hosting from 150 CZK/month.',
+    'faq.a2': "I don't run hosting, but I'm happy to help you choose and I'll deploy the site to your own domain. You pay for the domain and hosting — a domain costs around 200 CZK/year.",
     'faq.q3': 'How does payment work?',
     'faq.a3': '50% deposit before work begins, 50% final payment after the website is completed and approved. Payment is made by bank transfer.',
     'faq.q4': 'Can I preview the website before launch?',
@@ -362,7 +384,7 @@ const translations = {
     'faq.q5': 'What do free revisions include?',
     'faq.a5': 'Revision rounds cover text changes, minor design tweaks, and bug fixes. Larger reworks are charged at an hourly rate.',
     'faq.q6': 'Can you help with graphics or a logo?',
-    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Photoshop, and short videos in Premiere if needed. All matched to your website.',
+    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Photoshop, all matched to your website.',
 
     'contact.eyebrow': 'Get in touch',
     'contact.title': "Let's create.",
@@ -624,49 +646,49 @@ const cloudsBack = document.querySelector('.hero-clouds-back');
 const cloudsFront = document.querySelector('.hero-clouds-front');
 const heroWash = document.querySelector('.hero-wash');
 const pageHeroImg = document.querySelector('.page-hero-img');
-let scrollTicking = false;
+const heroNameEl = document.querySelector('.hero-name');
 
 window.addEventListener('scroll', () => {
-  if (scrollTicking) return;
-  scrollTicking = true;
-  requestAnimationFrame(() => {
-    const y = window.scrollY;
-    if (island) island.classList.toggle('scrolled', y > 40);
-    if (!reducedMotion) {
-      const vh = window.innerHeight || 1;
-      if (y <= vh) {
-        const p = y / vh;
-        const cp = Math.min(p * 0.8, 1);
-
-        if (heroInner) {
-          heroInner.style.opacity = String(Math.max(0, 1 - p * 0.85));
-          heroInner.style.transform = 'translateY(' + (y * 0.14) + 'px) scale(' + (1 + p * 0.07).toFixed(3) + ')';
-          heroInner.style.filter = 'blur(' + (p * 3.5).toFixed(2) + 'px)';
-        }
-        if (mountainImg) {
-          mountainImg.style.setProperty('--mtnY', (-y * 0.03) + 'px');
-          mountainImg.style.setProperty('--mtnSc', (1.12 - p * 0.16).toFixed(4));
-        }
-        if (cloudsBack) {
-          cloudsBack.style.setProperty('--cbY', (52 - cp * 60) + '%');
-          cloudsBack.style.setProperty('--cbSc', (1.05 + cp * 0.25).toFixed(4));
-        }
-        if (cloudsFront) {
-          cloudsFront.style.setProperty('--cfY', (74 - cp * 120) + '%');
-          cloudsFront.style.setProperty('--cfSc', (1 + cp * 0.55).toFixed(4));
-        }
-        if (heroWash) {
-          heroWash.style.opacity = String(Math.min(Math.max(p - 0.15, 0) * 1.3, 1));
-        }
-      }
-      
-      if (pageHeroImg) {
-        pageHeroImg.style.transform = 'translateY(' + (y * 0.32) + 'px) scale(1.06)';
-      }
-    }
-    scrollTicking = false;
-  });
+  if (island) island.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
+
+if (!reducedMotion) {
+  const lerp = (a, b, f) => a + (b - a) * f;
+  const s = { mtnY: 0, mtnSc: 1.12, cbY: 52, cbSc: 1.05, cfY: 74, cfSc: 1, wash: 0, hiY: 0, hiOp: 1, nmBlur: 0 };
+  const loop = () => {
+    const y = window.scrollY;
+    const vh = window.innerHeight || 1;
+    const p = Math.min(y / vh, 1.25);
+    const pc = Math.min(p, 1);
+    const cp = Math.min(p * 0.78, 1);
+    const t = {
+      mtnY: -y * 0.028,
+      mtnSc: 1.12 - pc * 0.15,
+      cbY: 52 - cp * 64,
+      cbSc: 1.05 + cp * 0.26,
+      cfY: 74 - cp * 126,
+      cfSc: 1 + cp * 0.55,
+      wash: Math.min(Math.max(p - 0.2, 0) * 1.25, 1),
+      hiY: y * 0.1,
+      hiOp: Math.max(0, 1 - p * 1.05),
+      nmBlur: Math.min(p * 13, 13)
+    };
+    const F = 0.12;
+    for (const k in t) s[k] = lerp(s[k], t[k], F);
+
+    if (y <= vh * 1.4) {
+      if (mountainImg) { mountainImg.style.setProperty('--mtnY', s.mtnY.toFixed(2) + 'px'); mountainImg.style.setProperty('--mtnSc', s.mtnSc.toFixed(4)); }
+      if (cloudsBack) { cloudsBack.style.setProperty('--cbY', s.cbY.toFixed(2) + '%'); cloudsBack.style.setProperty('--cbSc', s.cbSc.toFixed(4)); }
+      if (cloudsFront) { cloudsFront.style.setProperty('--cfY', s.cfY.toFixed(2) + '%'); cloudsFront.style.setProperty('--cfSc', s.cfSc.toFixed(4)); }
+      if (heroWash) heroWash.style.opacity = s.wash.toFixed(3);
+      if (heroInner) { heroInner.style.transform = 'translateY(' + s.hiY.toFixed(1) + 'px)'; heroInner.style.opacity = s.hiOp.toFixed(3); }
+      if (heroNameEl) heroNameEl.style.filter = 'blur(' + s.nmBlur.toFixed(2) + 'px)';
+    }
+    if (pageHeroImg) pageHeroImg.style.transform = 'translateY(' + (y * 0.32) + 'px) scale(1.06)';
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+}
 
 if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
   let pointerTicking = false;
