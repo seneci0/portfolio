@@ -2,6 +2,17 @@
 
 const projects = [
   {
+    title: { cs: 'ZRNO — výběrová kavárna', en: 'ZRNO — Specialty Café' },
+    desc: {
+      cs: 'Editoriální web pro výběrovou kavárnu a pražírnu — velká typografie, menu s cenami, galerie a rezervace. Teplý, prémiový vzhled.',
+      en: 'Editorial website for a specialty café & roastery — bold typography, full menu, gallery and reservations. Warm, premium look.'
+    },
+    url: './kavarna.html',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Editorial', 'Animace'],
+    gradient: 'linear-gradient(135deg, #241710, #a84e29)'
+  },
+  {
     title: { cs: 'RING — Boxerská akademie', en: 'RING — Boxing Academy' },
     desc: {
       cs: 'Tvrdý, tmavý web pro boxerskou akademii — trenéři, 3 kategorie, fotky ze studia i ze zápasů, nábor a ceník.',
@@ -91,7 +102,7 @@ const translations = {
     'service3.name': 'Rychlé dodání',
     'service3.desc': 'Základní web hotový od 5 pracovních dnů. Bez kompromisů na kvalitě — vaše stránky fungují v řádu dnů.',
     'service4.name': 'Grafika',
-    'service4.desc': 'Loga, bannery a grafika ve Photoshopu — vizuály na míru, sladěné s vaším webem.',
+    'service4.desc': 'Loga, bannery a grafika v Adobe — vizuály na míru, sladěné s vaším webem.',
     'service5.name': 'Údržba & podpora',
     'service5.desc': 'Po spuštění nejste sami. Nabízím údržbu, aktualizace obsahu a technickou podporu podle potřeby.',
     'service6.name': 'Landing Page',
@@ -214,7 +225,7 @@ const translations = {
     'faq.q5': 'Co zahrnují úpravy zdarma?',
     'faq.a5': 'Kola úprav zahrnují textové změny, drobné designové úpravy a opravy chyb. Větší přepracování jsou účtována hodinovou sazbou.',
     'faq.q6': 'Pomůžete i s grafikou nebo logem?',
-    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo ve Photoshopu, sladěné s vaším webem.',
+    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo v Adobe, sladěné s vaším webem.',
 
     'contact.eyebrow': 'Ozvěte se',
     'contact.title': 'Pojďme tvořit.',
@@ -261,7 +272,7 @@ const translations = {
     'service3.name': 'Fast delivery',
     'service3.desc': 'A basic website ready from 5 working days. No compromises on quality — your site is live within days.',
     'service4.name': 'Graphics',
-    'service4.desc': 'Logos, banners and graphics in Photoshop — custom visuals matched to your website.',
+    'service4.desc': 'Logos, banners and graphics in Adobe — custom visuals matched to your website.',
     'service5.name': 'Maintenance & support',
     'service5.desc': 'After launch, you are not alone. I offer maintenance, content updates, and technical support as needed.',
     'service6.name': 'Landing Page',
@@ -384,7 +395,7 @@ const translations = {
     'faq.q5': 'What do free revisions include?',
     'faq.a5': 'Revision rounds cover text changes, minor design tweaks, and bug fixes. Larger reworks are charged at an hourly rate.',
     'faq.q6': 'Can you help with graphics or a logo?',
-    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Photoshop, all matched to your website.',
+    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Adobe, all matched to your website.',
 
     'contact.eyebrow': 'Get in touch',
     'contact.title': "Let's create.",

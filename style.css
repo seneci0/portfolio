@@ -603,12 +603,11 @@ a:focus-visible, button:focus-visible {
   position: absolute;
   inset: -8% 0 0 0;
   background-color: #c8cfd6;
-  background-image:
-    linear-gradient(rgba(233,235,241,0.12), rgba(233,235,241,0.12)),
-    url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2000&q=80');
+  background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
+  filter: grayscale(1) contrast(1.04) brightness(1.03);
   will-change: transform;
 }
 
@@ -778,61 +777,6 @@ a:focus-visible, button:focus-visible {
     var(--bg) 100%);
 }
 .services-3d > .wrap { position: relative; z-index: 1; }
-
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1120px; margin: 0 auto; }
-.svc-card {
-  position: relative; overflow: hidden;
-  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 22px;
-  padding: 34px 30px;
-  -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%);
-  box-shadow: var(--glass-shadow);
-  transition: transform 0.5s var(--ease), border-color 0.35s, box-shadow 0.35s;
-}
-.svc-card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--c, #0071e3), color-mix(in srgb, var(--c, #0071e3) 40%, #ffffff));
-  transform: scaleX(0); transform-origin: left; transition: transform 0.55s var(--ease);
-}
-.svc-card::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(130% 80% at 50% -12%, color-mix(in srgb, var(--c, #0071e3) 16%, transparent), transparent 60%);
-  opacity: 0; transition: opacity 0.45s;
-}
-.svc-card:hover {
-  transform: translateY(-9px);
-  border-color: color-mix(in srgb, var(--c, #0071e3) 38%, transparent);
-  box-shadow: 0 28px 64px rgba(0,0,0,0.12);
-}
-.svc-card:hover::before { transform: scaleX(1); }
-.svc-card:hover::after { opacity: 1; }
-.svc-num {
-  position: absolute; top: 22px; right: 26px;
-  font-family: var(--font); font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
-  color: color-mix(in srgb, var(--c, #0071e3) 55%, var(--text-faint));
-  opacity: 0.55;
-}
-.svc-ic {
-  position: relative; width: 60px; height: 60px; border-radius: 17px;
-  background: linear-gradient(140deg, var(--c, #0071e3), color-mix(in srgb, var(--c, #0071e3) 55%, #ffffff));
-  display: flex; align-items: center; justify-content: center; color: #fff; margin-bottom: 20px;
-  box-shadow: 0 12px 26px color-mix(in srgb, var(--c, #0071e3) 36%, transparent);
-  transition: transform 0.5s var(--ease);
-}
-.svc-card:hover .svc-ic { transform: scale(1.08) rotate(-5deg); }
-.svc-ic svg { width: 27px; height: 27px; }
-.svc-card h3 { position: relative; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
-.svc-card p { position: relative; font-size: 14px; line-height: 1.62; color: var(--text-dim); }
-.svc-card .service-link {
-  position: relative; margin-top: 18px; display: inline-flex; align-items: center; gap: 4px;
-  font-size: 13.5px; font-weight: 700; color: var(--c, #0071e3); transition: gap 0.25s;
-}
-.svc-card:hover .service-link { gap: 9px; }
-.svc-grid .reveal:nth-child(2) { transition-delay: .06s; }
-.svc-grid .reveal:nth-child(3) { transition-delay: .12s; }
-.svc-grid .reveal:nth-child(5) { transition-delay: .06s; }
-.svc-grid .reveal:nth-child(6) { transition-delay: .12s; }
-@media (max-width: 1000px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
 
 .svc-stage {
   --cw: 300px;
@@ -1707,12 +1651,10 @@ a:focus-visible, button:focus-visible {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.tile-html { background: linear-gradient(135deg, #e34c26, #f06529); }
 .tile-js   { background: linear-gradient(135deg, #f7df1e, #e6c200); color: #1d1d1f; }
-.tile-php  { background: linear-gradient(135deg, #5d61a8, #777bb3); font-size: 11px; }
-.tile-ps   { background: linear-gradient(135deg, #001e36, #00385f); color: #31a8ff; }
 .tile-py   { background: linear-gradient(135deg, #366a96, #ffd43b); color: #fff; }
-.tile-pr   { background: linear-gradient(135deg, #1d0a3a, #9a73ff); color: #eccbff; }
+.tile-vs   { background: linear-gradient(135deg, #0066b8, #0098ff); color: #fff; }
+.tile-ad   { background: linear-gradient(135deg, #3a0a0a, #fa0f00); color: #fff; }
 
 .bar {
   height: 5px;
