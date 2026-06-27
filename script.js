@@ -35,15 +35,15 @@ const projects = [
     gradient: 'linear-gradient(135deg, #1a1a1a, #7a1f1f)'
   },
   {
-    title: { cs: 'FitCoach — osobní trenér', en: 'FitCoach — Personal Trainer' },
+    title: { cs: 'FORMA — osobní trenér', en: 'FORMA — Personal Trainer' },
     desc: {
-      cs: 'Web osobního trenéra pro všechny věkové kategorie — služby, recenze, jídelníčky na míru a ceník.',
-      en: 'Personal trainer website for all ages — services, reviews, custom meal plans and pricing.'
+      cs: 'Tmavý editorial web osobního trenéra — serif typografie, číslované benefity, reference, termíny a silné fotky z tréninku.',
+      en: 'Dark editorial website for a personal trainer — serif typography, numbered benefits, reviews, schedule and bold training photography.'
     },
     url: './fitness.html',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=80',
-    tags: ['Web Design', 'Recenze', 'Mobile'],
-    gradient: 'linear-gradient(135deg, #0e2a1e, #1f7a4d)'
+    image: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Editorial', 'Fitness'],
+    gradient: 'linear-gradient(135deg, #0b0a09, #c06a3e)'
   },
   {
     title: { cs: 'AddLab — 3D tisk na zakázku', en: 'AddLab — Custom 3D Printing' },
@@ -57,15 +57,15 @@ const projects = [
     gradient: 'linear-gradient(135deg, #0c0c0d, #e3bf00)'
   },
   {
-    title: { cs: 'Studio Světlo — fotograf', en: 'Studio Světlo — Photographer' },
+    title: { cs: 'Lidský moment — fotograf', en: 'Lidský moment — Photographer' },
     desc: {
-      cs: 'Elegantní tmavé portfolio fotografa — galerie, balíčky focení a rezervace termínu.',
-      en: 'Elegant dark photographer portfolio — gallery, session packages and bookings.'
+      cs: 'Černobílé brutalistické portfolio fotografa — obří typografie, portrétní grid, výrazný editorial vzhled a marquee.',
+      en: 'Black & white brutalist photographer portfolio — oversized typography, portrait grid, bold editorial look and a marquee.'
     },
     url: './foto.html',
-    image: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=80',
-    tags: ['Design', 'Galerie', 'CSS'],
-    gradient: 'linear-gradient(135deg, #2a2622, #7a6a52)'
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Editorial', 'Černobílá'],
+    gradient: 'linear-gradient(135deg, #0b0b0b, #6b6b69)'
   }
 ];
 
