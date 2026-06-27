@@ -3,254 +3,553 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AddLab — 3D tisk na zakázku. Realizace projektů, návrh, prototypy, praxe a ukázky prací.">
+  <meta name="description" content="AddLab — 3D tisk na zakázku. Přesné prototypy, funkční díly i malosériová výroba. FDM i SLA, široká nabídka materiálů.">
   <meta name="color-scheme" content="dark">
   <title>AddLab — 3D tisk na zakázku</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0a1320; --bg2:#0c1726; --card:#0f1c2e; --line:#1d2d44;
-      --blue:#2f86ff; --cyan:#22d3ee; --org:#ff7a18; --txt:#eaf1fb; --dim:#8aa0bd; --faint:#5a6f8c;
-      --head:"Space Grotesk",sans-serif; --sans:"Inter",sans-serif; --ease:cubic-bezier(.2,.8,.2,1);
+    :root {
+      --yellow: #f2d019;
+      --yellow-deep: #e3bf00;
+      --ink: #0c0c0d;
+      --ink2: #141416;
+      --ink3: #1b1b1e;
+      --line: rgba(255,255,255,0.1);
+      --line-soft: rgba(255,255,255,0.06);
+      --text: #ededed;
+      --dim: #8d8d92;
+      --faint: #5a5a60;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:84px}
-    body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
-    ::selection{background:var(--blue);color:#fff}
-    .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:300}
-    .ribbon{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--org);color:#1a1206;text-align:center;font-size:12.5px;font-weight:700;padding:7px 16px}
-    .ribbon a{text-decoration:underline}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--sans); background: var(--ink); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    ::selection { background: var(--yellow); color: #000; }
 
-    nav{position:fixed;top:33px;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;transition:.4s}
-    nav.s{top:0;background:rgba(10,19,32,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:11px 6vw}
-    .brand{font-family:var(--head);font-weight:700;font-size:22px}.brand b{color:var(--blue)}.brand i{font-style:normal;color:var(--org)}
-    .nlinks{display:flex;gap:26px}
-    .nlinks a{font-size:14px;font-weight:500;color:var(--dim);transition:.25s}.nlinks a:hover{color:#fff}
-    .nbtn{padding:11px 22px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#04121f;border-radius:10px;font-weight:700;font-size:13.5px;transition:.3s}
-    .nbtn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(47,134,255,.4)}
+    .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--yellow); z-index: 300; }
 
-    .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:46px;padding:150px 6vw 80px;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 78% 28%,rgba(47,134,255,.2),transparent 70%);pointer-events:none}
-    .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 70% 30%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 70% 30%,#000,transparent 75%);opacity:.5}
-    .hero-txt{position:relative;z-index:2}
-    .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(47,134,255,.12);border:1px solid rgba(47,134,255,.3);color:var(--cyan);font-weight:600;font-size:13px;padding:7px 14px;border-radius:999px;margin-bottom:22px}
-    .hero h1{font-family:var(--head);font-weight:700;font-size:clamp(44px,6.6vw,80px);line-height:1.02;letter-spacing:-.02em}
-    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .hero p{margin-top:20px;font-size:18px;color:var(--dim);max-width:480px}
-    .hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-    .btn{padding:15px 28px;border-radius:12px;font-weight:700;font-size:15px;transition:.3s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
-    .btn-b{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#04121f}.btn-b:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(47,134,255,.4)}
-    .btn-o{border:1px solid var(--line);color:#fff}.btn-o:hover{border-color:var(--blue)}
-    .hero-img{position:relative;z-index:2;height:72vh;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
-    .hero-img img{width:100%;height:100%;object-fit:cover;will-change:transform}
-    .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(10,19,32,.6))}
-    .chip3{position:absolute;z-index:3;background:rgba(10,19,32,.85);border:1px solid var(--line);border-radius:12px;padding:12px 16px;backdrop-filter:blur(10px)}
-    .chip3 b{font-family:var(--head);font-size:17px;color:var(--cyan)}.chip3 span{font-size:11px;color:var(--dim);display:block}
-    .chip3.a{left:18px;bottom:18px}.chip3.b{right:18px;top:80px}
+    .ribbon {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 5vw; background: #000; color: var(--dim);
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+    }
+    .ribbon .dot { color: var(--yellow); }
+    .ribbon a { color: var(--text); border-bottom: 1px solid transparent; transition: border-color .3s; }
+    .ribbon a:hover { border-color: var(--yellow); }
 
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .stats div{background:var(--bg);padding:30px 6vw;text-align:center}
-    .stats .n{font-family:var(--head);font-weight:700;font-size:34px;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .stats .l{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+    nav {
+      position: fixed; top: 30px; left: 0; right: 0; z-index: 150;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5vw; transition: padding .35s var(--ease), background .35s, border-color .35s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.s { padding: 12px 5vw; background: rgba(12,12,13,0.85); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-color: var(--line); }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -0.02em; font-size: 17px; }
+    .brand .mark { width: 26px; height: 26px; border-radius: 7px; background: var(--yellow); color: #000; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); transition: color .25s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--yellow); color: #000; padding: 9px 16px; border-radius: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; transition: transform .3s, background .3s; }
+    .nav-cta:hover { transform: translateY(-2px); background: #fff; }
 
-    section{padding:100px 6vw;position:relative}
-    .head{max-width:700px;margin:0 auto 56px;text-align:center}
-    .ek{color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:12.5px}
-    .head h2{font-family:var(--head);font-weight:700;font-size:clamp(32px,5vw,54px);margin-top:10px;letter-spacing:-.02em}
-    .head p{margin-top:14px;color:var(--dim)}
-    .reveal{opacity:0;transform:translateY(28px);transition:.8s var(--ease)}.reveal.in{opacity:1;transform:none}
+    .hero { background: var(--yellow); color: #000; padding: 150px 5vw 0; position: relative; overflow: hidden; }
+    .hero-top { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 28px; border-bottom: 1.5px solid #000; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .hero-main { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; padding: 56px 0 44px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 22px; }
+    .hero-badge .sq { width: 16px; height: 16px; background: #000; border-radius: 4px; }
+    .hero h1 { font-size: clamp(46px, 7vw, 104px); font-weight: 800; line-height: 0.96; letter-spacing: -0.04em; }
+    .hero h1 .thin { font-weight: 500; color: #1a1a1a; }
+    .hero-sub { margin-top: 22px; max-width: 460px; font-size: 16px; color: #2a2a23; line-height: 1.55; }
+    .hero-btns { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; align-items: center; }
+    .btn-dark { background: #000; color: var(--yellow); padding: 15px 26px; border-radius: 10px; font-weight: 700; font-size: 14px; transition: transform .3s, background .3s; }
+    .btn-dark:hover { transform: translateY(-2px); background: #1a1a1a; }
+    .hero-meta { display: flex; gap: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #3a3a30; }
+    .hero-graphic { position: relative; aspect-ratio: 4/3; border: 1.5px solid #000; border-radius: 12px; overflow: hidden; background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.06) 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0 1px, transparent 1px 26px); }
+    .hero-graphic svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-graphic .tag { position: absolute; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #000; }
+    .hg-path { fill: none; stroke: #000; stroke-width: 2.5; stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 3s var(--ease) forwards .3s; }
+    .hg-dot { animation: dot 3s var(--ease) forwards .3s; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes dot { 0% { opacity: 0; } 90% { opacity: 0; } 100% { opacity: 1; } }
+    .hero-cols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #000; border-top: 1.5px solid #000; }
+    .hcol { background: var(--yellow); padding: 24px 18px 30px; }
+    .hcol .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4a3a; }
+    .hcol .v { margin-top: 10px; font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+    .hcol p { margin-top: 6px; font-size: 12px; color: #3a3a30; line-height: 1.45; }
+    .hero-stripe { height: 14px; background: repeating-linear-gradient(90deg, #000 0 18px, var(--yellow) 18px 36px); }
 
-    .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1150px;margin:0 auto}
-    .feat{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 26px;transition:.4s;overflow:hidden}
-    .feat::after{content:counter(f,decimal-leading-zero);counter-increment:f;position:absolute;top:14px;right:18px;font-family:var(--head);font-weight:700;font-size:34px;color:rgba(47,134,255,.16)}
-    .feats{counter-reset:f}
-    .feat:hover{transform:translateY(-6px);border-color:var(--blue)}
-    .feat .ic{width:52px;height:52px;border-radius:12px;background:rgba(47,134,255,.14);border:1px solid rgba(47,134,255,.3);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
-    .feat h3{font-family:var(--head);font-weight:600;font-size:19px;margin-bottom:8px}
-    .feat p{color:var(--dim);font-size:14px}
+    section { padding: 110px 5vw; position: relative; }
+    .wrap { max-width: 1280px; margin: 0 auto; }
+    .ey { display: inline-flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 18px; }
+    .ey .sq { width: 15px; height: 15px; background: var(--yellow); border-radius: 4px; }
+    h2.big { font-size: clamp(32px, 5vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; }
+    .lead { margin-top: 16px; max-width: 540px; color: var(--dim); font-size: 16px; }
+    .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 54px; flex-wrap: wrap; }
+    .sec-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: color .25s, border-color .25s; }
+    .sec-link:hover { color: var(--yellow); border-color: var(--yellow); }
 
-    .mats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1100px;margin:0 auto}
-    .mat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;transition:.35s}
-    .mat:hover{transform:translateY(-5px);border-color:var(--cyan)}
-    .mat .e{font-size:30px}.mat h4{font-family:var(--head);font-weight:600;margin:10px 0 4px;font-size:16px}.mat p{font-size:12px;color:var(--dim)}
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
 
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1150px;margin:0 auto}
-    .step{position:relative;padding:24px}
-    .step .n{font-family:var(--head);font-weight:700;font-size:42px;background:linear-gradient(135deg,var(--blue),var(--org));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .step h3{font-weight:700;margin:6px 0}.step p{font-size:13.5px;color:var(--dim)}
+    .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .cap { background: var(--ink2); padding: 30px 26px 34px; transition: background .3s; }
+    .cap:hover { background: var(--ink3); }
+    .cap .n { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+    .cap .ico { width: 44px; height: 44px; border-radius: 10px; background: rgba(242,208,25,0.12); display: flex; align-items: center; justify-content: center; color: var(--yellow); margin: 18px 0 18px; }
+    .cap .ico svg { width: 22px; height: 22px; }
+    .cap h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+    .cap p { margin-top: 8px; font-size: 13px; color: var(--dim); line-height: 1.55; }
+    @media (max-width: 980px) { .cap-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .cap-grid { grid-template-columns: 1fr; } }
 
-    .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1150px;margin:0 auto}
-    .gal>div{height:240px;border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--line)}
-    .gal img{width:100%;height:100%;object-fit:cover;transition:.7s var(--ease)}.gal>div:hover img{transform:scale(1.08)}
-    .gtile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:repeating-linear-gradient(45deg,#0f1c2e,#0f1c2e 14px,#11203492 14px,#112034 28px)}
-    .gtile .e{font-size:38px}.gtile span{font-size:12px;color:var(--dim)}
-    .gtxt{position:absolute;left:0;right:0;bottom:0;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-size:13px;font-weight:600}
+    .process { background: var(--ink2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .proc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .proc-img { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+    .proc-img img { width: 100%; aspect-ratio: 4/3.2; object-fit: cover; }
+    .proc-img .badge { position: absolute; left: 16px; bottom: 16px; background: var(--yellow); color: #000; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; padding: 7px 12px; border-radius: 7px; }
+    .steps { display: flex; flex-direction: column; }
+    .step { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .step:last-child { border-bottom: none; }
+    .step .sn { font-family: var(--mono); font-size: 13px; color: var(--yellow); font-weight: 700; }
+    .step h4 { font-size: 18px; font-weight: 700; }
+    .step p { margin-top: 5px; font-size: 13.5px; color: var(--dim); }
+    @media (max-width: 860px) { .proc-grid { grid-template-columns: 1fr; gap: 36px; } }
 
-    .intern{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center;max-width:1150px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden}
-    .intern img{width:100%;height:100%;min-height:340px;object-fit:cover}
-    .intern .c{padding:46px}
-    .intern h2{font-family:var(--head);font-weight:700;font-size:clamp(28px,3.6vw,42px)}
-    .intern p{color:var(--dim);margin:14px 0}
-    .intern ul{list-style:none}.intern li{padding:9px 0;border-top:1px solid var(--line);font-size:14px}.intern li::before{content:"▹ ";color:var(--cyan)}
+    .strip-sec { padding: 90px 0; overflow: hidden; }
+    .strip-sec .strip-head { padding: 0 5vw; margin-bottom: 40px; }
+    .marquee { display: flex; gap: 16px; width: max-content; animation: scrollx 38s linear infinite; }
+    .strip-sec:hover .marquee { animation-play-state: paused; }
+    .m-card { width: 340px; flex-shrink: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); position: relative; background: var(--ink2); }
+    .m-card img { width: 100%; height: 230px; object-fit: cover; transition: transform 1s var(--ease); }
+    .m-card:hover img { transform: scale(1.06); }
+    .m-card .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+    @keyframes scrollx { to { transform: translateX(-50%); } }
 
-    .price{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1040px;margin:0 auto}
-    .pc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px 26px;text-align:center;transition:.4s}
-    .pc.f{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue) inset}.pc:hover{transform:translateY(-6px)}
-    .pc h3{font-family:var(--head);font-weight:600}.pc .amt{font-family:var(--head);font-weight:700;font-size:40px;margin:10px 0 2px}.pc .per{font-size:13px;color:var(--dim)}
-    .pc ul{list-style:none;margin:20px 0;text-align:left}.pc li{padding:8px 0;font-size:14px;border-top:1px solid var(--line);color:#cdd8e8}.pc li::before{content:"✓ ";color:var(--cyan);font-weight:800}
+    .mat { background: var(--ink); }
+    .mat-table { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .mat-row { display: grid; grid-template-columns: 1.2fr 2fr 1fr 0.9fr; gap: 20px; padding: 20px 26px; border-bottom: 1px solid var(--line); align-items: center; transition: background .25s; }
+    .mat-row:last-child { border-bottom: none; }
+    .mat-row:hover { background: var(--ink2); }
+    .mat-row.h { background: var(--ink2); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); }
+    .mat-row .nm { font-weight: 800; letter-spacing: -0.01em; font-size: 17px; }
+    .mat-row .nm span { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 9px; }
+    .mat-row .ds { font-size: 13.5px; color: var(--dim); }
+    .mat-row .pr { font-family: var(--mono); font-size: 13px; color: var(--yellow); }
+    .mat-row .tg { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+    @media (max-width: 760px) { .mat-row { grid-template-columns: 1fr 1fr; gap: 8px 16px; } .mat-row .ds { grid-column: 1 / -1; } }
 
-    .faq{max-width:840px;margin:0 auto}
-    .faq details{border-bottom:1px solid var(--line)}
-    .faq summary{list-style:none;cursor:pointer;padding:22px 4px;font-family:var(--head);font-weight:600;font-size:clamp(16px,2.2vw,21px);display:flex;justify-content:space-between;gap:16px}
-    .faq summary::-webkit-details-marker{display:none}
-    .faq summary::after{content:"+";color:var(--cyan);font-size:24px;transition:.3s}
-    .faq details[open] summary::after{transform:rotate(45deg)}
-    .faq .a{padding:0 4px 22px;color:var(--dim);font-size:14.5px}
+    .giant { padding: 40px 5vw 0; text-align: center; position: relative; }
+    .giant .word { font-size: clamp(70px, 22vw, 340px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.8; color: transparent; -webkit-text-stroke: 1.4px rgba(255,255,255,0.14); }
+    .giant .word .fill { color: rgba(242,208,25,0.16); -webkit-text-stroke: 0; }
 
-    footer{background:#06101c;border-top:1px solid var(--line);padding:60px 6vw 36px}
-    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1150px;margin:0 auto;padding-bottom:34px;border-bottom:1px solid var(--line)}
-    .fgrid .brand{font-size:30px;margin-bottom:12px}.fgrid p{color:var(--dim);font-size:14px;max-width:320px}
-    .fcol h4{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:14px}
-    .fcol a,.fcol div{display:block;color:var(--dim);font-size:14px;margin-bottom:9px}.fcol a:hover{color:#fff}
-    .fbot{max-width:1150px;margin:26px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px}.fbot a{color:var(--cyan)}
+    .specs { background: var(--ink2); border-top: 1px solid var(--line); }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+    .terminal { background: #050506; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+    .term-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+    .term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #2a2a2e; display: block; }
+    .term-bar .t { margin-left: 10px; font-family: var(--mono); font-size: 11px; color: var(--faint); }
+    .term-body { padding: 22px 22px 26px; font-family: var(--mono); font-size: 13px; line-height: 1.9; }
+    .term-body .c { color: var(--faint); }
+    .term-body .k { color: var(--yellow); }
+    .term-body .v { color: var(--text); }
+    .term-body .g { color: #5fcf7a; }
 
-    @media(max-width:880px){.nlinks{display:none}.hero,.intern{grid-template-columns:1fr}.hero-img{height:46vh}.stats{grid-template-columns:1fr 1fr}.feats,.steps,.price{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.mats{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}.fgrid{grid-template-columns:1fr}}
+    .price { background: var(--ink); }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tier { border: 1px solid var(--line); border-radius: 16px; padding: 32px 28px 34px; background: var(--ink2); transition: transform .4s var(--ease), border-color .3s; }
+    .tier:hover { transform: translateY(-6px); border-color: rgba(242,208,25,0.4); }
+    .tier.feat { background: var(--yellow); color: #000; border-color: var(--yellow); }
+    .tier .tl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); }
+    .tier.feat .tl { color: #4a4a3a; }
+    .tier .amt { margin: 16px 0 6px; font-size: 38px; font-weight: 800; letter-spacing: -0.03em; }
+    .tier .amt small { font-size: 14px; font-weight: 500; color: var(--dim); }
+    .tier.feat .amt small { color: #3a3a30; }
+    .tier ul { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 11px; }
+    .tier li { font-size: 13.5px; color: var(--dim); display: flex; gap: 9px; }
+    .tier.feat li { color: #2a2a23; }
+    .tier li::before { content: "+"; color: var(--yellow); font-family: var(--mono); }
+    .tier.feat li::before { color: #000; }
+    .tier .tbtn { margin-top: 26px; display: block; text-align: center; padding: 13px; border-radius: 10px; border: 1px solid var(--line); font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; transition: background .3s, color .3s; }
+    .tier .tbtn:hover { background: var(--yellow); color: #000; border-color: var(--yellow); }
+    .tier.feat .tbtn { background: #000; color: var(--yellow); border-color: #000; }
+    .tier.feat .tbtn:hover { background: #1a1a1a; }
+    @media (max-width: 860px) { .tiers { grid-template-columns: 1fr; } }
+
+    .faq { background: var(--ink2); border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 0; font-size: 18px; font-weight: 600; }
+    .faq-q .pm { font-family: var(--mono); color: var(--yellow); font-size: 20px; transition: transform .3s; }
+    .faq-item.open .faq-q .pm { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease); }
+    .faq-a p { padding: 0 0 24px; color: var(--dim); font-size: 14.5px; max-width: 720px; }
+
+    .cta { text-align: center; background: var(--yellow); color: #000; }
+    .cta h2 { font-size: clamp(34px, 6vw, 78px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .cta p { margin: 20px auto 32px; max-width: 480px; color: #2a2a23; }
+    .cta .btn-dark { font-size: 15px; }
+
+    footer { background: #050506; padding: 70px 5vw 36px; border-top: 1px solid var(--line); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px; max-width: 1280px; margin: 0 auto 50px; }
+    .foot-brand { font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+    .foot-brand .mark { width: 24px; height: 24px; border-radius: 6px; background: var(--yellow); color: #000; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; }
+    .foot-grid p { margin-top: 14px; font-size: 13px; color: var(--dim); max-width: 300px; }
+    .foot-grid h6 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
+    .foot-grid a { display: block; font-size: 13.5px; color: var(--dim); line-height: 2; transition: color .25s; }
+    .foot-grid a:hover { color: var(--yellow); }
+    .foot-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
+
+    @media (max-width: 860px) {
+      .hero-main { grid-template-columns: 1fr; }
+      .hero-cols { grid-template-columns: repeat(2, 1fr); }
+      .specs-grid { grid-template-columns: 1fr; gap: 36px; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .marquee { animation: none; } .hg-path { animation: none; stroke-dashoffset: 0; } }
   </style>
 </head>
 <body>
-  <div class="progress" id="prog"></div>
-  <div class="ribbon">🖨️ Ukázkový web vytvořený jako příklad — není to existující firma. &nbsp;<a href="index.html">← Zpět na portfolio</a></div>
+  <div class="progress" id="progress"></div>
+
+  <div class="ribbon">
+    <span><span class="dot">●</span>&nbsp; Ukázková realizace — 3D tisk</span>
+    <a href="index.html#projects">← Zpět na portfolio</a>
+  </div>
 
   <nav id="nav">
-    <span class="brand"><b>Add</b><i>Lab</i></span>
-    <div class="nlinks"><a href="#sluzby">Služby</a><a href="#materialy">Materiály</a><a href="#proces">Proces</a><a href="#prace">Práce</a><a href="#praxe">Praxe</a><a href="#cenik">Ceník</a></div>
-    <a href="#cenik" class="nbtn">Poptat tisk</a>
+    <a href="#" class="brand"><span class="mark">AL</span> AddLab</a>
+    <div class="nav-links">
+      <a href="#sluzby">Služby</a>
+      <a href="#proces">Proces</a>
+      <a href="#vytisky">Výtisky</a>
+      <a href="#materialy">Materiály</a>
+      <a href="#cenik">Ceník</a>
+    </div>
+    <a href="#cta" class="nav-cta">Poptávka</a>
   </nav>
 
   <header class="hero">
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="hero-txt">
-      <span class="tag">⚙️ 3D tisk na zakázku</span>
-      <h1>Tvůj nápad<br><em>vytiskneme</em> ve 3D</h1>
-      <p>Od prototypu po malosériovou výrobu. Návrh, materiál i tisk pod jednou střechou — rychle a přesně.</p>
-      <div class="hero-cta">
-        <a href="#cenik" class="btn btn-b">Nezávazná poptávka →</a>
-        <a href="#prace" class="btn btn-o">Naše práce</a>
+    <div class="hero-top">
+      <span>AddLab — 3D Print Studio</span>
+      <span>Est. 2021 · CZ</span>
+    </div>
+    <div class="hero-main">
+      <div>
+        <span class="hero-badge"><span class="sq"></span> Aditivní výroba na zakázku</span>
+        <h1>3D tisk.<br><span class="thin">Od prototypu k výrobku.</span></h1>
+        <p class="hero-sub">Přesné prototypy, funkční díly i malosériová výroba. Pošlete nám model — postaráme se o materiál, tisk i dokončení.</p>
+        <div class="hero-btns">
+          <a href="#cta" class="btn-dark">Nezávazná poptávka</a>
+          <div class="hero-meta"><span>FDM + SLA</span><span>·</span><span>Od 1 kusu</span></div>
+        </div>
+      </div>
+      <div class="hero-graphic" aria-hidden="true">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="none">
+          <path class="hg-path" d="M10,250 C70,250 80,90 150,90 C210,90 200,200 260,200 C320,200 330,40 390,40"/>
+          <circle class="hg-dot" cx="390" cy="40" r="6" fill="#000"/>
+        </svg>
+        <span class="tag" style="left:14px; top:12px;">[ vrstva → objekt ]</span>
+        <span class="tag" style="right:14px; bottom:12px;">přesnost 0,05 mm</span>
       </div>
     </div>
-    <div class="hero-img reveal">
-      <img id="himg" src="https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=1100&q=80" alt="3D tiskárny">
-      <div class="chip3 a"><b>0,1 mm</b><span>přesnost vrstvy</span></div>
-      <div class="chip3 b"><b>FDM · SLA</b><span>technologie</span></div>
+    <div class="hero-cols">
+      <div class="hcol"><div class="k">01 / Technologie</div><div class="v">FDM &amp; SLA</div><p>Robustní díly i jemné detaily.</p></div>
+      <div class="hcol"><div class="k">02 / Materiály</div><div class="v">PLA · PETG · ABS</div><p>TPU, ASA i pryskyřice.</p></div>
+      <div class="hcol"><div class="k">03 / Modelování</div><div class="v">3D model na míru</div><p>Z náčrtu nebo fotky.</p></div>
+      <div class="hcol"><div class="k">04 / Dodání</div><div class="v">Od 48 hodin</div><p>Spěchá to? Domluvíme se.</p></div>
+      <div class="hcol"><div class="k">05 / Série</div><div class="v">1 – 1000 ks</div><p>Kusovka i malá série.</p></div>
     </div>
+    <div class="hero-stripe"></div>
   </header>
 
-  <div class="stats">
-    <div><div class="n" data-count="12000" data-suf="+">0</div><div class="l">vytištěných dílů</div></div>
-    <div><div class="n" data-count="350" data-suf="+">0</div><div class="l">realizovaných projektů</div></div>
-    <div><div class="n" data-count="20" data-suf="+">0</div><div class="l">materiálů</div></div>
-    <div><div class="n" data-count="48" data-suf=" h">0</div><div class="l">expresní dodání</div></div>
-  </div>
-
-  <section id="sluzby">
-    <div class="head reveal"><p class="ek">Co děláme</p><h2>Tisk i návrh na míru</h2><p>Realizujeme projekty firem, vývojářů i jednotlivců — od myšlenky po hotový díl.</p></div>
-    <div class="feats">
-      <div class="feat reveal"><div class="ic">🧩</div><h3>Zakázkový tisk</h3><p>Vytiskneme váš model z FDM i SLA technologie. Široká nabídka materiálů a barev.</p></div>
-      <div class="feat reveal" style="transition-delay:.06s"><div class="ic">✏️</div><h3>Návrh a 3D modelace</h3><p>Nemáte model? Navrhneme díl podle skici, fotky nebo popisu. CAD na míru.</p></div>
-      <div class="feat reveal" style="transition-delay:.12s"><div class="ic">🚀</div><h3>Prototypy & série</h3><p>Rychlé prototypování i opakovaná výroba dílů v menších sériích.</p></div>
-      <div class="feat reveal"><div class="ic">🔧</div><h3>Postprocessing</h3><p>Broušení, barvení a kompletace, aby byl díl hotový k použití.</p></div>
-      <div class="feat reveal" style="transition-delay:.06s"><div class="ic">📦</div><h3>Realizace projektů</h3><p>Máte nápad? Provedeme vás od myšlenky po hotový funkční výrobek.</p></div>
-      <div class="feat reveal" style="transition-delay:.12s"><div class="ic">💡</div><h3>Konzultace zdarma</h3><p>Poradíme s materiálem, tolerancemi i designem pro tisk. Bez závazků.</p></div>
-    </div>
-  </section>
-
-  <section id="materialy" class="alt" style="background:var(--bg2)">
-    <div class="head reveal"><p class="ek">Z čeho tiskneme</p><h2>Materiály</h2></div>
-    <div class="mats">
-      <div class="mat reveal"><div class="e">🧱</div><h4>PLA</h4><p>Tuhý, přesný, ekologický</p></div>
-      <div class="mat reveal" style="transition-delay:.05s"><div class="e">🛡️</div><h4>PETG</h4><p>Houževnatý a odolný</p></div>
-      <div class="mat reveal" style="transition-delay:.1s"><div class="e">🔥</div><h4>ABS / ASA</h4><p>Teplotně odolný</p></div>
-      <div class="mat reveal" style="transition-delay:.15s"><div class="e">💎</div><h4>Resin (SLA)</h4><p>Jemné detaily</p></div>
-      <div class="mat reveal"><div class="e">🦾</div><h4>TPU</h4><p>Pružný, gumový</p></div>
-      <div class="mat reveal" style="transition-delay:.05s"><div class="e">🪵</div><h4>Wood-fill</h4><p>Vzhled dřeva</p></div>
-      <div class="mat reveal" style="transition-delay:.1s"><div class="e">⚙️</div><h4>Carbon</h4><p>Vysoká pevnost</p></div>
-      <div class="mat reveal" style="transition-delay:.15s"><div class="e">✨</div><h4>Speciální</h4><p>Na vyžádání</p></div>
-    </div>
-  </section>
-
-  <section id="proces">
-    <div class="head reveal"><p class="ek">Jak to probíhá</p><h2>Proces ve 4 krocích</h2></div>
-    <div class="steps">
-      <div class="step reveal"><div class="n">01</div><h3>Poptávka</h3><p>Pošlete model nebo nápad, my připravíme nabídku.</p></div>
-      <div class="step reveal" style="transition-delay:.08s"><div class="n">02</div><h3>Návrh</h3><p>Doladíme model, vybereme materiál a technologii.</p></div>
-      <div class="step reveal" style="transition-delay:.16s"><div class="n">03</div><h3>Tisk</h3><p>Vytiskneme a provedeme postprocessing.</p></div>
-      <div class="step reveal" style="transition-delay:.24s"><div class="n">04</div><h3>Předání</h3><p>Zkontrolujeme kvalitu a doručíme hotový díl.</p></div>
-    </div>
-  </section>
-
-  <section id="prace" class="alt" style="background:var(--bg2)">
-    <div class="head reveal"><p class="ek">Ukázky</p><h2>Naše práce</h2></div>
-    <div class="gal reveal">
-      <div><img src="https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=700&q=80" alt="Tisk"><span class="gtxt">Tiskové farmy</span></div>
-      <div><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=700&q=80" alt="Návrh"><span class="gtxt">CAD návrh dílu</span></div>
-      <div class="gtile"><span class="e">⚙️</span><span>Funkční díly</span></div>
-      <div class="gtile"><span class="e">🦿</span><span>Náhradní díly</span></div>
-      <div class="gtile"><span class="e">🎮</span><span>Modely & figurky</span></div>
-      <div class="gtile"><span class="e">💡</span><span>Prototypy produktů</span></div>
-    </div>
-  </section>
-
-  <section id="praxe">
-    <div class="head reveal"><p class="ek">Uč se u nás</p><h2>Praxe & kurzy</h2></div>
-    <div class="intern reveal">
-      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80" alt="Praxe">
-      <div class="c">
-        <h2>Získej praxi v 3D tisku</h2>
-        <p>Nabízíme praxe a kurzy pro studenty i nadšence. Nauč se modelovat, tisknout a dotahovat reálné projekty pod vedením našeho týmu.</p>
-        <ul><li>Praxe pro studenty SŠ i VŠ</li><li>Víkendové kurzy 3D tisku</li><li>Práce na reálných zakázkách</li><li>Možnost spolupráce po skončení</li></ul>
-        <a href="#cenik" class="btn btn-b" style="margin-top:20px">Mám zájem o praxi →</a>
+  <main>
+    <section id="sluzby">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="ey"><span class="sq"></span> Co umíme</span>
+            <h2 class="big">Vytiskneme<br>skoro cokoliv.</h2>
+          </div>
+          <p class="lead">Od jednorázového prototypu po opakovanou výrobu funkčních dílů. Vše pod jednou střechou — návrh, tisk i dokončení.</p>
+        </div>
+        <div class="cap-grid">
+          <div class="cap reveal">
+            <div class="n">[ 01 ]</div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></div>
+            <h3>FDM tisk</h3>
+            <p>Pevné a funkční díly z termoplastů. Ideální na prototypy, držáky, náhradní díly i obaly.</p>
+          </div>
+          <div class="cap reveal" style="transition-delay:.06s">
+            <div class="n">[ 02 ]</div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M5 8l7 4 7-4M5 8v8l7 4 7-4V8M12 12v10"/></svg></div>
+            <h3>SLA pryskyřice</h3>
+            <p>Jemné detaily a hladký povrch. Pro modely, figurky, šperky a díly, kde záleží na každém detailu.</p>
+          </div>
+          <div class="cap reveal" style="transition-delay:.12s">
+            <div class="n">[ 03 ]</div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <h3>3D modelování</h3>
+            <p>Nemáte model? Vytvoříme ho. Z náčrtu, rozměrů nebo fotky připravíme tisknutelný 3D soubor.</p>
+          </div>
+          <div class="cap reveal" style="transition-delay:.18s">
+            <div class="n">[ 04 ]</div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg></div>
+            <h3>Post-processing</h3>
+            <p>Broušení, lepení, barvení a povrchové úpravy. Z výtisku uděláme hotový produkt.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="cenik" class="alt" style="background:var(--bg2)">
-    <div class="head reveal"><p class="ek">Ceník</p><h2>Orientační ceny</h2><p>Přesnou cenu spočítáme podle modelu, materiálu a množství.</p></div>
-    <div class="price">
-      <div class="pc reveal"><h3>Tisk dílu</h3><div class="amt">od 5 Kč</div><div class="per">/ gram materiálu</div><ul><li>FDM technologie</li><li>Výběr barev</li><li>Expresní možnost</li></ul><a href="#" class="btn btn-o" style="width:100%;justify-content:center">Poptat</a></div>
-      <div class="pc f reveal" style="transition-delay:.08s"><h3>Návrh + tisk</h3><div class="amt">od 600 Kč</div><div class="per">návrh modelu</div><ul><li>3D model na míru</li><li>Tisk prototypu</li><li>1 revize zdarma</li><li>Konzultace</li></ul><a href="#" class="btn btn-b" style="width:100%;justify-content:center">Poptat</a></div>
-      <div class="pc reveal" style="transition-delay:.16s"><h3>Praxe / kurz</h3><div class="amt">na míru</div><div class="per">studenti & firmy</div><ul><li>Kurzy 3D tisku</li><li>Praxe ve firmě</li><li>Reálné projekty</li></ul><a href="#" class="btn btn-o" style="width:100%;justify-content:center">Domluvit</a></div>
-    </div>
-  </section>
+    <section id="proces" class="process">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="ey"><span class="sq"></span> Jak to probíhá</span>
+            <h2 class="big">Od modelu k výrobku.</h2>
+          </div>
+          <p class="lead">Jednoduchý a přehledný postup. Vy pošlete zadání, my se postaráme o zbytek.</p>
+        </div>
+        <div class="proc-grid">
+          <div class="proc-img reveal">
+            <img src="https://images.unsplash.com/photo-1539586916228-3db588cc6f69?auto=format&fit=crop&w=1100&q=80" alt="Návrh modelu a 3D výtisk">
+            <span class="badge">model → tisk</span>
+          </div>
+          <div class="steps reveal" style="transition-delay:.1s">
+            <div class="step"><div class="sn">01</div><div><h4>Poptávka &amp; model</h4><p>Pošlete nám 3D model (STL, STEP, OBJ), nebo jen popis. Navrhneme řešení a pošleme cenu.</p></div></div>
+            <div class="step"><div class="sn">02</div><div><h4>Příprava tisku</h4><p>Zvolíme materiál, výplň a orientaci. Model rozřežeme na vrstvy a optimalizujeme pevnost.</p></div></div>
+            <div class="step"><div class="sn">03</div><div><h4>Tisk</h4><p>Vytiskneme na kalibrovaných tiskárnách. Hlídáme kvalitu vrstvu po vrstvě.</p></div></div>
+            <div class="step"><div class="sn">04</div><div><h4>Dokončení &amp; předání</h4><p>Očistíme, případně dokončíme povrch a pošleme k vám — nebo vyzvednete osobně.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <div class="head reveal"><p class="ek">Časté otázky</p><h2>Dobré vědět</h2></div>
-    <div class="faq reveal">
-      <details><summary>V jakém formátu mám poslat model?</summary><div class="a">Ideálně STL nebo STEP. Pokud máte jen nápad, skicu nebo fotku, model vám navrhneme.</div></details>
-      <details><summary>Jak dlouho tisk trvá?</summary><div class="a">Menší díly do 2–3 dnů, větší zakázky podle rozsahu. Nabízíme i expresní dodání do 48 h.</div></details>
-      <details><summary>Tisknete i velké kusy?</summary><div class="a">Ano, velké modely tiskneme po částech a kompletujeme, nebo využijeme velkoformátové tiskárny.</div></details>
-      <details><summary>Pomůžete s výběrem materiálu?</summary><div class="a">Samozřejmě. Podle použití dílu doporučíme nejvhodnější materiál a technologii zdarma.</div></details>
+    <section id="vytisky" class="strip-sec">
+      <div class="strip-head">
+        <div class="sec-head" style="margin-bottom:0;">
+          <div>
+            <span class="ey"><span class="sq"></span> Realizace</span>
+            <h2 class="big">Vytištěno u nás.</h2>
+          </div>
+          <a href="#cta" class="sec-link">Chci taky →</a>
+        </div>
+      </div>
+      <div class="marquee">
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1758387933125-5ac945b4e2cd?auto=format&fit=crop&w=700&q=80" alt="Tiskárna v provozu"><span class="cap">Tisk v provozu</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1544704784-75dc323b9c73?auto=format&fit=crop&w=700&q=80" alt="Hotový výrobek"><span class="cap">Funkční prototyp</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1563520240301-4034e668b233?auto=format&fit=crop&w=700&q=80" alt="Tisk dílů"><span class="cap">Malá série</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1582879303399-964edcf8202b?auto=format&fit=crop&w=700&q=80" alt="Pracoviště"><span class="cap">Studio &amp; návrh</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=700&q=80" alt="Farma tiskáren"><span class="cap">Tiskové kapacity</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1563520242317-c530c5cae4ca?auto=format&fit=crop&w=700&q=80" alt="Výroba na míru"><span class="cap">Zakázková výroba</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1758387933125-5ac945b4e2cd?auto=format&fit=crop&w=700&q=80" alt="Tiskárna v provozu"><span class="cap">Tisk v provozu</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1544704784-75dc323b9c73?auto=format&fit=crop&w=700&q=80" alt="Hotový výrobek"><span class="cap">Funkční prototyp</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1563520240301-4034e668b233?auto=format&fit=crop&w=700&q=80" alt="Tisk dílů"><span class="cap">Malá série</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1582879303399-964edcf8202b?auto=format&fit=crop&w=700&q=80" alt="Pracoviště"><span class="cap">Studio &amp; návrh</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=700&q=80" alt="Farma tiskáren"><span class="cap">Tiskové kapacity</span></div>
+        <div class="m-card"><img src="https://images.unsplash.com/photo-1563520242317-c530c5cae4ca?auto=format&fit=crop&w=700&q=80" alt="Výroba na míru"><span class="cap">Zakázková výroba</span></div>
+      </div>
+    </section>
+
+    <section id="materialy" class="mat">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="ey"><span class="sq"></span> Materiály</span>
+            <h2 class="big">Správný materiál<br>pro každý díl.</h2>
+          </div>
+          <p class="lead">Poradíme, co se k vašemu projektu hodí nejlépe — podle pevnosti, teploty i vzhledu.</p>
+        </div>
+        <div class="mat-table reveal">
+          <div class="mat-row h"><div>Materiál</div><div>Vlastnosti</div><div>Použití</div><div>Cena</div></div>
+          <div class="mat-row"><div class="nm"><span style="background:#42c767"></span>PLA</div><div class="ds">Snadný tisk, pěkný povrch, biologicky rozložitelný.</div><div class="tg">Prototypy, dekorace</div><div class="pr">od 0,9 Kč/g</div></div>
+          <div class="mat-row"><div class="nm"><span style="background:#3a9dff"></span>PETG</div><div class="ds">Houževnatý, odolný vlhkosti i teplotě.</div><div class="tg">Funkční díly</div><div class="pr">od 1,2 Kč/g</div></div>
+          <div class="mat-row"><div class="nm"><span style="background:#ff7a3a"></span>ABS / ASA</div><div class="ds">Teplotně odolný, vhodný do exteriéru.</div><div class="tg">Technické díly</div><div class="pr">od 1,4 Kč/g</div></div>
+          <div class="mat-row"><div class="nm"><span style="background:#b07aff"></span>TPU (flex)</div><div class="ds">Pružný a houževnatý, tlumí nárazy.</div><div class="tg">Těsnění, chrániče</div><div class="pr">od 2,2 Kč/g</div></div>
+          <div class="mat-row"><div class="nm"><span style="background:#f2d019"></span>Resin (SLA)</div><div class="ds">Vysoké rozlišení a hladký povrch.</div><div class="tg">Modely, šperky</div><div class="pr">od 4,5 Kč/g</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="giant" aria-hidden="true">
+      <div class="word">FILA<span class="fill">MENT</span></div>
     </div>
-  </section>
+
+    <section class="specs">
+      <div class="wrap">
+        <div class="specs-grid">
+          <div class="reveal">
+            <span class="ey"><span class="sq"></span> Technické parametry</span>
+            <h2 class="big">Kalibrováno<br>na přesnost.</h2>
+            <p class="lead">Tiskneme na profesionálně seřízených strojích s pravidelnou údržbou. Každá zakázka projde kontrolou kvality.</p>
+          </div>
+          <div class="terminal reveal" style="transition-delay:.1s">
+            <div class="term-bar"><i></i><i></i><i></i><span class="t">addlab — specs.txt</span></div>
+            <div class="term-body">
+              <div><span class="c">$ cat tiskarna.specs</span></div>
+              <div><span class="k">tisková_plocha</span> <span class="v">= 300 × 300 × 400 mm</span></div>
+              <div><span class="k">výška_vrstvy</span>   <span class="v">= 0,05 – 0,30 mm</span></div>
+              <div><span class="k">přesnost</span>      <span class="v">= ± 0,1 mm</span></div>
+              <div><span class="k">tryska</span>        <span class="v">= 0,2 / 0,4 / 0,6 mm</span></div>
+              <div><span class="k">výplň</span>         <span class="v">= 0 – 100 %</span></div>
+              <div><span class="c"># stav</span></div>
+              <div><span class="k">kontrola_kvality</span> <span class="g">= ✓ aktivní</span></div>
+              <div><span class="k">dodání</span>          <span class="g">= ✓ 48 h+</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cenik" class="price">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="ey"><span class="sq"></span> Ceník</span>
+            <h2 class="big">Férové ceny.</h2>
+          </div>
+          <p class="lead">Cena vždy podle hmotnosti, materiálu a náročnosti. Níže orientační balíčky — přesnou kalkulaci pošleme po zaslání modelu.</p>
+        </div>
+        <div class="tiers">
+          <div class="tier reveal">
+            <div class="tl">Prototyp</div>
+            <div class="amt">od 290 <small>Kč / kus</small></div>
+            <ul>
+              <li>1 kus, FDM tisk</li>
+              <li>Materiál PLA / PETG</li>
+              <li>Standardní kvalita 0,2 mm</li>
+              <li>Dodání 3–5 dní</li>
+            </ul>
+            <a href="#cta" class="tbtn">Poptat</a>
+          </div>
+          <div class="tier feat reveal" style="transition-delay:.08s">
+            <div class="tl">Malá série</div>
+            <div class="amt">od 1 990 <small>Kč</small></div>
+            <ul>
+              <li>5–50 kusů</li>
+              <li>Výběr z více materiálů</li>
+              <li>Jemná kvalita 0,1 mm</li>
+              <li>Základní post-processing</li>
+              <li>Přednostní dodání</li>
+            </ul>
+            <a href="#cta" class="tbtn">Poptat</a>
+          </div>
+          <div class="tier reveal" style="transition-delay:.16s">
+            <div class="tl">Na míru</div>
+            <div class="amt">individuálně</div>
+            <ul>
+              <li>Velká série / projekt</li>
+              <li>3D modelování v ceně</li>
+              <li>SLA i speciální materiály</li>
+              <li>Kompletní dokončení</li>
+            </ul>
+            <a href="#cta" class="tbtn">Domluvit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="wrap" style="max-width:900px;">
+        <span class="ey"><span class="sq"></span> Časté dotazy</span>
+        <h2 class="big" style="margin-bottom:40px;">Než nám napíšete.</h2>
+        <div class="faq-item">
+          <button class="faq-q" type="button">V jakém formátu mám poslat model? <span class="pm">+</span></button>
+          <div class="faq-a"><p>Nejlépe STL, STEP nebo OBJ. Nemáte model? Pošlete náčrt, rozměry nebo fotku a model vám připravíme.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Jak rychle to bude hotové? <span class="pm">+</span></button>
+          <div class="faq-a"><p>Menší zakázky zvládneme od 48 hodin. U větších sérií termín domluvíme předem podle kapacity.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Jak velký díl umíte vytisknout? <span class="pm">+</span></button>
+          <div class="faq-a"><p>Do rozměru 300 × 300 × 400 mm v jednom kuse. Větší objekty rozdělíme na díly a slepíme.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Poradíte mi s výběrem materiálu? <span class="pm">+</span></button>
+          <div class="faq-a"><p>Jasně. Podle použití (pevnost, teplota, pružnost, vzhled) doporučíme nejvhodnější materiál.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="cta">
+      <div class="wrap">
+        <h2>Pošlete nám model.</h2>
+        <p>Ozvěte se s nápadem nebo souborem — připravíme nezávaznou kalkulaci a termín.</p>
+        <a href="index.html#contact" class="btn-dark">Nezávazná poptávka →</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div class="fgrid">
-      <div><div class="brand"><b>Add</b><i>Lab</i></div><p>3D tisk na zakázku — návrh, prototypy a malosériová výroba. Realizujeme vaše nápady.</p></div>
-      <div class="fcol"><h4>Firma</h4><a href="#sluzby">Služby</a><a href="#materialy">Materiály</a><a href="#prace">Práce</a><a href="#praxe">Praxe</a></div>
-      <div class="fcol"><h4>Kontakt</h4><div>Technologická 4, Brno</div><div>+420 777 444 555</div><div>info@addlab.cz</div></div>
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><span class="mark">AL</span> AddLab</div>
+        <p>3D tisk na zakázku — prototypy, funkční díly i malosériová výroba. Od modelu po hotový produkt.</p>
+      </div>
+      <div>
+        <h6>Studio</h6>
+        <a href="#sluzby">Služby</a>
+        <a href="#proces">Proces</a>
+        <a href="#materialy">Materiály</a>
+        <a href="#cenik">Ceník</a>
+      </div>
+      <div>
+        <h6>Kontakt</h6>
+        <a href="mailto:tisk@addlab.cz">tisk@addlab.cz</a>
+        <a href="#">+420 123 456 789</a>
+        <a href="index.html#projects">← Zpět na portfolio</a>
+      </div>
     </div>
-    <div class="fbot"><span>© 2026 AddLab — 3D tisk</span><span>Ukázkový web vytvořil <a href="index.html">Vojtěch Straka</a></span></div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> AddLab — 3D Print Studio</span>
+      <span>Ukázková realizace · Vojtěch Straka</span>
+    </div>
   </footer>
 
   <script>
-    const nav=document.getElementById('nav'),prog=document.getElementById('prog'),himg=document.getElementById('himg');
-    addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('s',y>40);prog.style.width=(y/(document.documentElement.scrollHeight-innerHeight)*100)+'%';if(himg&&y<innerHeight)himg.style.transform='scale(1.08) translateY('+(y*0.05)+'px)'},{passive:true});
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,t=+el.dataset.count,suf=el.dataset.suf||'';const dur=1300,t0=performance.now();const tick=now=>{const p=Math.min((now-t0)/dur,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString('cs')+suf;if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);cio.unobserve(el)}}),{threshold:.5});
-    document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    var nav = document.getElementById('nav');
+    var prog = document.getElementById('progress');
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+        nav.classList.toggle('s', y > 40);
+        ticking = false;
+      });
+    }, { passive: true });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      q.addEventListener('click', function () {
+        var open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+        if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+      });
+    });
   </script>
 </body>
 </html>

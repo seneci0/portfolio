@@ -13,6 +13,17 @@ const projects = [
     gradient: 'linear-gradient(135deg, #241710, #a84e29)'
   },
   {
+    title: { cs: 'Amrit Palace — indická restaurace', en: 'Amrit Palace — Indian Restaurant' },
+    desc: {
+      cs: 'Elegantní web pro indickou restauraci — tmavá teplá atmosféra, serif typografie, menu s cenami, catering, nápoje a rezervace.',
+      en: 'Elegant website for an Indian restaurant — warm dark mood, serif typography, full menu, catering, drinks and reservations.'
+    },
+    url: './restaurace.html',
+    image: 'https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Editorial', 'Restaurace'],
+    gradient: 'linear-gradient(135deg, #15100c, #c8763c)'
+  },
+  {
     title: { cs: 'RING — Boxerská akademie', en: 'RING — Boxing Academy' },
     desc: {
       cs: 'Tvrdý, tmavý web pro boxerskou akademii — trenéři, 3 kategorie, fotky ze studia i ze zápasů, nábor a ceník.',
@@ -37,13 +48,13 @@ const projects = [
   {
     title: { cs: 'AddLab — 3D tisk na zakázku', en: 'AddLab — Custom 3D Printing' },
     desc: {
-      cs: 'Web firmy na 3D tisk na míru — realizace vašich projektů, praxe a učení ve firmě, ukázky prací a ceník.',
-      en: 'Website for a custom 3D printing studio — realizing your projects, internships, showcase and pricing.'
+      cs: 'Technický web pro 3D tiskové studio — žlutý editorial styl, materiály, proces, ceník a galerie výtisků. Výrazný vývojářský vzhled.',
+      en: 'Technical website for a 3D print studio — bold yellow editorial style, materials, process, pricing and a gallery of prints.'
     },
     url: './print3d.html',
-    image: 'https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=1000&q=80',
-    tags: ['JavaScript', '3D', 'Tech'],
-    gradient: 'linear-gradient(135deg, #0b1f3a, #1f6fae)'
+    image: 'https://images.unsplash.com/photo-1758387933125-5ac945b4e2cd?auto=format&fit=crop&w=1000&q=80',
+    tags: ['HTML5', 'Editorial', '3D'],
+    gradient: 'linear-gradient(135deg, #0c0c0d, #e3bf00)'
   },
   {
     title: { cs: 'Studio Světlo — fotograf', en: 'Studio Světlo — Photographer' },
@@ -55,17 +66,6 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=80',
     tags: ['Design', 'Galerie', 'CSS'],
     gradient: 'linear-gradient(135deg, #2a2622, #7a6a52)'
-  },
-  {
-    title: { cs: 'NetConnect — poskytovatel internetu', en: 'NetConnect — Internet Provider' },
-    desc: {
-      cs: 'Přehledný web poskytovatele internetu — tarify, pokrytí, rychlosti a online objednávka.',
-      en: 'Clean website for an internet provider — plans, coverage, speeds and online order.'
-    },
-    url: './internet.html',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80',
-    tags: ['HTML5', 'Tarify', 'Responzivní'],
-    gradient: 'linear-gradient(135deg, #06283d, #1f8fae)'
   }
 ];
 
