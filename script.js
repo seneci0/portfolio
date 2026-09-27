@@ -80,6 +80,7 @@ const translations = {
     'nav.contact': 'Kontakt',
 
     'hero.chip': 'Dostupný pro nové projekty',
+    'hero.role': 'Tvořím moderní weby pro malé firmy a živnostníky',
     'hero.taglines': [
       'Tvořím weby, které zaujmou na první pohled.',
       'Moderní prezentace pro vaši firmu.',
@@ -211,6 +212,18 @@ const translations = {
     'about.t3.desc': 'Z čisté zvědavosti první HTML soubor. Ten pocit, když se stránka poprvé zobrazí v prohlížeči — přesně to mě chytilo.',
     'about.cta': 'Pojďme spolupracovat',
 
+    'process.eyebrow': 'Jak to probíhá',
+    'process.title': 'Jednoduše, ve 4 krocích.',
+    'process.sub': 'Od první zprávy po spuštění webu přesně víte, co se děje. Bez rizika a bez závazků.',
+    'process.s1t': 'Napíšete mi',
+    'process.s1d': 'Stačí pár vět o tom, co potřebujete. Žádné formuláře, žádné závazky.',
+    'process.s2t': 'Návrh a cena zdarma',
+    'process.s2d': 'Do 48 hodin pošlu návrh řešení, přesnou cenu a termín. Nezávazně — rozhodnete se sami.',
+    'process.s3t': 'Tvorba webu',
+    'process.s3d': 'Průběžně posílám náhledy a ladíme detaily společně, dokud nejste spokojení.',
+    'process.s4t': 'Spuštění',
+    'process.s4d': 'Nasadím web na vaši doménu a předám vám vše potřebné. Doplatek až po schválení.',
+
     'faq.eyebrow': 'Časté otázky',
     'faq.title': 'Máte dotazy?',
     'faq.sub': 'Odpovědi na nejčastější otázky. Nenašli jste odpověď? Napište mi.',
@@ -219,7 +232,7 @@ const translations = {
     'faq.q2': 'Kolik stojí doména a hosting?',
     'faq.a2': 'Hosting neprovozuji, ale rád poradím s výběrem a web vám nasadím na vaši vlastní doménu. Doménu i hosting si platíte sami — doména stojí cca 200 Kč/rok.',
     'faq.q3': 'Jak probíhá platba?',
-    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba probíhá převodem na bankovní účet.',
+    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek až po dokončení a schválení webu — platíte tedy, až když jste spokojení. Platba převodem na účet.',
     'faq.q4': 'Mohu si vyzkoušet web před spuštěním?',
     'faq.a4': 'Ano! Během vývoje zasílám náhled na privátní adrese. Zkontrolujete vše, dáte zpětnou vazbu a požádáte o úpravy.',
     'faq.q5': 'Co zahrnují úpravy zdarma?',
@@ -229,8 +242,11 @@ const translations = {
 
     'contact.eyebrow': 'Ozvěte se',
     'contact.title': 'Pojďme tvořit.',
-    'contact.sub': 'Máte nápad na web? Rád ho proberu — odpovídám zpravidla do 24 hodin.',
+    'contact.sub': 'Napište mi nezávazně, co potřebujete — do 24 hodin se ozvu s návrhem a cenou. Nic vás to nestojí.',
     'contact.available': 'Aktuálně přijímám nové projekty',
+    'contact.trust1': 'Odpověď do 24 hodin',
+    'contact.trust2': 'Nezávazná poptávka zdarma',
+    'contact.trust3': 'Cena a termín předem',
     'contact.emailLabel': 'E-mail',
     'contact.emailBtn': 'Napsat e-mail',
     'contact.openBtn': 'Otevřít profil',
@@ -250,6 +266,7 @@ const translations = {
     'nav.contact': 'Contact',
 
     'hero.chip': 'Available for new projects',
+    'hero.role': 'Modern websites for small businesses and freelancers',
     'hero.taglines': [
       'I build websites that captivate at first glance.',
       'Modern online presence for your business.',
@@ -381,6 +398,18 @@ const translations = {
     'about.t3.desc': "Out of pure curiosity — my first HTML file. The moment the page appeared in the browser, I was hooked.",
     'about.cta': "Let's work together",
 
+    'process.eyebrow': 'How it works',
+    'process.title': 'Simple. Four steps.',
+    'process.sub': 'From the first message to launch, you always know what is happening. No risk, no commitment.',
+    'process.s1t': 'You write to me',
+    'process.s1d': 'A few sentences about what you need is enough. No forms, no obligations.',
+    'process.s2t': 'Free proposal & quote',
+    'process.s2d': 'Within 48 hours I send a proposed solution, exact price and timeline. No strings attached.',
+    'process.s3t': 'Building the website',
+    'process.s3d': 'I share previews as I go and we fine-tune the details together until you are happy.',
+    'process.s4t': 'Launch',
+    'process.s4d': 'I deploy the website to your domain and hand everything over. Final payment only after approval.',
+
     'faq.eyebrow': 'Frequently asked questions',
     'faq.title': 'Have questions?',
     'faq.sub': "Answers to the most common questions. Didn't find your answer? Write to me.",
@@ -389,7 +418,7 @@ const translations = {
     'faq.q2': 'How much do domain and hosting cost?',
     'faq.a2': "I don't run hosting, but I'm happy to help you choose and I'll deploy the site to your own domain. You pay for the domain and hosting — a domain costs around 200 CZK/year.",
     'faq.q3': 'How does payment work?',
-    'faq.a3': '50% deposit before work begins, 50% final payment after the website is completed and approved. Payment is made by bank transfer.',
+    'faq.a3': '50% deposit before work begins, the remaining 50% only after the website is finished and approved — you pay when you are happy. Payment by bank transfer.',
     'faq.q4': 'Can I preview the website before launch?',
     'faq.a4': 'Yes! During development I send you a preview at a private URL. Check everything, give feedback, and request changes.',
     'faq.q5': 'What do free revisions include?',
@@ -399,8 +428,11 @@ const translations = {
 
     'contact.eyebrow': 'Get in touch',
     'contact.title': "Let's create.",
-    'contact.sub': 'Got an idea for a website? I usually reply within 24 hours.',
+    'contact.sub': 'Tell me what you need — within 24 hours I will get back to you with a proposal and price. Free of charge.',
     'contact.available': 'Currently accepting new projects',
+    'contact.trust1': 'Reply within 24 hours',
+    'contact.trust2': 'Free, no-obligation quote',
+    'contact.trust3': 'Price & deadline agreed upfront',
     'contact.emailLabel': 'Email',
     'contact.emailBtn': 'Send an email',
     'contact.openBtn': 'Open profile',
@@ -766,6 +798,16 @@ const countIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.stat-num').forEach((el) => countIO.observe(el));
+
+const emailValue = document.getElementById('emailValue');
+if (emailValue) {
+  const addr = emailValue.dataset.n + String.fromCharCode(64) + emailValue.dataset.h + '.' + emailValue.dataset.x;
+  emailValue.textContent = addr;
+  const emailLink = document.getElementById('emailLink');
+  if (emailLink) emailLink.href = 'mailto:' + addr;
+  const emailCopy = document.getElementById('emailCopy');
+  if (emailCopy) emailCopy.setAttribute('data-copy', addr);
+}
 
 document.querySelectorAll('[data-copy]').forEach((btn) => {
   btn.addEventListener('click', async () => {

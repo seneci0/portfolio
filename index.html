@@ -55,7 +55,7 @@
         <span data-i18n="hero.chip">Dostupný pro nové projekty</span>
       </span>
       <h1 class="hero-name fx d2">Vojtěch Straka</h1>
-      <p class="hero-role fx d3">Web developer — Modern websites for small businesses</p>
+      <p class="hero-role fx d3" data-i18n="hero.role">Tvořím moderní weby pro malé firmy a živnostníky</p>
       <p class="hero-tagline fx d3"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
       <div class="hero-cta fx d4">
         <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Zobrazit projekty</a>
@@ -180,6 +180,38 @@
       </div>
     </section>
 
+    <section id="process" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="process.eyebrow">Jak to probíhá</p>
+          <h2 class="section-title" data-i18n="process.title">Jednoduše, ve 4 krocích.</h2>
+          <p class="section-sub" data-i18n="process.sub">Od první zprávy po spuštění webu přesně víte, co se děje. Bez rizika a bez závazků.</p>
+        </div>
+        <div class="process-grid">
+          <div class="glass card process-step reveal">
+            <span class="process-num">1</span>
+            <h3 data-i18n="process.s1t">Napíšete mi</h3>
+            <p data-i18n="process.s1d">Stačí pár vět o tom, co potřebujete. Žádné formuláře, žádné závazky.</p>
+          </div>
+          <div class="glass card process-step reveal" style="--d:.08s">
+            <span class="process-num">2</span>
+            <h3 data-i18n="process.s2t">Návrh a cena zdarma</h3>
+            <p data-i18n="process.s2d">Do 48 hodin pošlu návrh řešení, přesnou cenu a termín. Nezávazně — rozhodnete se sami.</p>
+          </div>
+          <div class="glass card process-step reveal" style="--d:.16s">
+            <span class="process-num">3</span>
+            <h3 data-i18n="process.s3t">Tvorba webu</h3>
+            <p data-i18n="process.s3d">Průběžně posílám náhledy a ladíme detaily společně, dokud nejste spokojení.</p>
+          </div>
+          <div class="glass card process-step reveal" style="--d:.24s">
+            <span class="process-num">4</span>
+            <h3 data-i18n="process.s4t">Spuštění</h3>
+            <p data-i18n="process.s4d">Nasadím web na vaši doménu a předám vám vše potřebné. Doplatek až po schválení.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="faq" class="section section-tint">
       <div class="wrap">
         <div class="section-head reveal">
@@ -198,7 +230,7 @@
           </details>
           <details class="glass faq-item reveal" style="--d:.12s">
             <summary class="faq-question" data-i18n="faq.q3">Jak probíhá platba?</summary>
-            <div class="faq-answer" data-i18n="faq.a3">50 % záloha před zahájením práce, 50 % doplatek po dokončení a schválení webu. Platba probíhá přes PayPal.</div>
+            <div class="faq-answer" data-i18n="faq.a3">50 % záloha před zahájením práce, 50 % doplatek až po dokončení a schválení webu — platíte tedy, až když jste spokojení. Platba převodem na účet.</div>
           </details>
           <details class="glass faq-item reveal" style="--d:.18s">
             <summary class="faq-question" data-i18n="faq.q4">Mohu si vyzkoušet web před spuštěním?</summary>
@@ -221,11 +253,16 @@
         <div class="section-head reveal">
           <p class="eyebrow" data-i18n="contact.eyebrow">Ozvěte se</p>
           <h2 class="section-title" data-i18n="contact.title">Pojďme tvořit.</h2>
-          <p class="section-sub" data-i18n="contact.sub">Máte nápad na web? Rád ho proberu — odpovídám zpravidla do 24 hodin.</p>
+          <p class="section-sub" data-i18n="contact.sub">Napište mi nezávazně, co potřebujete — do 24 hodin se ozvu s návrhem a cenou. Nic vás to nestojí.</p>
           <div class="contact-chip reveal">
             <span class="dot" aria-hidden="true"></span>
             <span data-i18n="contact.available">Aktuálně přijímám nové projekty</span>
           </div>
+          <ul class="trust-row reveal" style="--d:.08s">
+            <li><span class="trust-check" aria-hidden="true">✓</span><span data-i18n="contact.trust1">Odpověď do 24 hodin</span></li>
+            <li><span class="trust-check" aria-hidden="true">✓</span><span data-i18n="contact.trust2">Nezávazná poptávka zdarma</span></li>
+            <li><span class="trust-check" aria-hidden="true">✓</span><span data-i18n="contact.trust3">Cena a termín předem</span></li>
+          </ul>
         </div>
         <div class="contact-grid">
 
@@ -234,10 +271,10 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>
             </div>
             <p class="contact-label" data-i18n="contact.emailLabel">E-mail</p>
-            <p class="contact-value">vojtechstraka@senecio.dev</p>
+            <p class="contact-value" id="emailValue" data-n="vojtechstraka" data-h="senecio" data-x="dev">···</p>
             <div class="contact-actions">
-              <a class="btn btn-primary btn-sm" href="mailto:vojtechstraka@senecio.dev" data-i18n="contact.emailBtn">Napsat e-mail</a>
-              <button type="button" class="btn btn-glass btn-sm" data-copy="vojtechstraka@senecio.dev"><span data-i18n="contact.copy">Kopírovat</span></button>
+              <a class="btn btn-primary btn-sm" id="emailLink" href="#contact" data-i18n="contact.emailBtn">Napsat e-mail</a>
+              <button type="button" class="btn btn-glass btn-sm" id="emailCopy"><span data-i18n="contact.copy">Kopírovat</span></button>
             </div>
           </div>
 
