@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ceník tvorby webových stránek — jednoduché ceny, platební podmínky a ukázka zdarma.">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#e9ebf1">
-  <title>Ceník — Vojtěch Straka</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0a0b">
+  <title>Ceník — Senecio.dev</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230071e3'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='28' font-weight='bold' fill='white' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,18 +24,21 @@
   <div class="page-photo" aria-hidden="true"></div>
 
   <nav class="island" aria-label="Hlavní navigace">
-    <a href="index.html#home" class="island-logo" aria-label="Vojtěch Straka — domů">VS</a>
-    <div class="island-links">
-      <a href="index.html#home"     class="island-link" data-i18n="nav.home">Domů</a>
+    <a href="index.html#home" class="island-logo" aria-label="Vojtěch Straka — domů"><span class="logo-mark">VS</span><span class="logo-name">Senecio<span class="dev">.dev</span></span></a>
+    <div class="island-links" id="navLinks">
       <a href="index.html#services" class="island-link" data-i18n="nav.services">Služby</a>
       <a href="index.html#projects" class="island-link" data-i18n="nav.projects">Projekty</a>
+      <a href="index.html#process"  class="island-link" data-i18n="nav.process">Jak to probíhá</a>
       <a href="cenik.html"          class="island-link active" data-i18n="nav.pricing">Ceník</a>
       <a href="about.html"          class="island-link" data-i18n="nav.about">O mně</a>
-      <a href="index.html#contact"  class="island-link" data-i18n="nav.contact">Kontakt</a>
     </div>
-    <div class="lang-switch" role="group" aria-label="Přepínač jazyka">
-      <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
-      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <div class="island-right">
+      <div class="lang-switch" role="group" aria-label="Přepínač jazyka">
+        <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="index.html#contact" class="btn btn-white btn-sm" data-i18n="nav.cta">Napište mi</a>
+      <button type="button" class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     </div>
   </nav>
 
@@ -180,17 +183,28 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo" aria-hidden="true">VS</div>
-      <p class="footer-name">Vojtěch Straka</p>
-      <p class="footer-desc" data-i18n="footer.desc">Webový vývojář · Česká republika</p>
-      <div class="footer-links">
-        <a href="index.html#home" data-i18n="nav.home">Domů</a>
-        <a href="index.html#services" data-i18n="nav.services">Služby</a>
-        <a href="cenik.html" data-i18n="nav.pricing">Ceník</a>
-        <a href="index.html#contact" data-i18n="nav.contact">Kontakt</a>
+      <div>
+        <a href="index.html#home" class="island-logo"><span class="logo-mark">VS</span><span class="logo-name">Senecio<span class="dev">.dev</span></span></a>
+        <p class="footer-desc" data-i18n="footer.desc">Webový vývojář · Česká republika</p>
       </div>
-      <p class="footer-copy">© <span id="year">2026</span> Vojtěch Straka · <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></p>
+      <div class="footer-col">
+        <h6 data-i18n="footer.nav">Navigace</h6>
+        <a href="index.html#services" data-i18n="nav.services">Služby</a>
+        <a href="index.html#projects" data-i18n="nav.projects">Projekty</a>
+        <a href="cenik.html" data-i18n="nav.pricing">Ceník</a>
+        <a href="about.html" data-i18n="nav.about">O mně</a>
+      </div>
+      <div class="footer-col">
+        <h6 data-i18n="footer.social">Sítě</h6>
+        <a href="https://www.facebook.com/profile.php?id=61591118077606" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/senecio.dev/" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Vojtěch Straka · <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></span>
+      <a href="#" data-i18n="footer.top">Nahoru ↑</a>
+    </div>
+    <div class="footer-big" aria-hidden="true">Vojtěch Straka</div>
   </footer>
 
   <noscript>

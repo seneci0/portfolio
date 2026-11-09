@@ -71,31 +71,42 @@ const projects = [
 
 const translations = {
   cs: {
-    'meta.title': 'Vojtěch Straka — Webový vývojář',
-    'nav.home': 'Domů',
+    'meta.title': 'Senecio.dev — Vojtěch Straka, webový vývojář',
     'nav.services': 'Služby',
     'nav.projects': 'Projekty',
+    'nav.process': 'Jak to probíhá',
     'nav.pricing': 'Ceník',
     'nav.about': 'O mně',
-    'nav.contact': 'Kontakt',
+    'nav.cta': 'Napište mi',
 
-    'hero.chip': 'Dostupný pro nové projekty',
-    'hero.role': 'Tvořím moderní weby pro malé firmy a živnostníky',
-    'hero.taglines': [
-      'Tvořím weby, které zaujmou na první pohled.',
-      'Moderní prezentace pro vaši firmu.',
-      'Design, který prodává.',
-      'Weby, na které se nezapomíná.'
-    ],
-    'hero.cta1': 'Zobrazit projekty',
-    'hero.cta2': 'Napište mi',
-    'hero.scroll': 'Posuňte dolů',
+    'hero.chip': 'Přijímám nové projekty',
+    'hero.title': 'Web, který pro vaši firmu pracuje 24/7.',
+    'hero.sub': 'Jsem Vojtěch Straka a tvořím moderní, rychlé weby pro malé firmy a živnostníky — od návrhu až po spuštění na vaší doméně.',
+    'hero.cta1': 'Nezávazná poptávka',
+    'hero.cta2': 'Živé ukázky',
 
-    'services.eyebrow': 'Co nabízím',
-    'services.title': 'Služby.',
-    'services.sub': 'Moderní webové stránky pro podnikatele, firmy i jednotlivce — od návrhu po spuštění.',
+    'showcase.open': 'Otevřít ↗',
+    'showcase.view': 'Prohlédnout celou ukázku',
+    'showcase.hint': 'Živé ukázky mých webů — vyberte projekt',
+    'dock.cafe': 'Kavárna',
+    'dock.rest': 'Restaurace',
+    'dock.fit': 'Trenér',
+    'dock.print': '3D tisk',
+    'dock.photo': 'Fotograf',
+
+    'logos.label': 'Postaveno na moderních, ověřených technologiích',
+
+    'services.eyebrow': 'Služby',
+    'services.title': 'Všechno pro váš web na jednom místě.',
+    'services.more': 'Zobrazit ceník',
     'services.learn': 'Zjistit více →',
     'services.hint': 'Procházejte šipkami',
+    'feat1.t': 'Design na míru',
+    'feat1.d': '— žádné šablony, web ladí s vaší značkou.',
+    'feat2.t': 'Perfektní na mobilu',
+    'feat2.d': '— většina zákazníků vás hledá v telefonu.',
+    'feat3.t': 'Bleskové načítání',
+    'feat3.d': '— nikdo nečeká na pomalé stránky.',
     'service1.name': 'Prezentační web',
     'service1.desc': 'Firemní nebo osobní web, který vás reprezentuje. Zákazníci vás najdou, důvěřují vám a kontaktují.',
     'service2.name': 'Design na míru',
@@ -108,12 +119,100 @@ const translations = {
     'service5.desc': 'Po spuštění nejste sami. Nabízím údržbu, aktualizace obsahu a technickou podporu podle potřeby.',
     'service6.name': 'Landing Page',
     'service6.desc': 'Jedna silná stránka, která prodává. Ideální pro akce, produkty nebo jednoduché prezentace s CTA.',
+    'stat.kicker': 'Responzivní design',
+    'stat.mobile': 'mých webů funguje perfektně i na mobilu. Tenhle je živý — zkuste si ho.',
 
-    'projects.eyebrow': 'Moje práce',
-    'projects.title': 'Projekty.',
-    'projects.sub': 'Vybrané weby z různých oborů — od boxerské akademie po 3D tisk. Každý web je originální.',
+    'integr.label': 'Napojení na služby',
+    'integr.title': 'Zapadne do toho, jak fungujete.',
+    'integr.desc': 'Napojím web na nástroje, které už používáte — mapy, rezervace, sociální sítě, formuláře i statistiky návštěvnosti.',
+    'integr.cta': 'Zeptat se na napojení',
+
+    'projects.eyebrow': 'Ukázky prací',
+    'projects.title': 'Weby, které si zákazníci zapamatují.',
+    'projects.sub': 'Každý web je originál navržený pro konkrétní obor — od kavárny po 3D tisk.',
+    'projects.cta': 'Chci podobný web',
     'projects.visit': 'Zobrazit ukázku',
-    'projects.hint': 'Procházejte šipkami',
+    'projects.f1': 'Žádné šablony',
+    'projects.f2': 'Ladí na mobilu i počítači',
+    'projects.f3': 'Rychlé načítání',
+
+    'old.label': 'Postaru',
+    'old.p1': 'Spousta firem má pořád web jako z roku 2009 — pomalý, nečitelný na mobilu a s kontaktem schovaným na páté podstránce.',
+    'old.p2': 'Zákazník ho za pár vteřin zavře a jde jinam. Vy si zasloužíte web, který prodává.',
+
+    'process.eyebrow': 'Jak to probíhá',
+    'process.title': 'Od první zprávy po spuštění.',
+    'process.sub': 'Přesně víte, co se děje a kolik to stojí. Bez rizika a bez závazků.',
+    'process.s1t': 'Napíšete mi',
+    'process.s1d': 'Stačí pár vět o tom, co potřebujete. Žádné formuláře, žádné závazky.',
+    'process.s2t': 'Návrh a cena zdarma',
+    'process.s2d': 'Do 48 hodin pošlu návrh řešení, přesnou cenu a termín. Nezávazně — rozhodnete se sami.',
+    'process.s3t': 'Tvorba webu',
+    'process.s3d': 'Průběžně posílám náhledy a ladíme detaily společně, dokud nejste spokojení.',
+    'process.s4t': 'Spuštění',
+    'process.s4d': 'Nasadím web na vaši doménu a předám vám vše potřebné. Doplatek až po schválení.',
+    'app.crumb': 'Projekty',
+    'app.title': 'Průběh projektu',
+    'app.client': 'Klient',
+    'app.term': 'Termín',
+    'app.termV': '10 pracovních dnů',
+    'app.price': 'Cena',
+    'app.priceV': '5 990 Kč · předem daná',
+    'app.colStep': 'Krok',
+    'app.colWhen': 'Kdy',
+    'app.colState': 'Stav',
+    'app.w1': 'Den 1',
+    'app.w2': 'Do 48 hodin',
+    'app.w3': 'Dny 3–9',
+    'app.w4': 'Den 10',
+    'app.wait': 'Čeká',
+    'app.doing': 'Probíhá',
+    'app.done': 'Hotovo',
+    'app.live': 'Probíhá',
+    'app.launched': 'Spuštěno',
+    'app.note': 'Doplatek 50 % platíte až po schválení hotového webu.',
+
+    'faq.eyebrow': 'Časté otázky',
+    'faq.title': 'Máte dotazy?',
+    'faq.sub': 'Odpovědi na nejčastější otázky. Nenašli jste odpověď? Napište mi.',
+    'faq.cta': 'Zeptat se přímo',
+    'faq.q1': 'Kolik trvá vytvoření webu?',
+    'faq.a1': 'Jednostránkový web od 5 pracovních dnů, prezentační web (více stránek) 10–14 dní. Záleží na rozsahu. Termín vždy upřesníme předem.',
+    'faq.q2': 'Kolik stojí doména a hosting?',
+    'faq.a2': 'Hosting neprovozuji, ale rád poradím s výběrem a web vám nasadím na vaši vlastní doménu. Doménu i hosting si platíte sami — doména stojí cca 200 Kč/rok.',
+    'faq.q3': 'Jak probíhá platba?',
+    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek až po dokončení a schválení webu — platíte tedy, až když jste spokojení. Platba převodem na účet.',
+    'faq.q4': 'Mohu si vyzkoušet web před spuštěním?',
+    'faq.a4': 'Ano! Během vývoje zasílám náhled na privátní adrese. Zkontrolujete vše, dáte zpětnou vazbu a požádáte o úpravy.',
+    'faq.q5': 'Co zahrnují úpravy zdarma?',
+    'faq.a5': 'Kola úprav zahrnují textové změny, drobné designové úpravy a opravy chyb. Větší přepracování jsou účtována hodinovou sazbou.',
+    'faq.q6': 'Pomůžete i s grafikou nebo logem?',
+    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo v Adobe, sladěné s vaším webem.',
+
+    'contact.title': 'Ať vám web nosí zákazníky.',
+    'contact.sub': 'Napište mi nezávazně, co potřebujete — do 24 hodin se ozvu s návrhem a cenou. Nic vás to nestojí.',
+    'contact.trust1': 'Odpověď do 24 hodin',
+    'contact.trust2': 'Nezávazná poptávka zdarma',
+    'contact.trust3': 'Cena a termín předem',
+    'contact.emailLabel': 'E-mail',
+    'contact.emailBtn': 'Napsat e-mail',
+    'contact.copy': 'Kopírovat',
+    'contact.copied': 'Zkopírováno ✓',
+    'notif.t1': 'Nová poptávka z webu',
+    'notif.d1': 'Kavárna ZRNO · Dobrý den, chtěla bych objednat dort na sobotu…',
+    'notif.time1': 'teď',
+    'notif.t2': 'Nová rezervace',
+    'notif.d2': 'Amrit Palace · Stůl pro 4 osoby, pátek 19:00',
+    'notif.time2': 'před 5 min',
+    'notif.t3': 'Nová zpráva',
+    'notif.d3': 'FORMA · Dobrý den, kdy máte volný termín?',
+    'notif.time3': 'před 12 min',
+
+    'footer.desc': 'Webový vývojář · Česká republika',
+    'footer.nav': 'Navigace',
+    'footer.social': 'Sítě',
+    'footer.top': 'Nahoru ↑',
+    'footer.rights': 'Všechna práva vyhrazena.',
 
     'pricing.eyebrow': 'Ceník',
     'pricing.title': 'Jednoduché ceny.',
@@ -131,7 +230,6 @@ const translations = {
     'plan2.badge': 'Nejoblíbenější',
     'plan2.name': 'Prezentační web',
     'plan2.desc': 'Více stránek, více obsahu, více zákazníků — přesně podle vašich představ.',
-    'plan2.oldPrice': '5 990 Kč',
     'plan2.price': '5 990 Kč',
     'plan2.per': 'jednorázově',
     'plan2.f1': 'Vše z Jednostránkového webu',
@@ -155,16 +253,6 @@ const translations = {
     'plan3.cta': 'Nezávazná konzultace',
     'pricing.cta': 'Mám zájem',
     'pricing.note': 'Potřebujete něco jiného? Napište mi — vždy najdeme řešení.',
-    'free.tag': 'Zdarma',
-    'free.title': '1 ukázková stránka zdarma',
-    'free.desc': 'Než se rozhodnete, vytvořím vám nezávaznou ukázku jedné stránky ve vašem stylu. Slouží pouze jako náhled — není to hotový web a nebude nikde zveřejněn.',
-    'free.cta': 'Chci ukázku zdarma',
-    'trial.tag': 'Zkušební web · sleva 50 %',
-    'trial.title': 'Zkušební web na ukázku',
-    'trial.desc': 'Vyzkoušejte si spolupráci na malém zkušebním webu se slevou 50 %. Slouží pouze jako ukázka — nebude nikde zveřejněn ani nasazen.',
-    'trial.old': '2 000 Kč',
-    'trial.price': '1 000 Kč',
-    'trial.cta': 'Chci zkušební web',
 
     'payment.title': 'Platební podmínky',
     'payment.deposit.label': 'Záloha předem',
@@ -210,78 +298,46 @@ const translations = {
     'about.t2.desc': 'Vytvořil jsem první opravdové weby a projekty — pro sebe a pro známé. Naučil jsem se pracovat s reálnými požadavky, termíny a zpětnou vazbou.',
     'about.t3.title': 'Začátek',
     'about.t3.desc': 'Z čisté zvědavosti první HTML soubor. Ten pocit, když se stránka poprvé zobrazí v prohlížeči — přesně to mě chytilo.',
-    'about.cta': 'Pojďme spolupracovat',
-
-    'process.eyebrow': 'Jak to probíhá',
-    'process.title': 'Jednoduše, ve 4 krocích.',
-    'process.sub': 'Od první zprávy po spuštění webu přesně víte, co se děje. Bez rizika a bez závazků.',
-    'process.s1t': 'Napíšete mi',
-    'process.s1d': 'Stačí pár vět o tom, co potřebujete. Žádné formuláře, žádné závazky.',
-    'process.s2t': 'Návrh a cena zdarma',
-    'process.s2d': 'Do 48 hodin pošlu návrh řešení, přesnou cenu a termín. Nezávazně — rozhodnete se sami.',
-    'process.s3t': 'Tvorba webu',
-    'process.s3d': 'Průběžně posílám náhledy a ladíme detaily společně, dokud nejste spokojení.',
-    'process.s4t': 'Spuštění',
-    'process.s4d': 'Nasadím web na vaši doménu a předám vám vše potřebné. Doplatek až po schválení.',
-
-    'faq.eyebrow': 'Časté otázky',
-    'faq.title': 'Máte dotazy?',
-    'faq.sub': 'Odpovědi na nejčastější otázky. Nenašli jste odpověď? Napište mi.',
-    'faq.q1': 'Kolik trvá vytvoření webu?',
-    'faq.a1': 'Jednostránkový web od 5 pracovních dnů, prezentační web (více stránek) 10–14 dní. Záleží na rozsahu. Termín vždy upřesníme předem.',
-    'faq.q2': 'Kolik stojí doména a hosting?',
-    'faq.a2': 'Hosting neprovozuji, ale rád poradím s výběrem a web vám nasadím na vaši vlastní doménu. Doménu i hosting si platíte sami — doména stojí cca 200 Kč/rok.',
-    'faq.q3': 'Jak probíhá platba?',
-    'faq.a3': '50 % záloha před zahájením práce, 50 % doplatek až po dokončení a schválení webu — platíte tedy, až když jste spokojení. Platba převodem na účet.',
-    'faq.q4': 'Mohu si vyzkoušet web před spuštěním?',
-    'faq.a4': 'Ano! Během vývoje zasílám náhled na privátní adrese. Zkontrolujete vše, dáte zpětnou vazbu a požádáte o úpravy.',
-    'faq.q5': 'Co zahrnují úpravy zdarma?',
-    'faq.a5': 'Kola úprav zahrnují textové změny, drobné designové úpravy a opravy chyb. Větší přepracování jsou účtována hodinovou sazbou.',
-    'faq.q6': 'Pomůžete i s grafikou nebo logem?',
-    'faq.a6': 'Ano — vytvořím grafiku, bannery i jednoduché logo v Adobe, sladěné s vaším webem.',
-
-    'contact.eyebrow': 'Ozvěte se',
-    'contact.title': 'Pojďme tvořit.',
-    'contact.sub': 'Napište mi nezávazně, co potřebujete — do 24 hodin se ozvu s návrhem a cenou. Nic vás to nestojí.',
-    'contact.available': 'Aktuálně přijímám nové projekty',
-    'contact.trust1': 'Odpověď do 24 hodin',
-    'contact.trust2': 'Nezávazná poptávka zdarma',
-    'contact.trust3': 'Cena a termín předem',
-    'contact.emailLabel': 'E-mail',
-    'contact.emailBtn': 'Napsat e-mail',
-    'contact.openBtn': 'Otevřít profil',
-    'contact.copy': 'Kopírovat',
-    'contact.copied': 'Zkopírováno ✓',
-    'footer.desc': 'Webový vývojář · Česká republika',
-    'footer.rights': 'Všechna práva vyhrazena.'
+    'about.cta': 'Pojďme spolupracovat'
   },
 
   en: {
-    'meta.title': 'Vojtěch Straka — Web Developer',
-    'nav.home': 'Home',
+    'meta.title': 'Senecio.dev — Vojtěch Straka, web developer',
     'nav.services': 'Services',
     'nav.projects': 'Projects',
+    'nav.process': 'How it works',
     'nav.pricing': 'Pricing',
-    'nav.about': 'About Me',
-    'nav.contact': 'Contact',
+    'nav.about': 'About',
+    'nav.cta': 'Get in touch',
 
-    'hero.chip': 'Available for new projects',
-    'hero.role': 'Modern websites for small businesses and freelancers',
-    'hero.taglines': [
-      'I build websites that captivate at first glance.',
-      'Modern online presence for your business.',
-      'Design that sells.',
-      'Websites people remember.'
-    ],
-    'hero.cta1': 'View projects',
-    'hero.cta2': 'Get in touch',
-    'hero.scroll': 'Scroll down',
+    'hero.chip': 'Accepting new projects',
+    'hero.title': 'A website that works for your business 24/7.',
+    'hero.sub': "I'm Vojtěch Straka and I build modern, fast websites for small businesses and freelancers — from design all the way to launch on your own domain.",
+    'hero.cta1': 'Free quote',
+    'hero.cta2': 'Live demos',
 
-    'services.eyebrow': 'What I offer',
-    'services.title': 'Services.',
-    'services.sub': 'Modern websites for entrepreneurs, companies, and individuals — from design to launch.',
+    'showcase.open': 'Open ↗',
+    'showcase.view': 'View the full demo',
+    'showcase.hint': 'Live demos of my websites — pick a project',
+    'dock.cafe': 'Café',
+    'dock.rest': 'Restaurant',
+    'dock.fit': 'Trainer',
+    'dock.print': '3D print',
+    'dock.photo': 'Photographer',
+
+    'logos.label': 'Built on modern, proven technology',
+
+    'services.eyebrow': 'Services',
+    'services.title': 'Everything for your website in one place.',
+    'services.more': 'See pricing',
     'services.learn': 'Learn more →',
     'services.hint': 'Browse with the arrows',
+    'feat1.t': 'Custom design',
+    'feat1.d': '— no templates, the site matches your brand.',
+    'feat2.t': 'Perfect on mobile',
+    'feat2.d': '— most customers look you up on their phone.',
+    'feat3.t': 'Lightning fast',
+    'feat3.d': '— nobody waits for a slow website.',
     'service1.name': 'Business website',
     'service1.desc': 'A company or personal website that represents you. Customers find you, trust you, and contact you.',
     'service2.name': 'Custom design',
@@ -294,16 +350,104 @@ const translations = {
     'service5.desc': 'After launch, you are not alone. I offer maintenance, content updates, and technical support as needed.',
     'service6.name': 'Landing Page',
     'service6.desc': 'One powerful page that converts. Perfect for campaigns, products, or simple presentations with a CTA.',
+    'stat.kicker': 'Responsive design',
+    'stat.mobile': 'of my websites work perfectly on mobile. This one is live — give it a try.',
 
-    'projects.eyebrow': 'My work',
-    'projects.title': 'Projects.',
-    'projects.sub': 'Selected websites from different industries — from a boxing academy to 3D printing. Every site is original.',
+    'integr.label': 'Integrations',
+    'integr.title': 'Fits the way you already work.',
+    'integr.desc': 'I connect your website to the tools you already use — maps, bookings, social media, forms and visitor analytics.',
+    'integr.cta': 'Ask about integrations',
+
+    'projects.eyebrow': 'Work',
+    'projects.title': 'Websites customers remember.',
+    'projects.sub': 'Every site is an original, designed for a specific industry — from a café to 3D printing.',
+    'projects.cta': 'I want a site like this',
     'projects.visit': 'View demo',
-    'projects.hint': 'Browse with the arrows',
+    'projects.f1': 'No templates',
+    'projects.f2': 'Looks great on mobile & desktop',
+    'projects.f3': 'Fast loading',
+
+    'old.label': 'The old way',
+    'old.p1': 'Plenty of businesses still have a website straight out of 2009 — slow, unreadable on a phone, with the contact details hidden on the fifth subpage.',
+    'old.p2': 'A customer closes it within seconds and goes elsewhere. You deserve a website that sells.',
+
+    'process.eyebrow': 'How it works',
+    'process.title': 'From the first message to launch.',
+    'process.sub': 'You always know what is happening and what it costs. No risk, no commitment.',
+    'process.s1t': 'You write to me',
+    'process.s1d': 'A few sentences about what you need is enough. No forms, no obligations.',
+    'process.s2t': 'Free proposal & quote',
+    'process.s2d': 'Within 48 hours I send a proposed solution, exact price and timeline. No strings attached.',
+    'process.s3t': 'Building the website',
+    'process.s3d': 'I share previews as I go and we fine-tune the details together until you are happy.',
+    'process.s4t': 'Launch',
+    'process.s4d': 'I deploy the website to your domain and hand everything over. Final payment only after approval.',
+    'app.crumb': 'Projects',
+    'app.title': 'Project progress',
+    'app.client': 'Client',
+    'app.term': 'Timeline',
+    'app.termV': '10 working days',
+    'app.price': 'Price',
+    'app.priceV': '5,990 CZK · fixed upfront',
+    'app.colStep': 'Step',
+    'app.colWhen': 'When',
+    'app.colState': 'Status',
+    'app.w1': 'Day 1',
+    'app.w2': 'Within 48 h',
+    'app.w3': 'Days 3–9',
+    'app.w4': 'Day 10',
+    'app.wait': 'Waiting',
+    'app.doing': 'In progress',
+    'app.done': 'Done',
+    'app.live': 'In progress',
+    'app.launched': 'Launched',
+    'app.note': 'You pay the remaining 50% only after approving the finished website.',
+
+    'faq.eyebrow': 'FAQ',
+    'faq.title': 'Have questions?',
+    'faq.sub': "Answers to the most common questions. Didn't find yours? Write to me.",
+    'faq.cta': 'Ask me directly',
+    'faq.q1': 'How long does it take?',
+    'faq.a1': 'A one-page website from 5 working days, a business website (multiple pages) 10–14 days. Depends on scope. We always confirm the timeline upfront.',
+    'faq.q2': 'How much do domain and hosting cost?',
+    'faq.a2': "I don't run hosting, but I'm happy to help you choose and I'll deploy the site to your own domain. You pay for the domain and hosting — a domain costs around 200 CZK/year.",
+    'faq.q3': 'How does payment work?',
+    'faq.a3': '50% deposit before work begins, the remaining 50% only after the website is finished and approved — you pay when you are happy. Payment by bank transfer.',
+    'faq.q4': 'Can I preview the website before launch?',
+    'faq.a4': 'Yes! During development I send you a preview at a private URL. Check everything, give feedback, and request changes.',
+    'faq.q5': 'What do free revisions include?',
+    'faq.a5': 'Revision rounds cover text changes, minor design tweaks, and bug fixes. Larger reworks are charged at an hourly rate.',
+    'faq.q6': 'Can you help with graphics or a logo?',
+    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Adobe, all matched to your website.',
+
+    'contact.title': 'Let your website bring you customers.',
+    'contact.sub': 'Tell me what you need — within 24 hours I will get back to you with a proposal and price. Free of charge.',
+    'contact.trust1': 'Reply within 24 hours',
+    'contact.trust2': 'Free, no-obligation quote',
+    'contact.trust3': 'Price & deadline agreed upfront',
+    'contact.emailLabel': 'Email',
+    'contact.emailBtn': 'Send an email',
+    'contact.copy': 'Copy',
+    'contact.copied': 'Copied ✓',
+    'notif.t1': 'New enquiry from the website',
+    'notif.d1': 'ZRNO Café · Hello, I would like to order a cake for Saturday…',
+    'notif.time1': 'now',
+    'notif.t2': 'New booking',
+    'notif.d2': 'Amrit Palace · Table for 4, Friday 7 pm',
+    'notif.time2': '5 min ago',
+    'notif.t3': 'New message',
+    'notif.d3': 'FORMA · Hi, when is your next free slot?',
+    'notif.time3': '12 min ago',
+
+    'footer.desc': 'Web Developer · Czech Republic',
+    'footer.nav': 'Navigation',
+    'footer.social': 'Social',
+    'footer.top': 'Back to top ↑',
+    'footer.rights': 'All rights reserved.',
 
     'pricing.eyebrow': 'Pricing',
     'pricing.title': 'Simple pricing.',
-    'pricing.sub': 'Fair prices with no hidden fees. You always know what you\'re paying for.',
+    'pricing.sub': "Fair prices with no hidden fees. You always know what you're paying for.",
     'plan1.name': 'One-page website',
     'plan1.desc': 'The perfect start — everything that matters on one clear page.',
     'plan1.price': '3,990 CZK',
@@ -317,7 +461,6 @@ const translations = {
     'plan2.badge': 'Most popular',
     'plan2.name': 'Business website',
     'plan2.desc': 'More pages, more content, more customers — tailored exactly to your needs.',
-    'plan2.oldPrice': '5,990 CZK',
     'plan2.price': '5,990 CZK',
     'plan2.per': 'one-time',
     'plan2.f1': 'Everything from One-page website',
@@ -329,7 +472,7 @@ const translations = {
     'plan2.f7': '3 rounds of free revisions',
     'plan2.f8': '30 days of post-launch support',
     'plan3.name': 'Custom project',
-    'plan3.desc': 'Complex project with unique requirements? Contact me and we\'ll design a solution just for you.',
+    'plan3.desc': "Complex project with unique requirements? Contact me and we'll design a solution just for you.",
     'plan3.price': 'from 8,990 CZK',
     'plan3.per': 'depending on scope',
     'plan3.f1': 'Unlimited pages',
@@ -341,16 +484,6 @@ const translations = {
     'plan3.cta': 'Free consultation',
     'pricing.cta': "I'm interested",
     'pricing.note': 'Need something different? Write to me — we will always find a solution.',
-    'free.tag': 'Free',
-    'free.title': '1 sample page for free',
-    'free.desc': 'Before you decide, I\'ll create a no-obligation sample of one page in your style. It serves only as a preview — it is not a finished website and will not be published anywhere.',
-    'free.cta': 'Get a free sample',
-    'trial.tag': 'Trial website · 50% off',
-    'trial.title': 'Trial website for preview',
-    'trial.desc': 'Try our collaboration on a small trial website at 50% off. It serves only as a preview — it will not be published or deployed anywhere.',
-    'trial.old': '2,000 CZK',
-    'trial.price': '1,000 CZK',
-    'trial.cta': 'Get a trial website',
 
     'payment.title': 'Payment terms',
     'payment.deposit.label': 'Deposit upfront',
@@ -395,51 +528,8 @@ const translations = {
     'about.t2.title': 'First real websites',
     'about.t2.desc': 'I built my first real websites and projects — for myself and for people I know. I learned to work with real requirements, deadlines and feedback.',
     'about.t3.title': 'The beginning',
-    'about.t3.desc': "Out of pure curiosity — my first HTML file. The moment the page appeared in the browser, I was hooked.",
-    'about.cta': "Let's work together",
-
-    'process.eyebrow': 'How it works',
-    'process.title': 'Simple. Four steps.',
-    'process.sub': 'From the first message to launch, you always know what is happening. No risk, no commitment.',
-    'process.s1t': 'You write to me',
-    'process.s1d': 'A few sentences about what you need is enough. No forms, no obligations.',
-    'process.s2t': 'Free proposal & quote',
-    'process.s2d': 'Within 48 hours I send a proposed solution, exact price and timeline. No strings attached.',
-    'process.s3t': 'Building the website',
-    'process.s3d': 'I share previews as I go and we fine-tune the details together until you are happy.',
-    'process.s4t': 'Launch',
-    'process.s4d': 'I deploy the website to your domain and hand everything over. Final payment only after approval.',
-
-    'faq.eyebrow': 'Frequently asked questions',
-    'faq.title': 'Have questions?',
-    'faq.sub': "Answers to the most common questions. Didn't find your answer? Write to me.",
-    'faq.q1': 'How long does it take?',
-    'faq.a1': 'A one-page website from 5 working days, a business website (multiple pages) 10–14 days. Depends on scope. We always confirm the timeline upfront.',
-    'faq.q2': 'How much do domain and hosting cost?',
-    'faq.a2': "I don't run hosting, but I'm happy to help you choose and I'll deploy the site to your own domain. You pay for the domain and hosting — a domain costs around 200 CZK/year.",
-    'faq.q3': 'How does payment work?',
-    'faq.a3': '50% deposit before work begins, the remaining 50% only after the website is finished and approved — you pay when you are happy. Payment by bank transfer.',
-    'faq.q4': 'Can I preview the website before launch?',
-    'faq.a4': 'Yes! During development I send you a preview at a private URL. Check everything, give feedback, and request changes.',
-    'faq.q5': 'What do free revisions include?',
-    'faq.a5': 'Revision rounds cover text changes, minor design tweaks, and bug fixes. Larger reworks are charged at an hourly rate.',
-    'faq.q6': 'Can you help with graphics or a logo?',
-    'faq.a6': 'Yes — I can create graphics, banners and a simple logo in Adobe, all matched to your website.',
-
-    'contact.eyebrow': 'Get in touch',
-    'contact.title': "Let's create.",
-    'contact.sub': 'Tell me what you need — within 24 hours I will get back to you with a proposal and price. Free of charge.',
-    'contact.available': 'Currently accepting new projects',
-    'contact.trust1': 'Reply within 24 hours',
-    'contact.trust2': 'Free, no-obligation quote',
-    'contact.trust3': 'Price & deadline agreed upfront',
-    'contact.emailLabel': 'Email',
-    'contact.emailBtn': 'Send an email',
-    'contact.openBtn': 'Open profile',
-    'contact.copy': 'Copy',
-    'contact.copied': 'Copied ✓',
-    'footer.desc': 'Web Developer · Czech Republic',
-    'footer.rights': 'All rights reserved.'
+    'about.t3.desc': 'Out of pure curiosity — my first HTML file. The moment the page appeared in the browser, I was hooked.',
+    'about.cta': "Let's work together"
   }
 };
 
@@ -447,7 +537,6 @@ let lang = 'cs';
 try { lang = localStorage.getItem('lang') || 'cs'; } catch (e) {}
 if (!translations[lang]) lang = 'cs';
 
-let booted = false;
 const t = (key) => translations[lang][key] ?? key;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -458,11 +547,7 @@ const revealIO = new IntersectionObserver((entries) => {
       revealIO.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
-
-function observeReveal(scope) {
-  (scope || document).querySelectorAll('.reveal:not(.in-view)').forEach((el) => revealIO.observe(el));
-}
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
 const skillIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -474,170 +559,161 @@ const skillIO = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.2 });
-
 document.querySelectorAll('.skill-boxes').forEach((el) => skillIO.observe(el));
 
 const projectsGrid = document.getElementById('projectsGrid');
+let projActive = 0;
 
-function previewUrl(url) {
-  if (url.startsWith('./') || url.startsWith('/')) return null;
-  return 'https://s.wordpress.com/mshots/v1/' + encodeURIComponent(url) + '?w=1000';
-}
-
-function renderProjects(instant) {
+function renderProjects() {
   if (!projectsGrid) return;
   projectsGrid.innerHTML = '';
 
   projects.forEach((p, i) => {
     const card = document.createElement('article');
-    card.className = 'glass card project-card';
-
-    let host = p.url;
-    try { host = new URL(p.url).hostname.replace(/^www\./, ''); } catch (e) { host = p.title[lang]; }
+    card.className = 'project-card';
+    const host = 'senecio.dev/' + p.url.replace('./', '').replace('.html', '');
     const letter = (p.title[lang][0] || '•').toUpperCase();
-
-    const gradient = p.gradient || 'linear-gradient(135deg, #0071e3, #5e5ce6)';
-    const imgSrc = p.image || previewUrl(p.url);
-
     const num = String(i + 1).padStart(2, '0');
+    const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
 
     card.innerHTML =
       '<a class="project-preview" href="' + p.url + '" target="_blank" rel="noopener">' +
-        (imgSrc ? '<img loading="lazy" alt="' + p.title[lang] + '" src="' + imgSrc + '">' : '') +
-        '<span class="preview-fallback" style="background:' + gradient + '"><b>' + letter + '</b><i>' + p.title[lang] + '</i></span>' +
+        '<img loading="lazy" alt="' + p.title[lang] + '" src="' + p.image + '">' +
+        '<span class="preview-fallback" style="background:' + p.gradient + '"><b>' + letter + '</b><i>' + p.title[lang] + '</i></span>' +
         '<span class="preview-host">' + host + '</span>' +
         '<span class="project-num">' + num + '</span>' +
-        '<span class="project-overlay"><span class="project-view">' + t('projects.visit') +
-          ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>' +
-        '</span></span>' +
+        '<span class="project-overlay"><span class="project-view">' + t('projects.visit') + ' ' + arrow + '</span></span>' +
       '</a>' +
       '<div class="project-body">' +
-        '<div class="project-tags">' + (p.tags || []).map((tag) => '<span class="tag">' + tag + '</span>').join('') + '</div>' +
+        '<div class="project-tags">' + p.tags.map((tag) => '<span class="tag">' + tag + '</span>').join('') + '</div>' +
         '<h3>' + p.title[lang] + '</h3>' +
         '<p>' + p.desc[lang] + '</p>' +
-        '<a class="project-link" href="' + p.url + '" target="_blank" rel="noopener">' + t('projects.visit') +
-          ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>' +
-        '</a>' +
+        '<a class="project-link" href="' + p.url + '" target="_blank" rel="noopener">' + t('projects.visit') + ' ' + arrow + '</a>' +
       '</div>';
 
-    if (imgSrc) {
-      const img = card.querySelector('img');
-      img.addEventListener('error', () => {
-        card.querySelector('.project-preview').classList.add('no-img');
-      });
-    } else {
+    card.querySelector('img').addEventListener('error', () => {
       card.querySelector('.project-preview').classList.add('no-img');
-    }
-
+    });
     projectsGrid.appendChild(card);
   });
 
-  if (projActive > projects.length - 1) projActive = projects.length - 1;
   projLayout();
 }
 
-let projActive = 0;
 function projLayout() {
   if (!projectsGrid) return;
-  const cards = projectsGrid.querySelectorAll('.project-card');
   const gap = window.innerWidth < 640 ? 230 : 320;
-  cards.forEach((c, i) => {
+  projectsGrid.querySelectorAll('.project-card').forEach((c, i) => {
     const off = i - projActive;
     const ab = Math.abs(off);
     c.style.transform =
       'translateX(' + (off * gap) + 'px) translateZ(' + (ab ? -180 : 0) + 'px)' +
       ' rotateY(' + (off * -34) + 'deg) scale(' + (off === 0 ? 1 : 0.86) + ')';
-    c.style.opacity = ab > 2 ? '0' : '1';
+    c.style.opacity = ab > 2 ? '0' : String(1 - ab * 0.28);
     c.style.zIndex = String(30 - ab);
     c.style.pointerEvents = off === 0 ? 'auto' : 'none';
     c.classList.toggle('is-active', off === 0);
   });
 }
+
 function projGo(dir) {
   projActive = Math.max(0, Math.min(projActive + dir, projects.length - 1));
   projLayout();
 }
-(function () {
-  const prev = document.querySelector('.proj-prev');
-  const next = document.querySelector('.proj-next');
-  if (prev) prev.addEventListener('click', () => projGo(-1));
-  if (next) next.addEventListener('click', () => projGo(1));
-  window.addEventListener('resize', projLayout, { passive: true });
-})();
 
-const typedEl = document.getElementById('typed');
-let typeToken = 0;
-let typeTimer = null;
-let phraseIndex = 0;
+const projPrev = document.querySelector('.proj-prev');
+const projNext = document.querySelector('.proj-next');
+if (projPrev) projPrev.addEventListener('click', () => projGo(-1));
+if (projNext) projNext.addEventListener('click', () => projGo(1));
 
-function startTyping() {
-  if (!typedEl) return;
-  const phrases = translations[lang]['hero.taglines'] || [translations[lang]['hero.tagline'] || ''];
-  const token = ++typeToken;
-  clearTimeout(typeTimer);
-
-  if (reducedMotion) {
-    typedEl.textContent = phrases[0];
-    return;
-  }
-
-  let i = 0;
-  let deleting = false;
-  const full = phrases[phraseIndex % phrases.length];
-
-  const step = () => {
-    if (token !== typeToken) return;
-
-    if (!deleting) {
-      i++;
-      typedEl.textContent = full.slice(0, i);
-      if (i === full.length) {
-        deleting = true;
-        typeTimer = setTimeout(step, 3800);
-      } else {
-        typeTimer = setTimeout(step, 36 + Math.random() * 44);
-      }
-    } else {
-      i--;
-      typedEl.textContent = full.slice(0, i);
-      if (i === 0) {
-        deleting = false;
-        phraseIndex++;
-        const next = phrases[phraseIndex % phrases.length];
-        typeTimer = setTimeout(() => {
-          i = 0;
-          const nextFull = next;
-          const stepNext = () => {
-            if (token !== typeToken) return;
-            i++;
-            typedEl.textContent = nextFull.slice(0, i);
-            if (i === nextFull.length) {
-              deleting = true;
-              typeTimer = setTimeout(stepNext, 3800);
-            } else {
-              typeTimer = setTimeout(stepNext, 36 + Math.random() * 44);
-            }
-            if (deleting) {
-              const del = () => {
-                if (token !== typeToken) return;
-                i--;
-                typedEl.textContent = nextFull.slice(0, i);
-                if (i === 0) { phraseIndex++; startTyping(); } else { typeTimer = setTimeout(del, 16); }
-              };
-              typeTimer = setTimeout(del, 3800);
-            }
-          };
-          stepNext();
-        }, 600);
-      } else {
-        typeTimer = setTimeout(step, 16);
-      }
-    }
-  };
-
-  typedEl.textContent = '';
-  typeTimer = setTimeout(step, 300);
+const projViewport = document.querySelector('.proj-viewport');
+if (projViewport) {
+  let startX = null;
+  projViewport.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  projViewport.addEventListener('touchend', (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) projGo(dx < 0 ? 1 : -1);
+    startX = null;
+  }, { passive: true });
 }
+
+const scrubEl = document.getElementById('scrub');
+let scrubWords = [];
+let lastLit = -1;
+
+function renderScrub() {
+  if (!scrubEl) return;
+  scrubEl.innerHTML = '';
+  ['old.p1', 'old.p2'].forEach((key, pi) => {
+    const block = document.createElement('span');
+    block.className = pi === 1 ? 'scrub-p strong' : 'scrub-p';
+    t(key).split(' ').forEach((word) => {
+      const w = document.createElement('span');
+      w.className = 'w';
+      w.textContent = word + ' ';
+      block.appendChild(w);
+    });
+    scrubEl.appendChild(block);
+  });
+  scrubWords = Array.from(scrubEl.querySelectorAll('.w'));
+  lastLit = -1;
+}
+
+const appWin = document.getElementById('appwin');
+const appState = document.getElementById('appState');
+let appStage = -1;
+
+function paintApp() {
+  if (!appWin) return;
+  const rows = appWin.querySelectorAll('.app-row[data-row]');
+  rows.forEach((row) => {
+    const i = Number(row.dataset.row);
+    const state = appStage < 0 || i > appStage ? 'wait' : i < appStage ? 'done' : 'doing';
+    row.classList.toggle('done', state === 'done');
+    row.classList.toggle('doing', state === 'doing');
+    row.querySelector('.app-pill').textContent = t('app.' + state);
+  });
+  const finished = appStage >= rows.length;
+  appWin.style.setProperty('--p', (Math.max(appStage, 0) / rows.length) * 100 + '%');
+  if (appState) {
+    appState.textContent = t(finished ? 'app.launched' : 'app.live');
+    appState.classList.toggle('done', finished);
+  }
+}
+
+if (appWin) {
+  const appIO = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    appIO.disconnect();
+    if (reducedMotion) { appStage = 4; paintApp(); return; }
+    appStage = 0;
+    paintApp();
+    const timer = setInterval(() => {
+      appStage++;
+      paintApp();
+      if (appStage >= 4) clearInterval(timer);
+    }, 1300);
+  }, { threshold: 0.4 });
+  appIO.observe(appWin);
+}
+
+const phoneClock = document.getElementById('phoneClock');
+const phoneTime = document.getElementById('phoneTime');
+const phoneDate = document.getElementById('phoneDate');
+
+function paintPhone() {
+  if (!phoneClock) return;
+  const now = new Date();
+  const hm = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+  phoneClock.textContent = hm;
+  if (phoneTime) phoneTime.textContent = hm;
+  if (phoneDate) {
+    const d = new Intl.DateTimeFormat(lang === 'cs' ? 'cs-CZ' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long' }).format(now);
+    phoneDate.textContent = d.charAt(0).toUpperCase() + d.slice(1);
+  }
+}
+if (phoneClock) setInterval(paintPhone, 30000);
 
 function setLang(next) {
   lang = translations[next] ? next : 'cs';
@@ -648,155 +724,122 @@ function setLang(next) {
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const val = translations[lang][el.getAttribute('data-i18n')];
-    if (val !== undefined && typeof val === 'string') el.textContent = val;
+    if (typeof val === 'string') el.textContent = val;
   });
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
 
-  renderProjects(booted);
-  phraseIndex = 0;
-  startTyping();
+  renderProjects();
+  renderScrub();
+  paintApp();
+  paintPhone();
 }
 
 document.querySelectorAll('.lang-btn').forEach((btn) => {
   btn.addEventListener('click', () => { if (btn.dataset.lang !== lang) setLang(btn.dataset.lang); });
 });
 
-const spyLinks = {};
-document.querySelectorAll('.island-link').forEach((a) => { spyLinks[a.dataset.spy] = a; });
+const island = document.querySelector('.island');
+const menuBtn = document.querySelector('.menu-btn');
+if (island && menuBtn) {
+  const closeMenu = () => { island.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); };
+  menuBtn.addEventListener('click', () => {
+    const open = island.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  island.querySelectorAll('.island-link').forEach((a) => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+}
 
+const spyLinks = {};
+document.querySelectorAll('.island-link[data-spy]').forEach((a) => { spyLinks[a.dataset.spy] = a; });
 const spyIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting && spyLinks[entry.target.id]) {
-      document.querySelectorAll('.island-link.active').forEach((el) => el.classList.remove('active'));
-      spyLinks[entry.target.id].classList.add('active');
-    }
+    if (!entry.isIntersecting) return;
+    Object.values(spyLinks).forEach((a) => a.classList.toggle('active', a === spyLinks[entry.target.id]));
   });
-}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-
-['home', 'services', 'projects', 'pricing', 'about', 'contact'].forEach((id) => {
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+['home', 'services', 'projects', 'process', 'faq', 'contact'].forEach((id) => {
   const s = document.getElementById(id);
   if (s) spyIO.observe(s);
 });
 
-const island = document.querySelector('.island');
-const heroEl = document.querySelector('.hero');
-const heroInner = document.querySelector('.hero-inner');
-const mountainImg = document.querySelector('.hero-mountain-img');
-const cloudsBack = document.querySelector('.hero-clouds-back');
-const cloudsFront = document.querySelector('.hero-clouds-front');
-const heroWash = document.querySelector('.hero-wash');
-const pageHeroImg = document.querySelector('.page-hero-img');
-const heroNameEl = document.querySelector('.hero-name');
-
-window.addEventListener('scroll', () => {
-  if (island) island.classList.toggle('scrolled', window.scrollY > 40);
+function fitFrame(frame) {
+  const box = frame.parentElement;
+  const base = Number(frame.dataset.w) || 1440;
+  const scale = box.clientWidth / base;
+  if (!scale) return;
+  frame.style.width = base + 'px';
+  frame.style.height = Math.ceil(box.clientHeight / scale) + 'px';
+  frame.style.transform = 'scale(' + scale + ')';
+}
+const liveFrames = Array.from(document.querySelectorAll('.live-frame'));
+liveFrames.forEach((frame) => {
+  fitFrame(frame);
+  frame.addEventListener('load', () => frame.parentElement.classList.remove('loading'));
+});
+window.addEventListener('resize', () => {
+  liveFrames.forEach(fitFrame);
+  projLayout();
 }, { passive: true });
 
-if (!reducedMotion) {
-  const lerp = (a, b, f) => a + (b - a) * f;
-  const s = { mtnY: 0, mtnSc: 1.12, cbY: 52, cbSc: 1.05, cfY: 74, cfSc: 1, wash: 0, hiY: 0, hiOp: 1, nmBlur: 0 };
-  const loop = () => {
-    const y = window.scrollY;
-    const vh = window.innerHeight || 1;
-    const p = Math.min(y / vh, 1.25);
-    const pc = Math.min(p, 1);
-    const cp = Math.min(p * 0.78, 1);
-    const t = {
-      mtnY: -y * 0.028,
-      mtnSc: 1.12 - pc * 0.15,
-      cbY: 52 - cp * 64,
-      cbSc: 1.05 + cp * 0.26,
-      cfY: 74 - cp * 126,
-      cfSc: 1 + cp * 0.55,
-      wash: Math.min(Math.max(p - 0.2, 0) * 1.25, 1),
-      hiY: y * 0.1,
-      hiOp: Math.max(0, 1 - p * 1.05),
-      nmBlur: Math.min(p * 13, 13)
-    };
-    const F = 0.12;
-    for (const k in t) s[k] = lerp(s[k], t[k], F);
-
-    if (y <= vh * 1.4) {
-      if (mountainImg) { mountainImg.style.setProperty('--mtnY', s.mtnY.toFixed(2) + 'px'); mountainImg.style.setProperty('--mtnSc', s.mtnSc.toFixed(4)); }
-      if (cloudsBack) { cloudsBack.style.setProperty('--cbY', s.cbY.toFixed(2) + '%'); cloudsBack.style.setProperty('--cbSc', s.cbSc.toFixed(4)); }
-      if (cloudsFront) { cloudsFront.style.setProperty('--cfY', s.cfY.toFixed(2) + '%'); cloudsFront.style.setProperty('--cfSc', s.cfSc.toFixed(4)); }
-      if (heroWash) heroWash.style.opacity = s.wash.toFixed(3);
-      if (heroInner) { heroInner.style.transform = 'translateY(' + s.hiY.toFixed(1) + 'px)'; heroInner.style.opacity = s.hiOp.toFixed(3); }
-      if (heroNameEl) heroNameEl.style.filter = 'blur(' + s.nmBlur.toFixed(2) + 'px)';
-    }
-    if (pageHeroImg) pageHeroImg.style.transform = 'translateY(' + (y * 0.32) + 'px) scale(1.06)';
-    requestAnimationFrame(loop);
-  };
-  requestAnimationFrame(loop);
-}
-
-if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
-  let pointerTicking = false;
-  heroEl.addEventListener('pointermove', (e) => {
-    if (pointerTicking) return;
-    pointerTicking = true;
-    requestAnimationFrame(() => {
-      const r = heroEl.getBoundingClientRect();
-      const nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-      const ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
-      heroEl.style.setProperty('--mx', nx.toFixed(3));
-      heroEl.style.setProperty('--my', ny.toFixed(3));
-      pointerTicking = false;
+const showFrame = document.getElementById('showFrame');
+const showScreen = document.getElementById('showScreen');
+const showUrl = document.getElementById('showUrl');
+const showLinks = document.querySelectorAll('[data-show-link]');
+const dockBtns = document.querySelectorAll('.dock-btn');
+dockBtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (!showFrame || btn.classList.contains('active')) return;
+    dockBtns.forEach((b) => {
+      b.classList.toggle('active', b === btn);
+      b.setAttribute('aria-selected', String(b === btn));
     });
-  }, { passive: true });
-  heroEl.addEventListener('pointerleave', () => {
-    heroEl.style.setProperty('--mx', '0');
-    heroEl.style.setProperty('--my', '0');
+    showScreen.classList.add('loading');
+    showUrl.textContent = btn.dataset.url;
+    showLinks.forEach((a) => { a.href = btn.dataset.src; });
+    setTimeout(() => { showFrame.src = btn.dataset.src; }, 200);
   });
-}
+});
 
-(function () {
-  const ring = document.getElementById('svcRing');
-  if (!ring) return;
+const ring = document.getElementById('svcRing');
+if (ring) {
   const cards = Array.from(ring.querySelectorAll('.svc3d'));
-  const n = cards.length || 1;
-  const step = 360 / n;
+  const step = 360 / cards.length;
   let angle = 0;
-
-  function update() {
+  const update = () => {
     ring.style.setProperty('--ring', angle + 'deg');
-    let idx = Math.round(-angle / step) % n;
-    if (idx < 0) idx += n;
+    let idx = Math.round(-angle / step) % cards.length;
+    if (idx < 0) idx += cards.length;
     cards.forEach((c, i) => c.classList.toggle('is-front', i === idx));
-  }
-  function rotate(dir) { angle -= dir * step; update(); }
+  };
+  const rotate = (dir) => { angle -= dir * step; update(); };
   update();
-
-  const prev = document.querySelector('.svc-prev');
-  const next = document.querySelector('.svc-next');
-  if (prev) prev.addEventListener('click', () => rotate(-1));
-  if (next) next.addEventListener('click', () => rotate(1));
-})();
+  const svcPrev = document.querySelector('.svc-prev');
+  const svcNext = document.querySelector('.svc-next');
+  if (svcPrev) svcPrev.addEventListener('click', () => rotate(-1));
+  if (svcNext) svcNext.addEventListener('click', () => rotate(1));
+}
 
 function animateCount(el) {
   const target = Number(el.dataset.count) || 0;
   const suffix = el.dataset.suffix || '';
   if (reducedMotion) { el.textContent = target + suffix; return; }
-  const duration = 1400;
   const start = performance.now();
   const frame = (now) => {
-    const p = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(target * eased) + suffix;
+    const p = Math.min((now - start) / 1400, 1);
+    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
     if (p < 1) requestAnimationFrame(frame);
   };
   requestAnimationFrame(frame);
 }
-
 const countIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) { animateCount(entry.target); countIO.unobserve(entry.target); }
   });
 }, { threshold: 0.5 });
-
 document.querySelectorAll('.stat-num').forEach((el) => countIO.observe(el));
 
 const emailValue = document.getElementById('emailValue');
@@ -806,32 +849,93 @@ if (emailValue) {
   const emailLink = document.getElementById('emailLink');
   if (emailLink) emailLink.href = 'mailto:' + addr;
   const emailCopy = document.getElementById('emailCopy');
-  if (emailCopy) emailCopy.setAttribute('data-copy', addr);
-}
-
-document.querySelectorAll('[data-copy]').forEach((btn) => {
-  btn.addEventListener('click', async () => {
-    const value = btn.getAttribute('data-copy');
-    try {
-      await navigator.clipboard.writeText(value);
-    } catch (e) {
-      const ta = document.createElement('textarea');
-      ta.value = value; ta.style.cssText = 'position:fixed;opacity:0';
-      document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); } catch (err) {}
-      ta.remove();
-    }
-    const label = btn.querySelector('[data-i18n]');
-    if (label) {
+  if (emailCopy) {
+    emailCopy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(addr);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = addr;
+        ta.style.cssText = 'position:fixed;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        ta.remove();
+      }
+      const label = emailCopy.querySelector('[data-i18n]');
       label.textContent = t('contact.copied');
       setTimeout(() => { label.textContent = t('contact.copy'); }, 1800);
+    });
+  }
+}
+
+const heroEl = document.querySelector('.hero');
+const heroBg = document.querySelector('.hero-bg');
+const browserEl = document.querySelector('.browser');
+const pageHeroImg = document.querySelector('.page-hero-img');
+const oldway = document.getElementById('oldway');
+const floaters = oldway ? Array.from(oldway.querySelectorAll('.fl')) : [];
+let mx = 0;
+let my = 0;
+
+if (heroEl && !reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+  heroEl.addEventListener('pointermove', (e) => {
+    const r = heroEl.getBoundingClientRect();
+    mx = (e.clientX - r.left) / r.width - 0.5;
+    my = (e.clientY - r.top) / r.height - 0.5;
+  }, { passive: true });
+  heroEl.addEventListener('pointerleave', () => { mx = 0; my = 0; });
+}
+
+const tilt = { x: reducedMotion ? 0 : 14, y: 0 };
+
+function tick() {
+  const y = window.scrollY;
+  const vh = window.innerHeight || 1;
+
+  if (island) island.classList.toggle('scrolled', y > 30);
+
+  if (browserEl && y < vh * 1.6) {
+    const tx = reducedMotion ? 0 : Math.max(0, 14 - y / 26) - my * 5;
+    const ty = reducedMotion ? 0 : mx * 7;
+    tilt.x += (tx - tilt.x) * 0.1;
+    tilt.y += (ty - tilt.y) * 0.1;
+    browserEl.style.setProperty('--tx', tilt.x.toFixed(2) + 'deg');
+    browserEl.style.setProperty('--ty', tilt.y.toFixed(2) + 'deg');
+  }
+
+  if (!reducedMotion) {
+    if (heroBg && y < vh * 1.2) heroBg.style.transform = 'translate3d(0,' + (y * 0.25).toFixed(1) + 'px,0) scale(1.08)';
+    if (pageHeroImg && y < vh * 1.2) pageHeroImg.style.transform = 'translate3d(0,' + (y * 0.3).toFixed(1) + 'px,0) scale(1.06)';
+  }
+
+  if (oldway) {
+    const r = oldway.getBoundingClientRect();
+    if (r.top < vh && r.bottom > 0) {
+      const p = Math.min(Math.max(-r.top / (r.height - vh || 1), 0), 1);
+      if (!reducedMotion) {
+        const amp = window.innerWidth < 640 ? 0.4 : 1;
+        floaters.forEach((el) => {
+          const sp = (Number(el.dataset.speed) || 0) * amp;
+          const rot = Number(el.dataset.rot) || 0;
+          el.style.setProperty('--fy', ((0.5 - p) * sp).toFixed(1) + 'px');
+          el.style.setProperty('--fr', (rot * (0.6 + p * 0.8)).toFixed(2) + 'deg');
+        });
+      }
+      const lit = Math.round(Math.min(p / 0.75, 1) * scrubWords.length);
+      if (lit !== lastLit) {
+        scrubWords.forEach((w, i) => w.classList.toggle('lit', i < lit));
+        lastLit = lit;
+      }
     }
-  });
-});
+  }
+
+  requestAnimationFrame(tick);
+}
 
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 setLang(lang);
-booted = true;
-observeReveal(document);
+document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
+requestAnimationFrame(tick);
